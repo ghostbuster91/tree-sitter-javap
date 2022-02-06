@@ -25,7 +25,6 @@ SourceFile: "Hello.java"
 	  (type)
 	)
 	(descriptor_def
-	  (identifier)
 	  (descriptor_value)
 	)
       )

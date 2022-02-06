@@ -27,6 +27,10 @@
           "named": true
         },
         {
+          "type": "flag_def",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -42,19 +46,39 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "descriptor_value",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flag_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "flag_value",
+          "named": true
         },
         {
-          "type": "identifier",
+          "type": "wrapped_hex_val",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "flag_value",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "method_access",
@@ -160,8 +184,19 @@
     "fields": {}
   },
   {
-    "type": "\n",
-    "named": false
+    "type": "wrapped_hex_val",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hex_value",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "\"",
@@ -180,11 +215,15 @@
     "named": false
   },
   {
-    "type": ":",
+    "type": ";",
     "named": false
   },
   {
-    "type": ";",
+    "type": "ACC_PUBLIC",
+    "named": false
+  },
+  {
+    "type": "ACC_STATIC",
     "named": false
   },
   {
@@ -196,7 +235,19 @@
     "named": false
   },
   {
+    "type": "descriptor:",
+    "named": false
+  },
+  {
     "type": "descriptor_value",
+    "named": true
+  },
+  {
+    "type": "flags:",
+    "named": false
+  },
+  {
+    "type": "hex_value",
     "named": true
   },
   {

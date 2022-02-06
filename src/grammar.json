@@ -107,15 +107,28 @@
           "value": "();"
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "descriptor_def"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "descriptor_def"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "flag_def"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -130,12 +143,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
           "type": "STRING",
-          "value": ":"
+          "value": "descriptor:"
         },
         {
           "type": "SYMBOL",
@@ -146,6 +155,60 @@
     "descriptor_value": {
       "type": "PATTERN",
       "value": ".+"
+    },
+    "flag_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "flags:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wrapped_hex_val"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "flag_value"
+          }
+        }
+      ]
+    },
+    "flag_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ACC_PUBLIC"
+        },
+        {
+          "type": "STRING",
+          "value": "ACC_STATIC"
+        }
+      ]
+    },
+    "wrapped_hex_val": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hex_value"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "hex_value": {
+      "type": "PATTERN",
+      "value": "0x[0-9A-Fa-f]+"
     },
     "method_args": {
       "type": "SEQ",

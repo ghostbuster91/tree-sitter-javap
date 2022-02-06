@@ -29,18 +29,25 @@ module.exports = grammar({
       'public',
       $.identifier,
       '();',
-	newline,
-      repeat($.descriptor_def),
+      optional($.descriptor_def),
+      optional($.flag_def),
       repeat($.method_def)
     ),
 
     descriptor_def: $ => seq(
-      $.identifier,
-      ':',
+      'descriptor:',
       $.descriptor_value
     ),
 
     descriptor_value: $ => /.+/,
+
+    flag_def: $ =>  seq('flags:', $.wrapped_hex_val, repeat($.flag_value)),
+
+    flag_value: $ => choice('ACC_PUBLIC', 'ACC_STATIC'),
+
+    wrapped_hex_val: $=> seq('(', $.hex_value, ')'),
+
+    hex_value: $ => /0x[0-9A-Fa-f]+/,
 
     method_args: $ => seq(
       '(',

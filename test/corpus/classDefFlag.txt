@@ -1,10 +1,10 @@
 ======================================
- Simple Hello class with a descriptor
+ Simple Hello class with a flag
 ======================================
 
 {
   public Hello();
-    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
 }
 SourceFile: "Hello.java"
 
@@ -14,8 +14,12 @@ SourceFile: "Hello.java"
   (block
     (class_definition 
       (identifier)
-      (descriptor_def
-	(descriptor_value))
+      (flag_def
+        (wrapped_hex_val
+	  (hex_value)
+	)
+	(flag_value)
+      )
     )
   )
   (source_file_def)
