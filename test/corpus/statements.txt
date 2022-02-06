@@ -1,0 +1,11 @@
+==================
+SourceFile at the end
+==================
+
+SourceFile: "HelloWorld.java"
+
+---
+
+(source_file
+  (sourceFileDef)
+)
