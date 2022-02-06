@@ -42,7 +42,6 @@ module.exports = grammar({
     ),
 
     line_number_table_def: $ => seq('LineNumberTable:', repeat($.numered_line)),
-    
 
     numered_line: $ => seq('line', $.number, ':', $.number),
 
@@ -89,23 +88,6 @@ module.exports = grammar({
       '{',
       $.class_definition,
       '}'
-    ),
-
-    _statement: $ => choice(
-      $.return_statement
-      // TODO: other kinds of statements
-    ),
-
-    return_statement: $ => seq(
-      'return',
-      $._expression,
-      ';'
-    ),
-
-    _expression: $ => choice(
-      $.identifier,
-      $.number
-      // TODO: other kinds of expressions
     ),
 
     identifier: $ => /[a-zA-Z]+/,
