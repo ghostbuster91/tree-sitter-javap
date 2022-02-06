@@ -1,27 +1,37 @@
+const newline = '\n';
+
+
 module.exports = grammar({
   name: 'javap',
 
   rules: {
+
     source_file: $ => seq(repeat($.block), $.source_file_def),  //repeat($._definition),
 
     _definition: $ => choice(
-      $.function_definition
+      $.method_def
       // TODO: other kinds of definitions
     ),
 
-    function_definition: $ => seq(
-      'func',
+    method_def: $ => seq(
+      $.method_access,
+      optional($.mod_static),
+      $.type,
       $.identifier,
-      $.parameter_list,
-      $._type,
-      $.block
+      $.method_args,
+       ';',
+      repeat($.descriptor_def)
     ),
+    method_access: $ => choice('public', 'private', 'protected'),
+    mod_static: $ => 'static',
 
     class_definition: $ => seq(
       'public',
       $.identifier,
       '();',
-      repeat($.descriptor_def)
+	newline,
+      repeat($.descriptor_def),
+      repeat($.method_def)
     ),
 
     descriptor_def: $ => seq(
@@ -32,15 +42,16 @@ module.exports = grammar({
 
     descriptor_value: $ => /.+/,
 
-    parameter_list: $ => seq(
+    method_args: $ => seq(
       '(',
-       // TODO: parameters
+       repeat($.type),
       ')'
     ),
 
-    _type: $ => choice(
-      'bool'
-      // TODO: other kinds of types
+    type: $ => choice(
+      'bool',
+	'void',
+	/([a-zA-Z]+\.)*([a-zA-Z]+(\[])?)/
     ),
 
     block: $ => seq(

@@ -29,6 +29,10 @@
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "method_def",
+          "named": true
         }
       ]
     }
@@ -53,7 +57,27 @@
     }
   },
   {
-    "type": "function_definition",
+    "type": "method_access",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "method_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "method_def",
     "named": true,
     "fields": {},
     "children": {
@@ -61,7 +85,7 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "descriptor_def",
           "named": true
         },
         {
@@ -69,16 +93,23 @@
           "named": true
         },
         {
-          "type": "parameter_list",
+          "type": "method_access",
+          "named": true
+        },
+        {
+          "type": "method_args",
+          "named": true
+        },
+        {
+          "type": "mod_static",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "parameter_list",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "return_statement",
@@ -124,6 +155,15 @@
     "fields": {}
   },
   {
+    "type": "type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -160,11 +200,11 @@
     "named": true
   },
   {
-    "type": "func",
-    "named": false
+    "type": "identifier",
+    "named": true
   },
   {
-    "type": "identifier",
+    "type": "mod_static",
     "named": true
   },
   {
@@ -172,11 +212,23 @@
     "named": true
   },
   {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "protected",
+    "named": false
+  },
+  {
     "type": "public",
     "named": false
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "void",
     "named": false
   },
   {

@@ -1,0 +1,35 @@
+======================================
+ Simple Hello class with a method
+======================================
+
+{
+  public Hello();
+
+  public static void main(java.lang.String[]);
+    descriptor: ()V
+}
+SourceFile: "Hello.java"
+
+---
+
+(source_file
+  (block
+    (class_definition 
+      (identifier)
+      (method_def
+        (method_access)
+	(mod_static)
+	(type)
+        (identifier)
+	(method_args
+	  (type)
+	)
+	(descriptor_def
+	  (identifier)
+	  (descriptor_value)
+	)
+      )
+    )
+  )
+  (source_file_def)
+)
