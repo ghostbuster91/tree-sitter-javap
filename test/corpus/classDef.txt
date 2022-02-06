@@ -1,0 +1,23 @@
+======================================
+ Simple Hello class with a descriptor
+======================================
+
+{
+  public Hello();
+    descriptor: ()V
+}
+SourceFile: "Hello.java"
+
+---
+
+(source_file
+  (block
+    (class_definition 
+      (identifier)
+      (descriptor_def
+        (identifier)
+	(descriptor_value))
+    )
+  )
+  (source_file_def)
+)

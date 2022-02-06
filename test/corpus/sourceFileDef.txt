@@ -7,5 +7,5 @@ SourceFile: "HelloWorld.java"
 ---
 
 (source_file
-  (sourceFileDef)
+  (source_file_def)
 )

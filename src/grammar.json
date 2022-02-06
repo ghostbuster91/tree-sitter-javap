@@ -5,8 +5,15 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block"
+          }
+        },
+        {
           "type": "SYMBOL",
-          "name": "sourceFileDef"
+          "name": "source_file_def"
         }
       ]
     },
@@ -44,6 +51,51 @@
         }
       ]
     },
+    "class_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "public"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "();"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "descriptor_def"
+          }
+        }
+      ]
+    },
+    "descriptor_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "descriptor_value"
+        }
+      ]
+    },
+    "descriptor_value": {
+      "type": "PATTERN",
+      "value": ".+"
+    },
     "parameter_list": {
       "type": "SEQ",
       "members": [
@@ -72,6 +124,10 @@
         {
           "type": "STRING",
           "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_definition"
         },
         {
           "type": "STRING",
@@ -120,13 +176,13 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-z]+"
+      "value": "[a-zA-Z]+"
     },
     "number": {
       "type": "PATTERN",
       "value": "\\d+"
     },
-    "sourceFileDef": {
+    "source_file_def": {
       "type": "SEQ",
       "members": [
         {
@@ -135,7 +191,11 @@
         },
         {
           "type": "PATTERN",
-          "value": "([a-zA-Z]+.?)+\""
+          "value": "([a-zA-Z]+\\.?)+"
+        },
+        {
+          "type": "STRING",
+          "value": "\""
         }
       ]
     }

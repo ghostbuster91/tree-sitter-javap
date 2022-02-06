@@ -2,7 +2,7 @@ module.exports = grammar({
   name: 'javap',
 
   rules: {
-    source_file: $ => seq($.sourceFileDef),  //repeat($._definition),
+    source_file: $ => seq(repeat($.block), $.source_file_def),  //repeat($._definition),
 
     _definition: $ => choice(
       $.function_definition
@@ -17,6 +17,21 @@ module.exports = grammar({
       $.block
     ),
 
+    class_definition: $ => seq(
+      'public',
+      $.identifier,
+      '();',
+      repeat($.descriptor_def)
+    ),
+
+    descriptor_def: $ => seq(
+      $.identifier,
+      ':',
+      $.descriptor_value
+    ),
+
+    descriptor_value: $ => /.+/,
+
     parameter_list: $ => seq(
       '(',
        // TODO: parameters
@@ -30,7 +45,7 @@ module.exports = grammar({
 
     block: $ => seq(
       '{',
-      //repeat($._statement),
+      $.class_definition,
       '}'
     ),
 
@@ -51,10 +66,10 @@ module.exports = grammar({
       // TODO: other kinds of expressions
     ),
 
-    identifier: $ => /[a-z]+/,
+    identifier: $ => /[a-zA-Z]+/,
 
     number: $ => /\d+/,
 
-    sourceFileDef: $ => seq('SourceFile: "', /([a-zA-Z]+.?)+"/ )
+    source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' )
   } 
 });

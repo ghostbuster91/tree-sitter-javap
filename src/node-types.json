@@ -2,7 +2,55 @@
   {
     "type": "block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "class_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "class_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "descriptor_def",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "descriptor_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "descriptor_value",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "function_definition",
@@ -52,31 +100,47 @@
     }
   },
   {
-    "type": "sourceFileDef",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "sourceFileDef",
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "source_file_def",
           "named": true
         }
       ]
     }
   },
   {
+    "type": "source_file_def",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
   {
+    "type": "();",
+    "named": false
+  },
+  {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {
@@ -92,6 +156,10 @@
     "named": false
   },
   {
+    "type": "descriptor_value",
+    "named": true
+  },
+  {
     "type": "func",
     "named": false
   },
@@ -102,6 +170,10 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "public",
+    "named": false
   },
   {
     "type": "return",
