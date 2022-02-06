@@ -8,11 +8,6 @@ module.exports = grammar({
 
     source_file: $ => seq(repeat($.block), $.source_file_def),  //repeat($._definition),
 
-    _definition: $ => choice(
-      $.method_def
-      // TODO: other kinds of definitions
-    ),
-
     method_def: $ => seq(
       $.method_access,
       optional($.mod_static),
@@ -31,8 +26,37 @@ module.exports = grammar({
       '();',
       optional($.descriptor_def),
       optional($.flag_def),
+      optional($.code_def),
       repeat($.method_def)
     ),
+
+    code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
+
+    code_info: $ => seq(
+	    $.code_info_stack, 
+	    ',',
+	    $.code_info_locals,
+	    ',',
+	    $.code_info_args_size,
+	    repeat($.numered_instruction)
+    ),
+
+    line_number_table_def: $ => seq('LineNumberTable:', repeat($.numered_line)),
+    
+
+    numered_line: $ => seq('line', $.number, ':', $.number),
+
+    numered_instruction: $ => seq($.number, ':', $.instruction),
+
+    instruction: $ => choice(
+	    'aload_0', 
+	    'return', 
+	    seq('invokespecial', '#', $.number ) 
+    ),
+
+    code_info_stack: $ => seq('stack=', $.number),
+    code_info_locals: $ => seq('locals=', $.number),
+    code_info_args_size: $ => seq('args_size=', $.number),
 
     descriptor_def: $ => seq(
       'descriptor:',

@@ -17,15 +17,6 @@
         }
       ]
     },
-    "_definition": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "method_def"
-        }
-      ]
-    },
     "method_def": {
       "type": "SEQ",
       "members": [
@@ -131,11 +122,195 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "code_def"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
             "name": "method_def"
           }
+        }
+      ]
+    },
+    "code_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Code:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_info"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_number_table_def"
+        }
+      ]
+    },
+    "code_info": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "code_info_stack"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_info_locals"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_info_args_size"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numered_instruction"
+          }
+        }
+      ]
+    },
+    "line_number_table_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "LineNumberTable:"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numered_line"
+          }
+        }
+      ]
+    },
+    "numered_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "line"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "numered_instruction": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "instruction"
+        }
+      ]
+    },
+    "instruction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "aload_0"
+        },
+        {
+          "type": "STRING",
+          "value": "return"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "invokespecial"
+            },
+            {
+              "type": "STRING",
+              "value": "#"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
+        }
+      ]
+    },
+    "code_info_stack": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "stack="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "code_info_locals": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "locals="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "code_info_args_size": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "args_size="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
         }
       ]
     },
