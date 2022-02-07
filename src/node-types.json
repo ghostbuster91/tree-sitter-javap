@@ -269,6 +269,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "instruction",
           "named": true
         },
@@ -401,6 +405,10 @@
   {
     "type": "bool",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "descriptor:",

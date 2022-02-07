@@ -45,7 +45,7 @@ module.exports = grammar({
 
     numered_line: $ => seq('line', $.number, ':', $.number),
 
-    numered_instruction: $ => seq($.number, ':', $.instruction),
+    numered_instruction: $ => seq($.number, ':', $.instruction, optional($.comment)),
 
     instruction: $ => choice(
 	    'aload_0', 
@@ -94,6 +94,8 @@ module.exports = grammar({
 
     number: $ => /\d+/,
 
-    source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' )
+    source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' ),
+
+    comment: $ => /\/\/.*/
   } 
 });

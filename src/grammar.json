@@ -242,6 +242,18 @@
         {
           "type": "SYMBOL",
           "name": "instruction"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -463,6 +475,10 @@
           "value": "\""
         }
       ]
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "\\/\\/.*"
     }
   },
   "extras": [

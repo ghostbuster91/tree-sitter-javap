@@ -7,7 +7,7 @@
     Code:
       stack=1, locals=1, args_size=1
          0: aload_0
-         1: invokespecial #1
+         1: invokespecial #1 // // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
         line 1: 0
@@ -34,7 +34,10 @@ SourceFile: "Hello.java"
               (numered_instruction
                 (number)
                 (instruction
-                  (number)))
+                  (number)
+		)
+		(comment)
+	      )
               (numered_instruction
                 (number)
                 (instruction)))
