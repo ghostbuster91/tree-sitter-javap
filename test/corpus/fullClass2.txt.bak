@@ -52,6 +52,7 @@ Constant pool:
 SourceFile: "Hello.java"
 
 ------------------
+
     (source_file
       (header
         (general_info
@@ -72,17 +73,18 @@ SourceFile: "Hello.java"
             (number)))
         (class_info_item
           (flag_def
-            (wrapped_hex_val
-              (hex_value))
+            (hex_value)
             (flag_value)
             (flag_value)))
         (class_info_item
           (class_info_item_simple
-            (hash_with_number)
+            (hash_with_number
+              (number))
             (comment)))
         (class_info_item
           (class_info_item_simple
-            (hash_with_number)
+            (hash_with_number
+              (number))
             (comment)))
         (class_info_item
           (class_info_item_simple
@@ -91,50 +93,64 @@ SourceFile: "Hello.java"
             (number)
             (number))))
       (constantPoolDef
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
         (comment)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
         (comment)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
         (comment)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
         (comment)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue)
-        (hash_with_number)
+        (hash_with_number
+          (number))
         (constantPoolItemType)
         (constantPoolItemValue))
       (block
@@ -143,16 +159,15 @@ SourceFile: "Hello.java"
           (descriptor_def
             (descriptor_value))
           (flag_def
-            (wrapped_hex_val
-              (hex_value))
+            (hex_value)
             (flag_value))
           (code_def
             (code_info
-              (code_info_stack
+              (code_info_stat
                 (number))
-              (code_info_locals
+              (code_info_stat
                 (number))
-              (code_info_args_size
+              (code_info_stat
                 (number))
               (numered_instruction
                 (number)
@@ -181,17 +196,16 @@ SourceFile: "Hello.java"
             (descriptor_def
               (descriptor_value))
             (flag_def
-              (wrapped_hex_val
-                (hex_value))
+              (hex_value)
               (flag_value)
               (flag_value))
             (code_def
               (code_info
-                (code_info_stack
+                (code_info_stat
                   (number))
-                (code_info_locals
+                (code_info_stat
                   (number))
-                (code_info_args_size
+                (code_info_stat
                   (number))
                 (numered_instruction
                   (number)
@@ -201,3 +215,4 @@ SourceFile: "Hello.java"
                   (number)
                   (number)))))))
       (source_file_def))
+

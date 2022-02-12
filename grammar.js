@@ -25,7 +25,7 @@ module.exports = grammar({
       optional($.flag_def),
       optional($.code_def),
     ),
-    mod_access: $ => choice('public', 'private', 'protected'), //TODO change name
+    mod_access: $ => choice('public', 'private', 'protected'), 
     mod_static: $ => 'static',
 
     class_definition: $ => seq(
@@ -57,7 +57,7 @@ module.exports = grammar({
 	    seq('invokespecial', '#', $.number ) 
     ),
 
-    code_info_stat: $ => seq(/\w+=/, $.number), //TODO rewrite
+    code_info_stat: $ => seq(/\w+=/, $.number), 
 
     descriptor_def: $ => seq(
       'descriptor:',
@@ -66,11 +66,11 @@ module.exports = grammar({
 
     descriptor_value: $ => /.+/,
 
-    flag_def: $ =>  seq('flags:', $.wrapped_hex_val, commaSep1($.flag_value)),
+    flag_def: $ =>  seq('flags:', $._wrapped_hex_val, commaSep1($.flag_value)),
 
     flag_value: $ => /\w+/,
 
-    wrapped_hex_val: $ => seq('(', $.hex_value, ')'),
+    _wrapped_hex_val: $ => seq('(', $.hex_value, ')'),
 
     hex_value: $ => /0x[0-9A-Fa-f]+/,
 
@@ -96,9 +96,9 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => token(/[a-zA-Z]+/), //TODO allow digits 
+    identifier: $ => token(/[a-zA-Z0-9]+/), //TODO allow digits 
 
-    number: $ => /\d+/,
+    number: $ => token(/\d+/),
 
     source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' ),
 
@@ -106,7 +106,7 @@ module.exports = grammar({
 
     constantPoolDef: $=> seq('Constant pool:', repeat($._constantPoolItem)),
 
-    hash_with_number: $=> /#\d+/,
+    hash_with_number: $=> seq('#', $.number),
 
    _constantPoolItem: $=> seq($.hash_with_number, '=', $.constantPoolItemType, $.constantPoolItemValue, optional($.comment)),
 
@@ -144,7 +144,7 @@ module.exports = grammar({
 
    general_info_md5: $=> seq('MD5 checksum' , $.md5),
 
-   general_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/),
+   general_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/), //TODO extract filename
 
    general_info: $=> seq('Classfile', $.file_path),
 

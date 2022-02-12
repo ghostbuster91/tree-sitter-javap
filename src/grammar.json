@@ -208,7 +208,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "code_info_stack"
+              "name": "code_info_stat"
             },
             {
               "type": "REPEAT",
@@ -221,7 +221,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "code_info_stack"
+                    "name": "code_info_stat"
                   }
                 ]
               }
@@ -333,38 +333,12 @@
         }
       ]
     },
-    "code_info_stack": {
+    "code_info_stat": {
       "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
           "value": "\\w+="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "number"
-        }
-      ]
-    },
-    "code_info_locals": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "locals="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "number"
-        }
-      ]
-    },
-    "code_info_args_size": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "args_size="
         },
         {
           "type": "SYMBOL",
@@ -398,7 +372,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "wrapped_hex_val"
+          "name": "_wrapped_hex_val"
         },
         {
           "type": "SEQ",
@@ -431,7 +405,7 @@
       "type": "PATTERN",
       "value": "\\w+"
     },
-    "wrapped_hex_val": {
+    "_wrapped_hex_val": {
       "type": "SEQ",
       "members": [
         {
@@ -533,12 +507,15 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[a-zA-Z]+"
+        "value": "[a-zA-Z0-9]+"
       }
     },
     "number": {
-      "type": "PATTERN",
-      "value": "\\d+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\d+"
+      }
     },
     "source_file_def": {
       "type": "SEQ",
@@ -590,8 +567,17 @@
       ]
     },
     "hash_with_number": {
-      "type": "PATTERN",
-      "value": "#\\d+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
     },
     "_constantPoolItem": {
       "type": "SEQ",
@@ -796,6 +782,10 @@
           "name": "md5"
         }
       ]
+    },
+    "file_name": {
+      "type": "PATTERN",
+      "value": "a"
     },
     "general_info_compile": {
       "type": "SEQ",

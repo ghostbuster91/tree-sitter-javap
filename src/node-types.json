@@ -157,7 +157,7 @@
       "required": true,
       "types": [
         {
-          "type": "code_info_stack",
+          "type": "code_info_stat",
           "named": true
         },
         {
@@ -168,7 +168,7 @@
     }
   },
   {
-    "type": "code_info_stack",
+    "type": "code_info_stat",
     "named": true,
     "fields": {},
     "children": {
@@ -242,7 +242,7 @@
           "named": true
         },
         {
-          "type": "wrapped_hex_val",
+          "type": "hex_value",
           "named": true
         }
       ]
@@ -288,6 +288,21 @@
       "types": [
         {
           "type": "md5",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hash_with_number",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
           "named": true
         }
       ]
@@ -503,21 +518,6 @@
     "fields": {}
   },
   {
-    "type": "wrapped_hex_val",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "hex_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "\"",
     "named": false
   },
@@ -594,10 +594,6 @@
     "named": false
   },
   {
-    "type": "args_size=",
-    "named": false
-  },
-  {
     "type": "bool",
     "named": false
   },
@@ -630,10 +626,6 @@
     "named": false
   },
   {
-    "type": "hash_with_number",
-    "named": true
-  },
-  {
     "type": "hex_value",
     "named": true
   },
@@ -647,10 +639,6 @@
   },
   {
     "type": "line",
-    "named": false
-  },
-  {
-    "type": "locals=",
     "named": false
   },
   {
