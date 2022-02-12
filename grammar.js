@@ -7,7 +7,7 @@ module.exports = grammar({
   rules: {
 
     source_file: $ => seq(
-	    $.general_info,
+	    $.header,
 	    $.class_info_def,
 	    //$.constantPoolDef,
 	    repeat($.block), 
@@ -140,17 +140,24 @@ module.exports = grammar({
 	   
    ),
 
-   file_path: $=> /[\w\.\/]+/,
+   file_path: $=> /\/?([\w\d\.-]+\/)*([\w\d\.-]+)/,
 
    general_info_last_mod: $=> seq('Last modified', repeat(/([\w\d;,]+\s)(\w+)/)), //TODO use wildcard character
 
-   md5: $ => /(\w\d)+/,
+   md5: $ => /[0-9a-f]{32}/,
 
    general_info_md5: $=> seq('MD5 checksum' , $.md5),
 
    general_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/),
 
-   general_info: $=> seq('Classfile', $.file_path)
+   general_info: $=> seq('Classfile', $.file_path),
+
+   header: $=> seq(
+	   $.general_info,
+	   $.general_info_last_mod,
+	   $.general_info_md5,
+	   $.general_info_compile,
+   )
 
   } 
 });

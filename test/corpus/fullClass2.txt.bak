@@ -2,7 +2,10 @@
 XXX
 ====================
 
-Classfile Hello.class
+Classfile /home/kghost/workspace/tree-sitter-javap/example/Hello.class
+  Last modified Feb 6, 2022; size 255 bytes
+  MD5 checksum 06940185f9e75f8df93ea41be0ab6fd0
+  Compiled from "Hello.java"
 public class Hello
   minor version: 0
   major version: 55
@@ -21,6 +24,7 @@ public class Hello
          4: return
       LineNumberTable:
         line 1: 0
+
 }
 SourceFile: "Hello.java"
 

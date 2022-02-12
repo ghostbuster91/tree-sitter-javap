@@ -6,7 +6,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "general_info"
+          "name": "header"
         },
         {
           "type": "SYMBOL",
@@ -724,7 +724,7 @@
     },
     "file_path": {
       "type": "PATTERN",
-      "value": "[\\w\\.\\/]+"
+      "value": "\\/?([\\w\\d\\.-]+\\/)*([\\w\\d\\.-]+)"
     },
     "general_info_last_mod": {
       "type": "SEQ",
@@ -744,7 +744,7 @@
     },
     "md5": {
       "type": "PATTERN",
-      "value": "(\\w\\d)+"
+      "value": "[0-9a-f]{32}"
     },
     "general_info_md5": {
       "type": "SEQ",
@@ -782,6 +782,27 @@
         {
           "type": "SYMBOL",
           "name": "file_path"
+        }
+      ]
+    },
+    "header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "general_info"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "general_info_last_mod"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "general_info_md5"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "general_info_compile"
         }
       ]
     }
