@@ -1,5 +1,5 @@
 ====================
-XXX
+ Full bytecode
 ====================
 
 Classfile /home/kghost/workspace/tree-sitter-javap/example/Hello.class
@@ -13,6 +13,21 @@ public class Hello
   this_class: #2                          // Hello
   super_class: #3                         // java/lang/Object
   interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #3.#12         // java/lang/Object."<init>":()V
+   #2 = Class              #13            // Hello
+   #3 = Class              #14            // java/lang/Object
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               main
+   #9 = Utf8               ([Ljava/lang/String;)V
+  #10 = Utf8               SourceFile
+  #11 = Utf8               Hello.java
+  #12 = NameAndType        #4:#5          // "<init>":()V
+  #13 = Utf8               Hello
+  #14 = Utf8               java/lang/Object
 {
   public Hello();
     descriptor: ()V
@@ -25,9 +40,164 @@ public class Hello
       LineNumberTable:
         line 1: 0
 
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 5: 0
 }
 SourceFile: "Hello.java"
 
 ------------------
-
-(source_file)
+    (source_file
+      (header
+        (general_info
+          (file_path))
+        (general_info_last_mod)
+        (general_info_md5
+          (md5))
+        (general_info_compile))
+      (class_info_def
+        (mod_access)
+        (class_keyword)
+        (identifier)
+        (class_info_item
+          (class_info_item_simple
+            (number)))
+        (class_info_item
+          (class_info_item_simple
+            (number)))
+        (class_info_item
+          (flag_def
+            (wrapped_hex_val
+              (hex_value))
+            (flag_value)
+            (flag_value)))
+        (class_info_item
+          (class_info_item_simple
+            (hash_with_number)
+            (comment)))
+        (class_info_item
+          (class_info_item_simple
+            (hash_with_number)
+            (comment)))
+        (class_info_item
+          (class_info_item_simple
+            (number)
+            (number)
+            (number)
+            (number))))
+      (constantPoolDef
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (hash_with_number)
+        (constantPoolItemType)
+        (constantPoolItemValue))
+      (block
+        (class_definition
+          (identifier)
+          (descriptor_def
+            (descriptor_value))
+          (flag_def
+            (wrapped_hex_val
+              (hex_value))
+            (flag_value))
+          (code_def
+            (code_info
+              (code_info_stack
+                (number))
+              (code_info_locals
+                (number))
+              (code_info_args_size
+                (number))
+              (numered_instruction
+                (number)
+                (instruction))
+              (numered_instruction
+                (number)
+                (instruction
+                  (number))
+                (comment))
+              (numered_instruction
+                (number)
+                (instruction)))
+            (line_number_table_def
+              (numered_line
+                (number)
+                (number))))
+          (method_def
+            (mod_access)
+            (mod_static)
+            (simpleType)
+            (identifier)
+            (method_args
+              (simpleType
+                (arrayType
+                  (simpleType))))
+            (descriptor_def
+              (descriptor_value))
+            (flag_def
+              (wrapped_hex_val
+                (hex_value))
+              (flag_value)
+              (flag_value))
+            (code_def
+              (code_info
+                (code_info_stack
+                  (number))
+                (code_info_locals
+                  (number))
+                (code_info_args_size
+                  (number))
+                (numered_instruction
+                  (number)
+                  (instruction)))
+              (line_number_table_def
+                (numered_line
+                  (number)
+                  (number)))))))
+      (source_file_def))

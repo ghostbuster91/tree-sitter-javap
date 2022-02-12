@@ -81,7 +81,7 @@
           "named": true
         },
         {
-          "type": "method_access",
+          "type": "mod_access",
           "named": true
         }
       ]
@@ -157,49 +157,11 @@
       "required": true,
       "types": [
         {
-          "type": "code_info_args_size",
-          "named": true
-        },
-        {
-          "type": "code_info_locals",
-          "named": true
-        },
-        {
           "type": "code_info_stack",
           "named": true
         },
         {
           "type": "numered_instruction",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "code_info_args_size",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "code_info_locals",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
           "named": true
         }
       ]
@@ -215,6 +177,33 @@
       "types": [
         {
           "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constantPoolDef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "constantPoolItemType",
+          "named": true
+        },
+        {
+          "type": "constantPoolItemValue",
+          "named": true
+        },
+        {
+          "type": "hash_with_number",
           "named": true
         }
       ]
@@ -362,17 +351,12 @@
     }
   },
   {
-    "type": "method_access",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "method_args",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
           "type": "simpleType",
@@ -390,7 +374,15 @@
       "required": true,
       "types": [
         {
+          "type": "code_def",
+          "named": true
+        },
+        {
           "type": "descriptor_def",
+          "named": true
+        },
+        {
+          "type": "flag_def",
           "named": true
         },
         {
@@ -398,11 +390,11 @@
           "named": true
         },
         {
-          "type": "method_access",
+          "type": "method_args",
           "named": true
         },
         {
-          "type": "method_args",
+          "type": "mod_access",
           "named": true
         },
         {
@@ -415,6 +407,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "mod_access",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "numered_instruction",
@@ -483,6 +480,10 @@
         },
         {
           "type": "class_info_def",
+          "named": true
+        },
+        {
+          "type": "constantPoolDef",
           "named": true
         },
         {
@@ -678,10 +679,6 @@
   },
   {
     "type": "return",
-    "named": false
-  },
-  {
-    "type": "stack=",
     "named": false
   },
   {

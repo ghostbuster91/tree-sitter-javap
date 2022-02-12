@@ -9,21 +9,23 @@ module.exports = grammar({
     source_file: $ => seq(
 	    $.header,
 	    $.class_info_def,
-	    //$.constantPoolDef,
+	    $.constantPoolDef,
 	    repeat($.block), 
 	    $.source_file_def
     ),
 
     method_def: $ => seq(
-      $.method_access,
+      $.mod_access,
       optional($.mod_static),
       $.simpleType,
       $.identifier,
       $.method_args,
-       ';',
-      repeat($.descriptor_def)
+      ';',
+      optional($.descriptor_def),
+      optional($.flag_def),
+      optional($.code_def),
     ),
-    method_access: $ => choice('public', 'private', 'protected'), //TODO change name
+    mod_access: $ => choice('public', 'private', 'protected'), //TODO change name
     mod_static: $ => 'static',
 
     class_definition: $ => seq(
@@ -39,11 +41,7 @@ module.exports = grammar({
     code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
 
     code_info: $ => seq(
-	    $.code_info_stack, 
-	    ',',
-	    $.code_info_locals,
-	    ',',
-	    $.code_info_args_size,
+	    commaSep1($.code_info_stat), 
 	    repeat($.numered_instruction)
     ),
 
@@ -59,9 +57,7 @@ module.exports = grammar({
 	    seq('invokespecial', '#', $.number ) 
     ),
 
-    code_info_stack: $ => seq('stack=', $.number), //TODO rewrite
-    code_info_locals: $ => seq('locals=', $.number),
-    code_info_args_size: $ => seq('args_size=', $.number),
+    code_info_stat: $ => seq(/\w+=/, $.number), //TODO rewrite
 
     descriptor_def: $ => seq(
       'descriptor:',
@@ -80,16 +76,16 @@ module.exports = grammar({
 
     method_args: $ => seq(
       '(',
-       repeat($.simpleType),
+      $.simpleType, //TODO comma sepa
       ')'
     ),
 
-    simpleType: $ => choice($._type, $.arrayType),
+    simpleType: $ => choice($.arrayType, $._type),
 
     _type: $ => choice(
       'bool',
       'void',
-      /(\w\.)*(\w)/
+      /(\w+\.)*\w+/
     ),
 
     arrayType: $ => seq( $.simpleType, '[]'),
@@ -100,7 +96,7 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => /[a-zA-Z]+/, //TODO allow digits 
+    identifier: $ => token(/[a-zA-Z]+/), //TODO allow digits 
 
     number: $ => /\d+/,
 
@@ -121,7 +117,7 @@ module.exports = grammar({
    class_keyword: $ => 'class',
 
    class_info_def: $=> seq(
-	   $.method_access, 
+	   $.mod_access, 
 	   $.class_keyword, 
 	   $.identifier, 
 	   repeat($.class_info_item)),
