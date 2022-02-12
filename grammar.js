@@ -17,7 +17,7 @@ module.exports = grammar({
     method_def: $ => seq(
       $.mod_access,
       optional($.mod_static),
-      $.simpleType,
+      $._type,
       $.identifier,
       $.method_args,
       ';',
@@ -76,19 +76,19 @@ module.exports = grammar({
 
     method_args: $ => seq(
       '(',
-      $.simpleType, //TODO comma sepa
+      $._type, //TODO comma sepa
       ')'
     ),
 
-    simpleType: $ => choice($.arrayType, $._type),
+    _type: $ => choice($.array_type, $.simple_type),
 
-    _type: $ => choice(
+    simple_type: $ => choice(
       'bool',
       'void',
       /(\w+\.)*\w+/
     ),
 
-    arrayType: $ => seq( $.simpleType, '[]'),
+    array_type: $ => seq( $._type, '[]'),
 
     block: $ => seq(
       '{',
