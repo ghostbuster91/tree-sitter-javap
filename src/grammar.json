@@ -5,6 +5,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "general_info"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_info_def"
+        },
+        {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
@@ -38,7 +46,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "type"
+          "name": "simpleType"
         },
         {
           "type": "SYMBOL",
@@ -355,26 +363,35 @@
           "name": "wrapped_hex_val"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "flag_value"
-          }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "flag_value"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "flag_value"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
     "flag_value": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ACC_PUBLIC"
-        },
-        {
-          "type": "STRING",
-          "value": "ACC_STATIC"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "\\w+"
     },
     "wrapped_hex_val": {
       "type": "SEQ",
@@ -408,7 +425,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "type"
+            "name": "simpleType"
           }
         },
         {
@@ -417,7 +434,20 @@
         }
       ]
     },
-    "type": {
+    "simpleType": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "arrayType"
+        }
+      ]
+    },
+    "_type": {
       "type": "CHOICE",
       "members": [
         {
@@ -430,7 +460,20 @@
         },
         {
           "type": "PATTERN",
-          "value": "([a-zA-Z]+\\.)*([a-zA-Z]+(\\[])?)"
+          "value": "(\\w\\.)*(\\w)"
+        }
+      ]
+    },
+    "arrayType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "simpleType"
+        },
+        {
+          "type": "STRING",
+          "value": "[]"
         }
       ]
     },
@@ -477,8 +520,270 @@
       ]
     },
     "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "//"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
+    },
+    "constantPoolDef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Constant pool:"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_constantPoolItem"
+          }
+        }
+      ]
+    },
+    "hash_with_number": {
       "type": "PATTERN",
-      "value": "\\/\\/.*"
+      "value": "#\\d+"
+    },
+    "_constantPoolItem": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "hash_with_number"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "constantPoolItemType"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "constantPoolItemValue"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "constantPoolItemType": {
+      "type": "PATTERN",
+      "value": "\\w+"
+    },
+    "constantPoolItemValue": {
+      "type": "PATTERN",
+      "value": "\\S+"
+    },
+    "class_keyword": {
+      "type": "STRING",
+      "value": "class"
+    },
+    "class_info_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "method_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "class_info_item"
+          }
+        }
+      ]
+    },
+    "class_info_item": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "class_info_item_simple"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "flag_def"
+        }
+      ]
+    },
+    "class_info_item_simple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "(\\w+[\\s_]?)+(\\w+):"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "number"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hash_with_number"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comment"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "(\\w+[\\s_]?)+(\\w+):"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "number"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "hash_with_number"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "comment"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "file_path": {
+      "type": "PATTERN",
+      "value": "[\\w\\.\\/]+"
+    },
+    "general_info_last_mod": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Last modified"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "PATTERN",
+            "value": "([\\w\\d;,]+\\s)(\\w+)"
+          }
+        }
+      ]
+    },
+    "md5": {
+      "type": "PATTERN",
+      "value": "(\\w\\d)+"
+    },
+    "general_info_md5": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "MD5 checksum"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "md5"
+        }
+      ]
+    },
+    "general_info_compile": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Compiled from"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\"([^\\/]+)\""
+        }
+      ]
+    },
+    "general_info": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Classfile"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_path"
+        }
+      ]
     }
   },
   "extras": [

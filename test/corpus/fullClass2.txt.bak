@@ -1,0 +1,29 @@
+====================
+XXX
+====================
+
+Classfile Hello.class
+public class Hello
+  minor version: 0
+  major version: 55
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // Hello
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+{
+  public Hello();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+}
+SourceFile: "Hello.java"
+
+------------------
+
+(source_file)

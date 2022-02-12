@@ -1,0 +1,72 @@
+====================
+ Full class
+====================
+
+Constant pool:
+   #1 = Methodref          #3.#12         // java/lang/Object."<init>":()V
+   #2 = Class              #13            // Hello
+   #3 = Class              #14            // java/lang/Object
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               main
+   #9 = Utf8               ([Ljava/lang/String;)V
+  #10 = Utf8               SourceFile
+  #11 = Utf8               Hello.java
+  #12 = NameAndType        #4:#5          // "<init>":()V
+  #13 = Utf8               Hello
+  #14 = Utf8               java/lang/Object
+SourceFile: "Hello.java"
+
+-----------------------
+ (source_file
+      (constantPoolDef
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (comment)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue)
+        (constantPoolItemId)
+        (constantPoolItemType)
+        (constantPoolItemValue))
+      (source_file_def))
+
