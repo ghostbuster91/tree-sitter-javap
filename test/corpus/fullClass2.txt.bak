@@ -187,12 +187,11 @@ SourceFile: "Hello.java"
           (method_def
             (mod_access)
             (mod_static)
-            (simpleType)
+            (simple_type)
             (identifier)
             (method_args
-              (simpleType
-                (arrayType
-                  (simpleType))))
+                (array_type
+                  (simple_type)))
             (descriptor_def
               (descriptor_value))
             (flag_def
