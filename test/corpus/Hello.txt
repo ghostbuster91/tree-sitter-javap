@@ -1,0 +1,31 @@
+==========================
+ Hello plain
+==========================
+
+Compiled from "Hello.java"
+public class Hello {
+  public Hello();
+  public static void main(java.lang.String[]);
+}
+
+-----------------------
+
+   (source_file
+      (header
+        (header_info_compile))
+      (class_info_def
+        (mod_access)
+        (class_keyword)
+        (identifier))
+      (block
+        (class_definition
+          (identifier)
+          (method_def
+            (mod_access)
+            (mod_static)
+            (simple_type)
+            (identifier)
+            (method_args
+              (array_type
+                (simple_type)))))))
+

@@ -1,0 +1,5 @@
+Compiled from "Hello.java"
+public class Hello {
+  public Hello();
+  public static void main(java.lang.String[]);
+}

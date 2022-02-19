@@ -8,10 +8,10 @@ module.exports = grammar({
 
     source_file: $ => seq(
 	    $.header,
-	    $.class_info_def,
-	    $.constant_pool_def,
+	    optional($.class_info_def),
+	    optional($.constant_pool_def),
 	    repeat($.block),  //TODO maybe not repeat?
-	    $.source_file_def
+	    optional($.source_file_def)
     ),
 
     method_def: $ => seq(
@@ -152,8 +152,6 @@ module.exports = grammar({
 	   
    ),
 
-   //file_path: $=> /\/?([\w\d\.-]+\/)*([\w\d\.-]+)/,
-
    header_info_last_mod: $=> seq('Last modified', repeat(/([\w\d;,]+\s)(\w+)/)), //TODO use wildcard character
 
    md5: $ => /[0-9a-f]{32}/,
@@ -168,9 +166,9 @@ module.exports = grammar({
    header_info: $=> seq('Classfile', $.file_path),
 
    header: $=> seq(
-	   $.header_info,
-	   $.header_info_last_mod,
-	   $.header_info_md5,
+	   optional($.header_info),
+	   optional($.header_info_last_mod),
+	   optional($.header_info_md5),
 	   $.header_info_compile,
    )
 
