@@ -1,5 +1,5 @@
 ====================
- Full bytecode
+ HelloWorld verbose
 ====================
 
 Classfile /home/kghost/workspace/tree-sitter-javap/example/Hello.class
