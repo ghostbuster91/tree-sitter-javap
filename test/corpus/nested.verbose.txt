@@ -1,0 +1,59 @@
+=======================
+Nested verbose
+=======================
+
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Nested.class
+  Last modified Feb 19, 2022; size 343 bytes
+  MD5 checksum 5e6be02b388e5be8052796089cc7403c
+  Compiled from "Nested.java"
+class Nested
+  minor version: 0
+  major version: 55
+  flags: (0x0020) ACC_SUPER
+  this_class: #2                          // Nested
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 1, attributes: 3
+Constant pool:
+   #1 = Methodref          #3.#18         // java/lang/Object."<init>":()V
+   #2 = Class              #19            // Nested
+   #3 = Class              #20            // java/lang/Object
+   #4 = Class              #21            // Nested$Inner3
+   #5 = Utf8               Inner3
+   #6 = Utf8               InnerClasses
+   #7 = Class              #22            // Nested$Inner2
+   #8 = Utf8               Inner2
+   #9 = Class              #23            // Nested$Inner
+  #10 = Utf8               Inner
+  #11 = Utf8               <init>
+  #12 = Utf8               ()V
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               SourceFile
+  #16 = Utf8               Nested.java
+  #17 = Utf8               NestMembers
+  #18 = NameAndType        #11:#12        // "<init>":()V
+  #19 = Utf8               Nested
+  #20 = Utf8               java/lang/Object
+  #21 = Utf8               Nested$Inner3
+  #22 = Utf8               Nested$Inner2
+  #23 = Utf8               Nested$Inner
+{
+  Nested();
+    descriptor: ()V
+    flags: (0x0000)
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+}
+SourceFile: "Nested.java"
+NestMembers:
+  Nested$Inner3
+  Nested$Inner2
+  Nested$Inner
+InnerClasses:
+  protected static #5= #4 of #2;          // Inner3=class Nested$Inner3 of class Nested
+  public abstract #10= #9 of #2;          // Inner=class Nested$Inner of class Nested

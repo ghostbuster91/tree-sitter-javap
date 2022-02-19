@@ -1,0 +1,74 @@
+=====================
+Nested Inner verbose
+=====================
+
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Nested$Inner.class
+  Last modified Feb 19, 2022; size 369 bytes
+  MD5 checksum 21fe5ae06cb0497e4bf965208e4700b0
+  Compiled from "Nested.java"
+public abstract class Nested$Inner
+  minor version: 0
+  major version: 55
+  flags: (0x0421) ACC_PUBLIC, ACC_SUPER, ACC_ABSTRACT
+  this_class: #3                          // Nested$Inner
+  super_class: #4                         // java/lang/Object
+  interfaces: 0, fields: 2, methods: 2, attributes: 3
+Constant pool:
+   #1 = Fieldref           #3.#19         // Nested$Inner.this$0:LNested;
+   #2 = Methodref          #4.#20         // java/lang/Object."<init>":()V
+   #3 = Class              #21            // Nested$Inner
+   #4 = Class              #24            // java/lang/Object
+   #5 = Utf8               f1
+   #6 = Utf8               Ljava/lang/Integer;
+   #7 = Utf8               this$0
+   #8 = Utf8               LNested;
+   #9 = Utf8               <init>
+  #10 = Utf8               (LNested;)V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               call
+  #14 = Utf8               ()V
+  #15 = Utf8               SourceFile
+  #16 = Utf8               Nested.java
+  #17 = Utf8               NestHost
+  #18 = Class              #25            // Nested
+  #19 = NameAndType        #7:#8          // this$0:LNested;
+  #20 = NameAndType        #9:#14         // "<init>":()V
+  #21 = Utf8               Nested$Inner
+  #22 = Utf8               Inner
+  #23 = Utf8               InnerClasses
+  #24 = Utf8               java/lang/Object
+  #25 = Utf8               Nested
+{
+  public java.lang.Integer f1;
+    descriptor: Ljava/lang/Integer;
+    flags: (0x0001) ACC_PUBLIC
+
+  final Nested this$0;
+    descriptor: LNested;
+    flags: (0x1010) ACC_FINAL, ACC_SYNTHETIC
+
+  public Nested$Inner(Nested);
+    descriptor: (LNested;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #1                  // Field this$0:LNested;
+         5: aload_0
+         6: invokespecial #2                  // Method java/lang/Object."<init>":()V
+         9: return
+      LineNumberTable:
+        line 3: 0
+
+  protected abstract void call();
+    descriptor: ()V
+    flags: (0x0404) ACC_PROTECTED, ACC_ABSTRACT
+}
+SourceFile: "Nested.java"
+NestHost: class Nested
+InnerClasses:
+  public abstract #22= #3 of #18;         // Inner=class Nested$Inner of class Nested
+
+------------------------

@@ -1,0 +1,51 @@
+======================
+Nested Inner 3 verbose
+======================
+
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Nested$Inner3.class
+  Last modified Feb 19, 2022; size 395 bytes
+  MD5 checksum 98fd6eafc75081002a5f7cf129e0aee7
+  Compiled from "Nested.java"
+public interface Nested$Inner3<T extends java.lang.Comparable<? super T>>
+  minor version: 0
+  major version: 55
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // Nested$Inner3
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 1, attributes: 4
+Constant pool:
+   #1 = Class              #14            // Nested$Inner3
+   #2 = Class              #17            // java/lang/Object
+   #3 = Utf8               call
+   #4 = Utf8               (Ljava/lang/String;)V
+   #5 = Utf8               Exceptions
+   #6 = Class              #18            // java/lang/IllegalArgumentException
+   #7 = Class              #19            // java/lang/ArrayIndexOutOfBoundsException
+   #8 = Utf8               Signature
+   #9 = Utf8               <T::Ljava/lang/Comparable<-TT;>;>Ljava/lang/Object;
+  #10 = Utf8               SourceFile
+  #11 = Utf8               Nested.java
+  #12 = Utf8               NestHost
+  #13 = Class              #20            // Nested
+  #14 = Utf8               Nested$Inner3
+  #15 = Utf8               Inner3
+  #16 = Utf8               InnerClasses
+  #17 = Utf8               java/lang/Object
+  #18 = Utf8               java/lang/IllegalArgumentException
+  #19 = Utf8               java/lang/ArrayIndexOutOfBoundsException
+  #20 = Utf8               Nested
+{
+  public abstract void call(java.lang.String) throws java.lang.IllegalArgumentException, java.lang.ArrayIndexOutOfBoundsException;
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    Exceptions:
+      throws java.lang.IllegalArgumentException, java.lang.ArrayIndexOutOfBoundsException
+}
+Signature: #9                           // <T::Ljava/lang/Comparable<-TT;>;>Ljava/lang/Object;
+SourceFile: "Nested.java"
+NestHost: class Nested
+InnerClasses:
+  protected static #15= #1 of #13;        // Inner3=class Nested$Inner3 of class Nested
+
+
+----------------------

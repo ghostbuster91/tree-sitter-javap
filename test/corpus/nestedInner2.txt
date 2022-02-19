@@ -1,0 +1,10 @@
+=============================
+Nested Inner 2 plain
+=============================
+
+Compiled from "Nested.java"
+class Nested$Inner2 {
+  public volatile java.lang.Integer f1;
+  protected transient java.lang.String f2;
+  synchronized void call();
+}

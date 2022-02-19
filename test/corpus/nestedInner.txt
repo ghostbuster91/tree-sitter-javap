@@ -1,0 +1,13 @@
+=========================
+Nested Inner plain
+=========================
+
+Compiled from "Nested.java"
+public abstract class Nested$Inner {
+  public java.lang.Integer f1;
+  final Nested this$0;
+  public Nested$Inner(Nested);
+  protected abstract void call();
+}
+
+----------------------

@@ -1,0 +1,10 @@
+=======================
+Nested Inner 3 plain
+=======================
+
+Compiled from "Nested.java"
+public interface Nested$Inner3<T extends java.lang.Comparable<? super T>> {
+  public abstract void call(java.lang.String) throws java.lang.IllegalArgumentException, java.lang.ArrayIndexOutOfBoundsException;
+}
+
+-----------------------
