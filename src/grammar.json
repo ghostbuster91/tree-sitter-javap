@@ -991,11 +991,8 @@
           "value": "Last modified"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "([\\w\\d;,]+\\s)(\\w+)"
-          }
+          "type": "SYMBOL",
+          "name": "_rest_of_the_line"
         }
       ]
     },
@@ -1082,10 +1079,14 @@
           ]
         },
         {
-          "type": "PATTERN",
-          "value": "[^\\n\\r]*"
+          "type": "SYMBOL",
+          "name": "_rest_of_the_line"
         }
       ]
+    },
+    "_rest_of_the_line": {
+      "type": "PATTERN",
+      "value": "[^\\n\\r]*"
     },
     "header_info": {
       "type": "SEQ",

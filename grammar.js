@@ -77,7 +77,7 @@ module.exports = grammar({
 
     method_args: $ => seq(
       '(',
-      commaSep1($._type), //TODO comma sepa
+      commaSep1($._type), 
       ')'
     ),
 
@@ -150,7 +150,7 @@ module.exports = grammar({
 	   
    ),
 
-   header_info_last_mod: $=> seq('Last modified', repeat(/([\w\d;,]+\s)(\w+)/)), //TODO use wildcard character
+   header_info_last_mod: $=> seq('Last modified', $._rest_of_the_line), 
 
    md5: $ => /[0-9a-f]{32}/,
 
@@ -159,7 +159,9 @@ module.exports = grammar({
    header_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/), //TODO extract filename
 
    _path_segment: $=> /[\d\w\s\.-_]+/,
-   file_path: $ => seq(optional('/'), slashSep($._path_segment), /[^\n\r]*/),
+   file_path: $ => seq(optional('/'), slashSep($._path_segment), $._rest_of_the_line),
+
+   _rest_of_the_line: $=> /[^\n\r]*/,
 
    header_info: $=> seq('Classfile', $.file_path),
 
