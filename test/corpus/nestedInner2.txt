@@ -8,3 +8,29 @@ class Nested$Inner2 {
   protected transient java.lang.String f2;
   synchronized void call();
 }
+
+---------------------------
+
+  (source_file
+      (header_info_compile)
+      (class_def_plain
+        (class_keyword)
+        (identifier)
+        (class_def_plain_body
+          (class_def_plain_body_item
+            (field_def
+              (modifiers)
+              (type)
+              (identifier)))
+          (class_def_plain_body_item
+            (field_def
+              (modifiers)
+              (type)
+              (identifier)))
+          (class_def_plain_body_item
+            (method_def
+              (modifiers)
+              (type)
+              (identifier)
+              (args))))))
+
