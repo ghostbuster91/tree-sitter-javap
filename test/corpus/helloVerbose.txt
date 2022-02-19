@@ -53,7 +53,7 @@ SourceFile: "Hello.java"
 
 ------------------
 
-    (source_file
+  (source_file
       (header
         (general_info
           (file_path))
@@ -78,13 +78,11 @@ SourceFile: "Hello.java"
             (flag_value)))
         (class_info_item
           (class_info_item_simple
-            (hash_with_number
-              (number))
+            (number)
             (comment)))
         (class_info_item
           (class_info_item_simple
-            (hash_with_number
-              (number))
+            (number)
             (comment)))
         (class_info_item
           (class_info_item_simple
@@ -93,66 +91,44 @@ SourceFile: "Hello.java"
             (number)
             (number))))
       (constantPoolDef
-        (hash_with_number
+        (constantPoolItem
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constantPoolItem
+          (number)
+          (number)
+          (comment))
+        (constantPoolItem
+          (number)
+          (number)
+          (comment))
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (comment)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (comment)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (comment)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
+        (constantPoolItem
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constantPoolItem
           (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
-          (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
-          (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
-          (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (comment)
-        (hash_with_number
-          (number))
-        (constantPoolItemType)
-        (constantPoolItemValue)
-        (hash_with_number
-          (number))
-        (constantPoolItemType)
-        (constantPoolItemValue))
+        (constantPoolItem
+          (number)))
       (block
         (class_definition
           (identifier)
@@ -190,8 +166,8 @@ SourceFile: "Hello.java"
             (simple_type)
             (identifier)
             (method_args
-                (array_type
-                  (simple_type)))
+              (array_type
+                (simple_type)))
             (descriptor_def
               (descriptor_value))
             (flag_def
@@ -214,4 +190,3 @@ SourceFile: "Hello.java"
                   (number)
                   (number)))))))
       (source_file_def))
-
