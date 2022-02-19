@@ -72,7 +72,7 @@ module.exports = grammar({
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
-	$.code_def
+	optional($.code_def)
     ),
 
     static_block_def: $=> seq(
@@ -94,15 +94,7 @@ module.exports = grammar({
     mod_default: $=> 'default',
     mod_access: $ => token(choice('public', 'private', 'protected')), 
 
-    class_definition: $ => seq(
-      'public',
-      $.identifier,
-      '();',
-      optional($.descriptor_def),
-      optional($.flag_def),
-      optional($.code_def),
-      repeat(seq($.method_def,';', $._method_def_verbose))
-    ),
+    class_definition: $ => repeat1(seq($.method_def,';', $._method_def_verbose)),
 
     code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
 
@@ -191,8 +183,7 @@ module.exports = grammar({
    class_keyword: $ => 'class',
 
    class_info_def: $=> seq(
-	   $._mods, 
-	   $.class_keyword, 
+	   choice(seq($._mods, $.class_keyword), $.interface_keyword),
 	   $.identifier, 
 	   repeat($.class_info_item)),
 

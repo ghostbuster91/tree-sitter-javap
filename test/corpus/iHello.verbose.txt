@@ -1,3 +1,7 @@
+========================
+Interface verbose
+========================
+
 Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/IHello.class
   Last modified Feb 19, 2022; size 204 bytes
   MD5 checksum 2f61745c0a0435186fc95625763ab74e
@@ -37,3 +41,114 @@ Constant pool:
     flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
 }
 SourceFile: "IHello.java"
+
+------------------------------
+
+ (source_file
+      (header
+        (header_info
+          (file_path))
+        (header_info_last_mod)
+        (header_info_md5
+          (md5))
+        (header_info_compile))
+      (class_info_def
+        (interface_keyword)
+        (identifier)
+        (class_info_item
+          (class_info_item_simple
+            (number)))
+        (class_info_item
+          (class_info_item_simple
+            (number)))
+        (class_info_item
+          (flag_def
+            (hex_value)
+            (flag_value)
+            (flag_value)))
+        (class_info_item
+          (class_info_item_simple
+            (number)
+            (comment)))
+        (class_info_item
+          (class_info_item_simple
+            (number)
+            (comment)))
+        (class_info_item
+          (class_info_item_simple
+            (number)
+            (number)
+            (number)
+            (number))))
+      (constant_pool_def
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number)))
+      (block
+        (class_definition
+          (method_def
+            (mod_access)
+            (mod_default)
+            (type)
+            (identifier)
+            (args))
+          (descriptor_def
+            (descriptor_value))
+          (flag_def
+            (hex_value)
+            (flag_value))
+          (code_def
+            (code_info
+              (code_info_stat
+                (number))
+              (code_info_stat
+                (number))
+              (code_info_stat
+                (number))
+              (numered_instruction
+                (number)
+                (instruction))
+              (numered_instruction
+                (number)
+                (instruction)))
+            (line_number_table_def
+              (numered_line
+                (number)
+                (number))))
+          (method_def
+            (mod_access)
+            (mod_abstract)
+            (type)
+            (identifier)
+            (args))
+          (descriptor_def
+            (descriptor_value))
+          (flag_def
+            (hex_value)
+            (flag_value)
+            (flag_value))))
+      (source_file_def))
+
