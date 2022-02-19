@@ -2,6 +2,19 @@
   "name": "javap",
   "rules": {
     "source_file": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "source_file_verbose"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "source_file_plain"
+        }
+      ]
+    },
+    "source_file_verbose": {
       "type": "SEQ",
       "members": [
         {
@@ -9,28 +22,12 @@
           "name": "header"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "class_info_def"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "class_info_def"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "constant_pool_def"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "constant_pool_def"
         },
         {
           "type": "REPEAT",
@@ -40,16 +37,151 @@
           }
         },
         {
+          "type": "SYMBOL",
+          "name": "source_file_def"
+        }
+      ]
+    },
+    "source_file_plain": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "header_info_compile"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_def_plain"
+        }
+      ]
+    },
+    "class_def_plain": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mods"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_def_plain_body"
+        }
+      ]
+    },
+    "class_def_plain_body": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "class_def_plain_body_item"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "class_def_plain_body_item": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "source_file_def"
+              "name": "field_def"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "method_def_plain"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "static_block_def"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "field_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mods"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "constructor_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "public"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "args"
+        }
+      ]
+    },
+    "method_def_plain": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mods"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
             },
             {
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "args"
         }
       ]
     },
@@ -70,7 +202,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "method_args"
+          "name": "args"
         },
         {
           "type": "STRING",
@@ -114,6 +246,19 @@
         }
       ]
     },
+    "static_block_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "mod_static"
+        },
+        {
+          "type": "STRING",
+          "value": "{}"
+        }
+      ]
+    },
     "_mods": {
       "type": "SEQ",
       "members": [
@@ -144,6 +289,18 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "mod_final"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -154,6 +311,10 @@
     "mod_abstract": {
       "type": "STRING",
       "value": "abstract"
+    },
+    "mod_final": {
+      "type": "STRING",
+      "value": "final"
     },
     "mod_access": {
       "type": "CHOICE",
@@ -475,7 +636,7 @@
       "type": "PATTERN",
       "value": "0x[0-9A-Fa-f]+"
     },
-    "method_args": {
+    "args": {
       "type": "SEQ",
       "members": [
         {
@@ -536,6 +697,10 @@
         {
           "type": "STRING",
           "value": "void"
+        },
+        {
+          "type": "STRING",
+          "value": "int"
         },
         {
           "type": "PATTERN",
@@ -1105,40 +1270,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "header_info"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "header_info"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "header_info_last_mod"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "header_info_last_mod"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "header_info_md5"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "header_info_md5"
         },
         {
           "type": "SYMBOL",

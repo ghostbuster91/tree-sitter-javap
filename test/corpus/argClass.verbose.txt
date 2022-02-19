@@ -1,0 +1,91 @@
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/ArgClass.class
+  Last modified Feb 19, 2022; size 600 bytes
+  MD5 checksum f92fbede4c18e48c4efce76a2faa22c1
+  Compiled from "ArgClass.java"
+public final class ArgClass
+  minor version: 0
+  major version: 55
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #12                         // ArgClass
+  super_class: #13                        // java/lang/Object
+  interfaces: 0, fields: 4, methods: 3, attributes: 1
+Constant pool:
+   #1 = Double             4.0d
+   #3 = Methodref          #31.#32        // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+   #4 = Methodref          #12.#33        // ArgClass."<init>":(IZDLjava/lang/Integer;)V
+   #5 = Methodref          #13.#34        // java/lang/Object."<init>":()V
+   #6 = Fieldref           #12.#35        // ArgClass.f1:I
+   #7 = Fieldref           #12.#36        // ArgClass.f2:Z
+   #8 = Fieldref           #12.#37        // ArgClass.f3:D
+   #9 = Fieldref           #12.#38        // ArgClass.f4:Ljava/lang/Integer;
+  #10 = Double             3.0d
+  #12 = Class              #39            // ArgClass
+  #13 = Class              #40            // java/lang/Object
+  #14 = Utf8               f1
+  #15 = Utf8               I
+  #16 = Utf8               f2
+  #17 = Utf8               Z
+  #18 = Utf8               f3
+  #19 = Utf8               D
+  #20 = Utf8               f4
+  #21 = Utf8               Ljava/lang/Integer;
+  #22 = Utf8               <init>
+  #23 = Utf8               (I)V
+  #24 = Utf8               Code
+  #25 = Utf8               LineNumberTable
+  #26 = Utf8               (IZDLjava/lang/Integer;)V
+  #27 = Utf8               <clinit>
+  #28 = Utf8               ()V
+  #29 = Utf8               SourceFile
+  #30 = Utf8               ArgClass.java
+  #31 = Class              #41            // java/lang/Integer
+  #32 = NameAndType        #42:#43        // valueOf:(I)Ljava/lang/Integer;
+  #33 = NameAndType        #22:#26        // "<init>":(IZDLjava/lang/Integer;)V
+  #34 = NameAndType        #22:#28        // "<init>":()V
+  #35 = NameAndType        #14:#15        // f1:I
+  #36 = NameAndType        #16:#17        // f2:Z
+  #37 = NameAndType        #18:#19        // f3:D
+  #38 = NameAndType        #20:#21        // f4:Ljava/lang/Integer;
+  #39 = Utf8               ArgClass
+  #40 = Utf8               java/lang/Object
+  #41 = Utf8               java/lang/Integer
+  #42 = Utf8               valueOf
+  #43 = Utf8               (I)Ljava/lang/Integer;
+{
+  public int f1;
+    descriptor: I
+    flags: (0x0001) ACC_PUBLIC
+
+  public final java.lang.Integer f4;
+    descriptor: Ljava/lang/Integer;
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+
+  public ArgClass(int);
+    descriptor: (I)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=6, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: iconst_0
+         3: ldc2_w        #1                  // double 4.0d
+         6: bipush        11
+         8: invokestatic  #3                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        11: invokespecial #4                  // Method "<init>":(IZDLjava/lang/Integer;)V
+        14: return
+      LineNumberTable:
+        line 8: 0
+        line 9: 14
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: ldc2_w        #10                 // double 3.0d
+         3: putstatic     #8                  // Field f3:D
+         6: return
+      LineNumberTable:
+        line 4: 0
+}
+SourceFile: "ArgClass.java"

@@ -6,31 +6,83 @@ module.exports = grammar({
 
   rules: {
 
-    source_file: $ => seq(
+    source_file: $ => choice(
+	    $.source_file_verbose,
+	    $.source_file_plain
+    ),
+    source_file_verbose: $ => seq(
 	    $.header,
-	    optional($.class_info_def),
-	    optional($.constant_pool_def),
-	    repeat($.block),  //TODO maybe not repeat?
-	    optional($.source_file_def)
+	    $.class_info_def,
+	    $.constant_pool_def,
+	    repeat($.block),
+	    $.source_file_def
     ),
 
+    source_file_plain: $=> seq(
+	    $.header_info_compile,
+	    $.class_def_plain
+    ),
+
+    class_def_plain: $=> seq(
+      $._mods,
+      $.class_keyword,
+      $.identifier,
+      $.class_def_plain_body,
+    ),
+
+    class_def_plain_body: $=> seq(
+	    '{', 
+	    repeat($.class_def_plain_body_item),
+	    '}'
+    ),
+
+    class_def_plain_body_item: $=> 
+	  seq(
+	    choice(
+	  	$.field_def,
+	 	$.method_def_plain,
+		$.static_block_def
+    	    ),
+          ';'
+          ),
+
+    field_def: $=> seq(
+	$._mods,
+	$._type,
+	$.identifier,
+    ),
+
+    method_def_plain: $ => seq(
+      $._mods,
+      $._type,
+      optional($.identifier),
+      $.args,
+    ),
     method_def: $ => seq(
       $._mods,
       $._type,
       $.identifier,
-      $.method_args,
+      $.args,
       ';',
       optional($.descriptor_def),
       optional($.flag_def),
       optional($.code_def),
     ),
+
+    static_block_def: $=> seq(
+	$.mod_static,
+	'{}'
+    ),
+
     _mods: $=> seq(
 	    $.mod_access,
 	    optional($.mod_static),
-	    optional($.mod_abstract)
+	    optional($.mod_abstract),
+	    optional($.mod_final)
     ),
     mod_static: $ => 'static',
     mod_abstract: $ => 'abstract',
+    mod_final: $=> 'final',
     mod_access: $ => choice('public', 'private', 'protected'), 
 
     class_definition: $ => seq(
@@ -75,7 +127,7 @@ module.exports = grammar({
 
     hex_value: $ => /0x[0-9A-Fa-f]+/,
 
-    method_args: $ => seq(
+    args: $ => seq(
       '(',
       commaSep1($._type), 
       ')'
@@ -86,6 +138,7 @@ module.exports = grammar({
     simple_type: $ => choice(
       'bool',
       'void',
+      'int',
       /(\w+\.)*\w+/
     ),
 
@@ -97,7 +150,7 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => token(/[a-zA-Z0-9]+/), //TODO allow digits 
+    identifier: $ => token(/[a-zA-Z0-9]+/), 
 
     number: $ => token(/\d+/),
 
@@ -166,9 +219,9 @@ module.exports = grammar({
    header_info: $=> seq('Classfile', $.file_path),
 
    header: $=> seq(
-	   optional($.header_info),
-	   optional($.header_info_last_mod),
-	   optional($.header_info_md5),
+	   $.header_info,
+	   $.header_info_last_mod,
+	   $.header_info_md5,
 	   $.header_info_compile,
    )
 

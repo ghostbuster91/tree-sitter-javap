@@ -1,0 +1,11 @@
+==============================
+Interface plain
+==============================
+
+Compiled from "IHello.java"
+interface IHello {
+  public default int getNumber();
+  public abstract int getAbstractNumber();
+}
+
+------------------------------

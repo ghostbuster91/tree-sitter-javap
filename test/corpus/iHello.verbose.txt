@@ -1,0 +1,39 @@
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/IHello.class
+  Last modified Feb 19, 2022; size 204 bytes
+  MD5 checksum 2f61745c0a0435186fc95625763ab74e
+  Compiled from "IHello.java"
+interface IHello
+  minor version: 0
+  major version: 55
+  flags: (0x0600) ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // IHello
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Class              #10            // IHello
+   #2 = Class              #11            // java/lang/Object
+   #3 = Utf8               getNumber
+   #4 = Utf8               ()I
+   #5 = Utf8               Code
+   #6 = Utf8               LineNumberTable
+   #7 = Utf8               getAbstractNumber
+   #8 = Utf8               SourceFile
+   #9 = Utf8               IHello.java
+  #10 = Utf8               IHello
+  #11 = Utf8               java/lang/Object
+{
+  public default int getNumber();
+    descriptor: ()I
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: iconst_4
+         1: ireturn
+      LineNumberTable:
+        line 4: 0
+
+  public abstract int getAbstractNumber();
+    descriptor: ()I
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+}
+SourceFile: "IHello.java"

@@ -1,0 +1,44 @@
+===========================
+ArgClass plain
+===========================
+
+Compiled from "ArgClass.java"
+public final class ArgClass {
+  public int f1;
+  public final java.lang.Integer f4;
+  public ArgClass(int);
+  static {};
+}
+
+--------------------------
+
+   (source_file
+      (source_file_plain
+        (header_info_compile)
+        (class_def_plain
+          (mod_access)
+          (mod_final)
+          (class_keyword)
+          (identifier)
+          (class_def_plain_body
+            (class_def_plain_body_item
+              (field_def
+                (mod_access)
+                (simple_type)
+                (identifier)))
+            (class_def_plain_body_item
+              (field_def
+                (mod_access)
+                (mod_final)
+                (simple_type)
+                (identifier)))
+            (class_def_plain_body_item
+              (method_def_plain
+                (mod_access)
+                (simple_type)
+                (args
+                  (simple_type))))
+            (class_def_plain_body_item
+              (static_block_def
+                (mod_static)))))))
+

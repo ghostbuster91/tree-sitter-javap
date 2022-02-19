@@ -1,5 +1,5 @@
 ==============================
-AbstractFactory
+AbstractFactory plain
 ==============================
 
 Compiled from "AbstractFactory.java"
