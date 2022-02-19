@@ -97,10 +97,14 @@ module.exports = grammar({
     )),
 
     class_definition: $ => repeat1(
-	    choice(
-	    	seq($.method_def,';', $._method_def_verbose),
-		seq($.field_def, ';',$._method_def_verbose),
-		seq($.static_block_def, ';', $._method_def_verbose),
+	    seq(
+		    choice(
+			    $.method_def,
+			    $.field_def,
+			    $.static_block_def,
+		    ),
+		    ';',
+		    $._method_def_verbose,
 	    ),
     ),
 

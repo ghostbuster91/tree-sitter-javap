@@ -308,58 +308,32 @@
     "class_definition": {
       "type": "REPEAT1",
       "content": {
-        "type": "CHOICE",
+        "type": "SEQ",
         "members": [
           {
-            "type": "SEQ",
+            "type": "CHOICE",
             "members": [
               {
                 "type": "SYMBOL",
                 "name": "method_def"
               },
               {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_method_def_verbose"
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
                 "type": "SYMBOL",
                 "name": "field_def"
               },
               {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
                 "type": "SYMBOL",
-                "name": "_method_def_verbose"
+                "name": "static_block_def"
               }
             ]
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "static_block_def"
-              },
-              {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_method_def_verbose"
-              }
-            ]
+            "type": "STRING",
+            "value": ";"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_method_def_verbose"
           }
         ]
       }
