@@ -56,14 +56,7 @@ module.exports = grammar({
 
     numered_instruction: $ => seq($.number, ':', $.instruction, optional($.comment)),
 
-    instruction: $ => choice(
-	    'aload_0', 
-	    'return', 
-	    seq('invokespecial', '#', $.number),
-	    seq('getstatic', '#', $.number),
-	    seq('ldc', '#', $.number),
-	    seq('invokevirtual', '#', $.number)
-    ),
+    instruction: $=> seq(/\S+/, optional(seq('#', $.number))),
 
     code_info_stat: $ => seq(/\w+=/, $.number), 
 

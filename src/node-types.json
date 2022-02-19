@@ -619,10 +619,6 @@
     "named": false
   },
   {
-    "type": "aload_0",
-    "named": false
-  },
-  {
     "type": "bool",
     "named": false
   },
@@ -651,28 +647,12 @@
     "named": false
   },
   {
-    "type": "getstatic",
-    "named": false
-  },
-  {
     "type": "hex_value",
     "named": true
   },
   {
     "type": "identifier",
     "named": true
-  },
-  {
-    "type": "invokespecial",
-    "named": false
-  },
-  {
-    "type": "invokevirtual",
-    "named": false
-  },
-  {
-    "type": "ldc",
-    "named": false
   },
   {
     "type": "line",
@@ -704,10 +684,6 @@
   },
   {
     "type": "public",
-    "named": false
-  },
-  {
-    "type": "return",
     "named": false
   },
   {
