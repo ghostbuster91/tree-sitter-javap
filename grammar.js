@@ -27,7 +27,7 @@ module.exports = grammar({
     ),
 
     class_def_plain: $=> seq(
-      $.modifiers,
+      optional($.modifiers),
       $.class_keyword, 
       $.identifier,
       $.class_def_plain_body,
@@ -65,7 +65,7 @@ module.exports = grammar({
     ),
 
     method_def: $ => seq(
-      $.modifiers,
+      optional($.modifiers),
       $.type,
       optional($.identifier),
       $.args
