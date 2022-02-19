@@ -85,7 +85,15 @@
           "named": true
         },
         {
+          "type": "mod_abstract",
+          "named": true
+        },
+        {
           "type": "mod_access",
+          "named": true
+        },
+        {
+          "type": "mod_static",
           "named": true
         }
       ]
@@ -357,7 +365,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -401,6 +409,10 @@
         },
         {
           "type": "method_args",
+          "named": true
+        },
+        {
+          "type": "mod_abstract",
           "named": true
         },
         {
@@ -668,6 +680,10 @@
   },
   {
     "type": "md5",
+    "named": true
+  },
+  {
+    "type": "mod_abstract",
     "named": true
   },
   {

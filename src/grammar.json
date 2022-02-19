@@ -58,19 +58,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "mod_access"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mod_static"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "name": "_mods"
         },
         {
           "type": "SYMBOL",
@@ -126,6 +114,47 @@
         }
       ]
     },
+    "_mods": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "mod_access"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "mod_static"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "mod_abstract"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "mod_static": {
+      "type": "STRING",
+      "value": "static"
+    },
+    "mod_abstract": {
+      "type": "STRING",
+      "value": "abstract"
+    },
     "mod_access": {
       "type": "CHOICE",
       "members": [
@@ -142,10 +171,6 @@
           "value": "protected"
         }
       ]
-    },
-    "mod_static": {
-      "type": "STRING",
-      "value": "static"
     },
     "class_definition": {
       "type": "SEQ",
@@ -509,8 +534,29 @@
           "value": "("
         },
         {
-          "type": "SYMBOL",
-          "name": "_type"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_type"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_type"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -871,7 +917,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "mod_access"
+          "name": "_mods"
         },
         {
           "type": "SYMBOL",

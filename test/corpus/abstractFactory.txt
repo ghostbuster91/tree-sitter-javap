@@ -1,0 +1,33 @@
+==============================
+AbstractFactory
+==============================
+
+Compiled from "AbstractFactory.java"
+public abstract class AbstractFactory {
+  public AbstractFactory();
+  protected java.lang.Integer doSth(java.lang.String[], int, java.io.File);
+}
+
+-----------------------------
+
+   (source_file
+      (header
+        (header_info_compile))
+      (class_info_def
+        (mod_access)
+        (mod_abstract)
+        (class_keyword)
+        (identifier))
+      (block
+        (class_definition
+          (identifier)
+          (method_def
+            (mod_access)
+            (simple_type)
+            (identifier)
+            (method_args
+              (array_type
+                (simple_type))
+              (simple_type)
+              (simple_type))))))
+

@@ -15,8 +15,7 @@ module.exports = grammar({
     ),
 
     method_def: $ => seq(
-      $.mod_access,
-      optional($.mod_static),
+      $._mods,
       $._type,
       $.identifier,
       $.method_args,
@@ -25,8 +24,14 @@ module.exports = grammar({
       optional($.flag_def),
       optional($.code_def),
     ),
-    mod_access: $ => choice('public', 'private', 'protected'), 
+    _mods: $=> seq(
+	    $.mod_access,
+	    optional($.mod_static),
+	    optional($.mod_abstract)
+    ),
     mod_static: $ => 'static',
+    mod_abstract: $ => 'abstract',
+    mod_access: $ => choice('public', 'private', 'protected'), 
 
     class_definition: $ => seq(
       'public',
@@ -79,7 +84,7 @@ module.exports = grammar({
 
     method_args: $ => seq(
       '(',
-      $._type, //TODO comma sepa
+      commaSep1($._type), //TODO comma sepa
       ')'
     ),
 
@@ -133,7 +138,7 @@ module.exports = grammar({
    class_keyword: $ => 'class',
 
    class_info_def: $=> seq(
-	   $.mod_access, 
+	   $._mods, 
 	   $.class_keyword, 
 	   $.identifier, 
 	   repeat($.class_info_item)),
