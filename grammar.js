@@ -9,8 +9,8 @@ module.exports = grammar({
     source_file: $ => seq(
 	    $.header,
 	    $.class_info_def,
-	    $.constantPoolDef,
-	    repeat($.block), 
+	    $.constant_pool_def,
+	    repeat($.block),  //TODO maybe not repeat?
 	    $.source_file_def
     ),
 
@@ -107,28 +107,28 @@ module.exports = grammar({
 
     comment: $ => token(seq('//', /[^\n\r]*/)),
 
-    constantPoolDef: $=> seq('Constant pool:', repeat($.constantPoolItem)),
+    constant_pool_def: $=> seq('Constant pool:', repeat($.constant_pool_item)),
 
     _hash_number: $=> seq('#', $.number), 
 
-    constantPoolItem: $=> seq($._hash_number, '=', $._constantPoolItemType),
+    constant_pool_item: $=> seq($._hash_number, '=', $._constant_pool_item_type),
 
-   _constantPoolItemType : $=> choice(
-     $._constantPoolItemTypeUtf8,
-     $._constantPoolItemTypeClass,
-     $._constantPoolItemTypeString,
-     $._constantPoolItemTypeMethodref,
-     $._constantPoolItemTypeFieldref,
-     $._constantPoolItemTypeNameAndType
+    _constant_pool_item_type : $=> choice(
+     $._constant_pool_item_type_utf8,
+     $._constant_pool_item_type_class,
+     $._constant_pool_item_type_string,
+     $._constant_pool_item_type_method_ref,
+     $._constant_pool_item_type_field_ref,
+     $._constant_pool_item_type_name_and_type
    ),
 
-   _constantPoolItemTypeUtf8: $ => seq('Utf8', /[^\n\r]*/),
-   _constantPoolItemTypeClass: $ => seq('Class', $._hash_number, optional($.comment)), 
-   _constantPoolItemTypeString: $ => seq('String', $._hash_number, optional($.comment)),   
-   _constantPoolItemTypeMethodref: $=> seq('Methodref', $._hash_number, '.', $._hash_number, optional($.comment)),
-   _constantPoolItemTypeFieldref: $=> seq('Fieldref', $._hash_number, '.', $._hash_number, optional($.comment)),
+   _constant_pool_item_type_utf8: $ => seq('Utf8', /[^\n\r]*/),
+   _constant_pool_item_type_class: $ => seq('Class', $._hash_number, optional($.comment)), 
+   _constant_pool_item_type_string: $ => seq('String', $._hash_number, optional($.comment)),   
+   _constant_pool_item_type_method_ref: $=> seq('Methodref', $._hash_number, '.', $._hash_number, optional($.comment)),
+   _constant_pool_item_type_field_ref: $=> seq('Fieldref', $._hash_number, '.', $._hash_number, optional($.comment)),
 
-   _constantPoolItemTypeNameAndType: $=> seq('NameAndType',$._hash_number, ':', $._hash_number, optional($.comment)),
+   _constant_pool_item_type_name_and_type: $=> seq('NameAndType',$._hash_number, ':', $._hash_number, optional($.comment)),
 
    class_keyword: $ => 'class',
 
@@ -152,23 +152,26 @@ module.exports = grammar({
 	   
    ),
 
-   file_path: $=> /\/?([\w\d\.-]+\/)*([\w\d\.-]+)/,
+   //file_path: $=> /\/?([\w\d\.-]+\/)*([\w\d\.-]+)/,
 
-   general_info_last_mod: $=> seq('Last modified', repeat(/([\w\d;,]+\s)(\w+)/)), //TODO use wildcard character
+   header_info_last_mod: $=> seq('Last modified', repeat(/([\w\d;,]+\s)(\w+)/)), //TODO use wildcard character
 
    md5: $ => /[0-9a-f]{32}/,
 
-   general_info_md5: $=> seq('MD5 checksum' , $.md5),
+   header_info_md5: $=> seq('MD5 checksum' , $.md5),
 
-   general_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/), //TODO extract filename
+   header_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/), //TODO extract filename
 
-   general_info: $=> seq('Classfile', $.file_path),
+   _path_segment: $=> /[\d\w\s\.-_]+/,
+   file_path: $ => seq(optional('/'), slashSep($._path_segment), /[^\n\r]*/),
+
+   header_info: $=> seq('Classfile', $.file_path),
 
    header: $=> seq(
-	   $.general_info,
-	   $.general_info_last_mod,
-	   $.general_info_md5,
-	   $.general_info_compile,
+	   $.header_info,
+	   $.header_info_last_mod,
+	   $.header_info_md5,
+	   $.header_info_compile,
    )
 
   } 
@@ -180,4 +183,12 @@ function commaSep1(rule) {
 
 function commaSep(rule) {
   return optional(commaSep1(rule))
+}
+
+function slashSep1(rule) {
+  return seq(rule, repeat(seq('/', rule)))
+}
+
+function slashSep(rule) {
+  return optional(slashSep1(rule))	
 }

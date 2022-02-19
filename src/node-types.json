@@ -183,7 +183,7 @@
     }
   },
   {
-    "type": "constantPoolDef",
+    "type": "constant_pool_def",
     "named": true,
     "fields": {},
     "children": {
@@ -191,14 +191,14 @@
       "required": false,
       "types": [
         {
-          "type": "constantPoolItem",
+          "type": "constant_pool_item",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "constantPoolItem",
+    "type": "constant_pool_item",
     "named": true,
     "fields": {},
     "children": {
@@ -232,6 +232,11 @@
     }
   },
   {
+    "type": "file_path",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "flag_def",
     "named": true,
     "fields": {},
@@ -251,7 +256,34 @@
     }
   },
   {
-    "type": "general_info",
+    "type": "header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "header_info",
+          "named": true
+        },
+        {
+          "type": "header_info_compile",
+          "named": true
+        },
+        {
+          "type": "header_info_last_mod",
+          "named": true
+        },
+        {
+          "type": "header_info_md5",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header_info",
     "named": true,
     "fields": {},
     "children": {
@@ -266,17 +298,17 @@
     }
   },
   {
-    "type": "general_info_compile",
+    "type": "header_info_compile",
     "named": true,
     "fields": {}
   },
   {
-    "type": "general_info_last_mod",
+    "type": "header_info_last_mod",
     "named": true,
     "fields": {}
   },
   {
-    "type": "general_info_md5",
+    "type": "header_info_md5",
     "named": true,
     "fields": {},
     "children": {
@@ -285,33 +317,6 @@
       "types": [
         {
           "type": "md5",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "header",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "general_info",
-          "named": true
-        },
-        {
-          "type": "general_info_compile",
-          "named": true
-        },
-        {
-          "type": "general_info_last_mod",
-          "named": true
-        },
-        {
-          "type": "general_info_md5",
           "named": true
         }
       ]
@@ -478,7 +483,7 @@
           "named": true
         },
         {
-          "type": "constantPoolDef",
+          "type": "constant_pool_def",
           "named": true
         },
         {
@@ -523,6 +528,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {
@@ -619,10 +628,6 @@
   },
   {
     "type": "descriptor_value",
-    "named": true
-  },
-  {
-    "type": "file_path",
     "named": true
   },
   {

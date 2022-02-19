@@ -74,12 +74,12 @@ SourceFile: "HelloWorld.java"
 
     (source_file
       (header
-        (general_info
+        (header_info
           (file_path))
-        (general_info_last_mod)
-        (general_info_md5
+        (header_info_last_mod)
+        (header_info_md5
           (md5))
-        (general_info_compile))
+        (header_info_compile))
       (class_info_def
         (mod_access)
         (class_keyword)
@@ -109,90 +109,90 @@ SourceFile: "HelloWorld.java"
             (number)
             (number)
             (number))))
-      (constantPoolDef
-        (constantPoolItem
+      (constant_pool_def
+        (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (comment))
-        (constantPoolItem
-          (number)
-          (number)
-          (number)
-          (comment))
-        (constantPoolItem
-          (number)
-          (number)
-          (comment))
-        (constantPoolItem
-          (number)
-          (number)
-          (comment))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
-        (constantPoolItem
-          (number))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
           (number))
-        (constantPoolItem
+        (constant_pool_item
+          (number))
+        (constant_pool_item
           (number)))
       (block
         (class_definition
