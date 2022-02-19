@@ -4,13 +4,15 @@ const newline = '\n';
 module.exports = grammar({
   name: 'javap',
 
+  word: $ => $.identifier,
+
   rules: {
 
     source_file: $ => choice(
-	    $.source_file_verbose,
-	    $.source_file_plain
+	    $._source_file_verbose,
+	    $._source_file_plain
     ),
-    source_file_verbose: $ => seq(
+    _source_file_verbose: $ => seq(
 	    $.header,
 	    $.class_info_def,
 	    $.constant_pool_def,
@@ -18,7 +20,7 @@ module.exports = grammar({
 	    $.source_file_def
     ),
 
-    source_file_plain: $=> seq(
+    _source_file_plain: $=> seq(
 	    $.header_info_compile,
 	    $.class_def_plain
     ),
@@ -36,37 +38,32 @@ module.exports = grammar({
 	    '}'
     ),
 
-    class_def_plain_body_item: $=> 
-	  seq(
+    class_def_plain_body_item: $=> seq(
 	    choice(
+		//$.constructor_def, //TODO figure out how...
 	  	$.field_def,
-	 	$.method_def_plain,
+	 	$.method_def,
 		$.static_block_def
     	    ),
-          ';'
-          ),
+            ';'
+    ),
 
     field_def: $=> seq(
 	$._mods,
-	$._type,
+	$.type,
 	$.identifier,
     ),
 
-    method_def_plain: $ => seq(
-      $._mods,
-      $._type,
-      optional($.identifier),
-      $.args,
-    ),
     method_def: $ => seq(
       $._mods,
-      $._type,
-      $.identifier,
-      $.args,
-      ';',
-      optional($.descriptor_def),
-      optional($.flag_def),
-      optional($.code_def),
+      $.type,
+      optional($.identifier),
+      $.args
+    ),
+    _method_def_verbose: $ => seq(
+	$.descriptor_def,
+	$.flag_def,
+	$.code_def
     ),
 
     static_block_def: $=> seq(
@@ -83,7 +80,7 @@ module.exports = grammar({
     mod_static: $ => 'static',
     mod_abstract: $ => 'abstract',
     mod_final: $=> 'final',
-    mod_access: $ => choice('public', 'private', 'protected'), 
+    mod_access: $ => token(choice('public', 'private', 'protected')), 
 
     class_definition: $ => seq(
       'public',
@@ -92,7 +89,7 @@ module.exports = grammar({
       optional($.descriptor_def),
       optional($.flag_def),
       optional($.code_def),
-      repeat($.method_def)
+      repeat(seq($.method_def,';', $._method_def_verbose))
     ),
 
     code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
@@ -129,20 +126,18 @@ module.exports = grammar({
 
     args: $ => seq(
       '(',
-      commaSep1($._type), 
+      commaSep($.type), 
       ')'
     ),
 
-    _type: $ => choice($.array_type, $.simple_type),
+    type: $ => seq($._simple_type, repeat(token.immediate('[]'))),
 
-    simple_type: $ => choice(
+    _simple_type: $ => choice(
       'bool',
       'void',
       'int',
       /(\w+\.)*\w+/
     ),
-
-    array_type: $ => seq( $._type, '[]'),
 
     block: $ => seq(
       '{',
