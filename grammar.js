@@ -1,5 +1,6 @@
 const newline = '\n';
 
+const DIGITS = token(sep1(/[0-9]+/, /_+/))
 
 module.exports = grammar({
   name: 'javap',
@@ -95,22 +96,41 @@ module.exports = grammar({
       'volatile'
     )),
 
-    class_definition: $ => repeat1(seq($.method_def,';', $._method_def_verbose)),
+    class_definition: $ => repeat1(
+	    choice(
+	    	seq($.method_def,';', $._method_def_verbose),
+		seq($.field_def, ';',$._method_def_verbose),
+		seq($.static_block_def, ';', $._method_def_verbose),
+	    ),
+    ),
 
     code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
 
     code_info: $ => seq(
 	    commaSep1($.code_info_stat), 
-	    repeat($.numered_instruction)
+	    repeat1($.numered_instruction)
     ),
 
-    line_number_table_def: $ => seq('LineNumberTable:', repeat($.numered_line)),
+    line_number_table_def: $ => seq('LineNumberTable:', repeat1($.numered_line)),
 
     numered_line: $ => seq('line', $.number, ':', $.number),
 
-    numered_instruction: $ => seq($.number, ':', $.instruction, optional($.comment)),
+    numered_instruction: $ => seq(
+	    $.number, 
+	    token.immediate(':'), 
+	    $.instruction, 
+	    choice($._endl, $.comment) 
+    ),
 
-    instruction: $=> seq(/\S+/, optional(seq('#', $.number))),
+    instruction: $=> seq(
+	    /\S+/, 
+	    optional(
+		    choice(
+			    $.number,
+			    seq('#', $.number)
+		    )
+	    )
+    ),
 
     code_info_stat: $ => seq(/\w+=/, $.number), 
 
@@ -170,7 +190,8 @@ module.exports = grammar({
      $._constant_pool_item_type_string,
      $._constant_pool_item_type_method_ref,
      $._constant_pool_item_type_field_ref,
-     $._constant_pool_item_type_name_and_type
+     $._constant_pool_item_type_name_and_type,
+     $._constant_pool_item_type_double,
    ),
 
    _constant_pool_item_type_utf8: $ => seq('Utf8', /[^\n\r]*/),
@@ -180,6 +201,15 @@ module.exports = grammar({
    _constant_pool_item_type_field_ref: $=> seq('Fieldref', $._hash_number, '.', $._hash_number, optional($.comment)),
 
    _constant_pool_item_type_name_and_type: $=> seq('NameAndType',$._hash_number, ':', $._hash_number, optional($.comment)),
+
+   _constant_pool_item_type_double: $=> seq('Double', $.decimal_floating_point_literal),
+
+    decimal_floating_point_literal: $ => token(choice(
+      seq(DIGITS, '.', optional(DIGITS), optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), optional(/[fFdD]/)),
+      seq('.', DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), optional(/[fFdD]/)),
+      seq(DIGITS, /[eEpP]/, optional(choice('-', '+')), DIGITS, optional(/[fFdD]/)),
+      seq(DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), (/[fFdD]/))
+    )),
 
    class_keyword: $ => 'class',
 
@@ -214,6 +244,7 @@ module.exports = grammar({
    file_path: $ => seq(optional('/'), slashSep($._path_segment), $._rest_of_the_line),
 
    _rest_of_the_line: $=> /[^\n\r]*/,
+   _endl: $ => /(\S)*?[\r\n]+/,
 
    header_info: $=> seq('Classfile', $.file_path),
 
@@ -241,4 +272,8 @@ function slashSep1(rule) {
 
 function slashSep(rule) {
   return optional(slashSep1(rule))	
+}
+
+function sep1(rule, separator) {
+  return seq(rule, repeat(seq(separator, rule)));
 }
