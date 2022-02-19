@@ -58,6 +58,10 @@
           "named": true
         },
         {
+          "type": "mod_default",
+          "named": true
+        },
+        {
           "type": "mod_final",
           "named": true
         },
@@ -163,6 +167,10 @@
         },
         {
           "type": "mod_access",
+          "named": true
+        },
+        {
+          "type": "mod_default",
           "named": true
         },
         {
@@ -337,6 +345,10 @@
           "named": true
         },
         {
+          "type": "mod_default",
+          "named": true
+        },
+        {
           "type": "mod_final",
           "named": true
         },
@@ -458,6 +470,49 @@
     }
   },
   {
+    "type": "interface_def_plain",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "class_def_plain_body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interface_keyword",
+          "named": true
+        },
+        {
+          "type": "mod_abstract",
+          "named": true
+        },
+        {
+          "type": "mod_access",
+          "named": true
+        },
+        {
+          "type": "mod_default",
+          "named": true
+        },
+        {
+          "type": "mod_final",
+          "named": true
+        },
+        {
+          "type": "mod_static",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "line_number_table_def",
     "named": true,
     "fields": {},
@@ -494,6 +549,10 @@
         },
         {
           "type": "mod_access",
+          "named": true
+        },
+        {
+          "type": "mod_default",
           "named": true
         },
         {
@@ -579,6 +638,10 @@
         },
         {
           "type": "header_info_compile",
+          "named": true
+        },
+        {
+          "type": "interface_def_plain",
           "named": true
         },
         {
@@ -758,6 +821,10 @@
     "named": false
   },
   {
+    "type": "interface_keyword",
+    "named": true
+  },
+  {
     "type": "line",
     "named": false
   },
@@ -771,6 +838,10 @@
   },
   {
     "type": "mod_access",
+    "named": true
+  },
+  {
+    "type": "mod_default",
     "named": true
   },
   {

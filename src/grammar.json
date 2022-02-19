@@ -51,8 +51,17 @@
           "name": "header_info_compile"
         },
         {
-          "type": "SYMBOL",
-          "name": "class_def_plain"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "class_def_plain"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interface_def_plain"
+            }
+          ]
         }
       ]
     },
@@ -76,6 +85,39 @@
           "name": "class_def_plain_body"
         }
       ]
+    },
+    "interface_def_plain": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_mods"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "interface_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "class_def_plain_body"
+        }
+      ]
+    },
+    "interface_keyword": {
+      "type": "STRING",
+      "value": "interface"
     },
     "class_def_plain_body": {
       "type": "SEQ",
@@ -200,49 +242,32 @@
       ]
     },
     "_mods": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "mod_access"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mod_static"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mod_abstract"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mod_final"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "mod_access"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mod_default"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mod_static"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mod_abstract"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mod_final"
+          }
+        ]
+      }
     },
     "mod_static": {
       "type": "STRING",
@@ -255,6 +280,10 @@
     "mod_final": {
       "type": "STRING",
       "value": "final"
+    },
+    "mod_default": {
+      "type": "STRING",
+      "value": "default"
     },
     "mod_access": {
       "type": "TOKEN",

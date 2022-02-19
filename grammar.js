@@ -22,15 +22,24 @@ module.exports = grammar({
 
     _source_file_plain: $=> seq(
 	    $.header_info_compile,
-	    $.class_def_plain
+	    choice($.class_def_plain, $.interface_def_plain)
     ),
 
     class_def_plain: $=> seq(
       $._mods,
-      $.class_keyword,
+      $.class_keyword, 
       $.identifier,
       $.class_def_plain_body,
     ),
+
+    interface_def_plain: $=> seq(
+	optional($._mods),
+	$.interface_keyword,
+	$.identifier,
+	$.class_def_plain_body
+    ),
+
+    interface_keyword: $=> 'interface',
 
     class_def_plain_body: $=> seq(
 	    '{', 
@@ -71,15 +80,18 @@ module.exports = grammar({
 	'{}'
     ),
 
-    _mods: $=> seq(
+	  //TODO make mods visible
+    _mods: $=> repeat1(choice(
 	    $.mod_access,
-	    optional($.mod_static),
-	    optional($.mod_abstract),
-	    optional($.mod_final)
-    ),
+	    $.mod_default,
+	    $.mod_static,
+	    $.mod_abstract,
+	    $.mod_final
+    )),
     mod_static: $ => 'static',
     mod_abstract: $ => 'abstract',
     mod_final: $=> 'final',
+    mod_default: $=> 'default',
     mod_access: $ => token(choice('public', 'private', 'protected')), 
 
     class_definition: $ => seq(
