@@ -123,10 +123,6 @@
           "named": true
         },
         {
-          "type": "hash_with_number",
-          "named": true
-        },
-        {
           "type": "number",
           "named": true
         }
@@ -195,28 +191,30 @@
       "required": false,
       "types": [
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "constantPoolItemType",
-          "named": true
-        },
-        {
-          "type": "constantPoolItemValue",
-          "named": true
-        },
-        {
-          "type": "hash_with_number",
+          "type": "constantPoolItem",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "constantPoolItemType",
+    "type": "constantPoolItem",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "descriptor_def",
@@ -253,11 +251,6 @@
     }
   },
   {
-    "type": "flag_value",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "general_info",
     "named": true,
     "fields": {},
@@ -292,21 +285,6 @@
       "types": [
         {
           "type": "md5",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "hash_with_number",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
           "named": true
         }
       ]
@@ -544,6 +522,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -553,6 +535,10 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "Class",
     "named": false
   },
   {
@@ -572,6 +558,10 @@
     "named": false
   },
   {
+    "type": "Fieldref",
+    "named": false
+  },
+  {
     "type": "Last modified",
     "named": false
   },
@@ -584,7 +574,23 @@
     "named": false
   },
   {
+    "type": "Methodref",
+    "named": false
+  },
+  {
+    "type": "NameAndType",
+    "named": false
+  },
+  {
     "type": "SourceFile: \"",
+    "named": false
+  },
+  {
+    "type": "String",
+    "named": false
+  },
+  {
+    "type": "Utf8",
     "named": false
   },
   {
@@ -608,10 +614,6 @@
     "named": true
   },
   {
-    "type": "constantPoolItemValue",
-    "named": true
-  },
-  {
     "type": "descriptor:",
     "named": false
   },
@@ -624,7 +626,15 @@
     "named": true
   },
   {
+    "type": "flag_value",
+    "named": true
+  },
+  {
     "type": "flags:",
+    "named": false
+  },
+  {
+    "type": "getstatic",
     "named": false
   },
   {
@@ -637,6 +647,14 @@
   },
   {
     "type": "invokespecial",
+    "named": false
+  },
+  {
+    "type": "invokevirtual",
+    "named": false
+  },
+  {
+    "type": "ldc",
     "named": false
   },
   {

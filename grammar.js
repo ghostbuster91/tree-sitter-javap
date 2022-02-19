@@ -54,7 +54,10 @@ module.exports = grammar({
     instruction: $ => choice(
 	    'aload_0', 
 	    'return', 
-	    seq('invokespecial', '#', $.number ) 
+	    seq('invokespecial', '#', $.number),
+	    seq('getstatic', '#', $.number),
+	    seq('ldc', '#', $.number),
+	    seq('invokevirtual', '#', $.number)
     ),
 
     code_info_stat: $ => seq(/\w+=/, $.number), 
@@ -102,17 +105,30 @@ module.exports = grammar({
 
     source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' ),
 
-    comment: $ => token(seq('//', /.*/)),
+    comment: $ => token(seq('//', /[^\n\r]*/)),
 
-    constantPoolDef: $=> seq('Constant pool:', repeat($._constantPoolItem)),
+    constantPoolDef: $=> seq('Constant pool:', repeat($.constantPoolItem)),
 
-    hash_with_number: $=> seq('#', $.number),
+    _hash_number: $=> seq('#', $.number), 
 
-   _constantPoolItem: $=> seq($.hash_with_number, '=', $.constantPoolItemType, $.constantPoolItemValue, optional($.comment)),
+    constantPoolItem: $=> seq($._hash_number, '=', $._constantPoolItemType),
 
-   constantPoolItemType: $=> /\w+/,
+   _constantPoolItemType : $=> choice(
+     $._constantPoolItemTypeUtf8,
+     $._constantPoolItemTypeClass,
+     $._constantPoolItemTypeString,
+     $._constantPoolItemTypeMethodref,
+     $._constantPoolItemTypeFieldref,
+     $._constantPoolItemTypeNameAndType
+   ),
 
-   constantPoolItemValue: $=> /\S+/,
+   _constantPoolItemTypeUtf8: $ => seq('Utf8', /[^\n\r]*/),
+   _constantPoolItemTypeClass: $ => seq('Class', $._hash_number, optional($.comment)), 
+   _constantPoolItemTypeString: $ => seq('String', $._hash_number, optional($.comment)),   
+   _constantPoolItemTypeMethodref: $=> seq('Methodref', $._hash_number, '.', $._hash_number, optional($.comment)),
+   _constantPoolItemTypeFieldref: $=> seq('Fieldref', $._hash_number, '.', $._hash_number, optional($.comment)),
+
+   _constantPoolItemTypeNameAndType: $=> seq('NameAndType',$._hash_number, ':', $._hash_number, optional($.comment)),
 
    class_keyword: $ => 'class',
 
@@ -130,7 +146,7 @@ module.exports = grammar({
    class_info_item_simple: $=> commaSep1(
 	   seq(
 		   /(\w+[\s_]?)+(\w+):/, 
-		   choice($.number, $.hash_with_number),
+		   choice($.number, $._hash_number),
 	           optional($.comment)
 	   ), 
 	   

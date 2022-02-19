@@ -330,6 +330,57 @@
               "name": "number"
             }
           ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "getstatic"
+            },
+            {
+              "type": "STRING",
+              "value": "#"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "ldc"
+            },
+            {
+              "type": "STRING",
+              "value": "#"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "invokevirtual"
+            },
+            {
+              "type": "STRING",
+              "value": "#"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          ]
         }
       ]
     },
@@ -545,7 +596,7 @@
           },
           {
             "type": "PATTERN",
-            "value": ".*"
+            "value": "[^\\n\\r]*"
           }
         ]
       }
@@ -561,12 +612,12 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_constantPoolItem"
+            "name": "constantPoolItem"
           }
         }
       ]
     },
-    "hash_with_number": {
+    "_hash_number": {
       "type": "SEQ",
       "members": [
         {
@@ -579,12 +630,12 @@
         }
       ]
     },
-    "_constantPoolItem": {
+    "constantPoolItem": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "hash_with_number"
+          "name": "_hash_number"
         },
         {
           "type": "STRING",
@@ -592,11 +643,62 @@
         },
         {
           "type": "SYMBOL",
-          "name": "constantPoolItemType"
+          "name": "_constantPoolItemType"
+        }
+      ]
+    },
+    "_constantPoolItemType": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_constantPoolItemTypeUtf8"
         },
         {
           "type": "SYMBOL",
-          "name": "constantPoolItemValue"
+          "name": "_constantPoolItemTypeClass"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_constantPoolItemTypeString"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_constantPoolItemTypeMethodref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_constantPoolItemTypeFieldref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_constantPoolItemTypeNameAndType"
+        }
+      ]
+    },
+    "_constantPoolItemTypeUtf8": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Utf8"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n\\r]*"
+        }
+      ]
+    },
+    "_constantPoolItemTypeClass": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Class"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
         },
         {
           "type": "CHOICE",
@@ -612,13 +714,129 @@
         }
       ]
     },
-    "constantPoolItemType": {
-      "type": "PATTERN",
-      "value": "\\w+"
+    "_constantPoolItemTypeString": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "String"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
-    "constantPoolItemValue": {
-      "type": "PATTERN",
-      "value": "\\S+"
+    "_constantPoolItemTypeMethodref": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Methodref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_constantPoolItemTypeFieldref": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Fieldref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_constantPoolItemTypeNameAndType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "NameAndType"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "class_keyword": {
       "type": "STRING",
@@ -680,7 +898,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "hash_with_number"
+                  "name": "_hash_number"
                 }
               ]
             },
@@ -723,7 +941,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "hash_with_number"
+                        "name": "_hash_number"
                       }
                     ]
                   },
