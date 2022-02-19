@@ -419,6 +419,11 @@
     }
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "instruction",
     "named": true,
     "fields": {},
@@ -763,10 +768,6 @@
   },
   {
     "type": "hex_value",
-    "named": true
-  },
-  {
-    "type": "identifier",
     "named": true
   },
   {

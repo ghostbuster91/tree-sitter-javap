@@ -5,7 +5,7 @@ const DIGITS = token(sep1(/[0-9]+/, /_+/))
 module.exports = grammar({
   name: 'javap',
 
-  word: $ => $.identifier,
+  word: $ => $._identifier,
 
   rules: {
 
@@ -165,7 +165,7 @@ module.exports = grammar({
       'bool',
       'void',
       'int',
-      /(\w+\.)*\w+/
+      sep1($._identifier, '.'),
     ),
 
     block: $ => seq(
@@ -174,7 +174,8 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => token(/[a-zA-Z0-9]+/), 
+    identifier: $ => $._identifier,
+    _identifier: $ => token(sep1(/[a-zA-Z0-9]+/, '$')), 
 
     number: $ => token(/\d+/),
 

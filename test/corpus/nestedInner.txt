@@ -11,3 +11,34 @@ public abstract class Nested$Inner {
 }
 
 ----------------------
+
+    (source_file
+      (header_info_compile)
+      (class_def_plain
+        (modifiers)
+        (class_keyword)
+        (identifier)
+        (class_def_plain_body
+          (class_def_plain_body_item
+            (field_def
+              (modifiers)
+              (type)
+              (identifier)))
+          (class_def_plain_body_item
+            (field_def
+              (modifiers)
+              (type)
+              (identifier)))
+          (class_def_plain_body_item
+            (method_def
+              (modifiers)
+              (type)
+              (args
+                (type))))
+          (class_def_plain_body_item
+            (method_def
+              (modifiers)
+              (type)
+              (identifier)
+              (args))))))
+

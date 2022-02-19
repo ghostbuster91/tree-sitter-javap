@@ -1,6 +1,6 @@
 {
   "name": "javap",
-  "word": "identifier",
+  "word": "_identifier",
   "rules": {
     "source_file": {
       "type": "CHOICE",
@@ -691,8 +691,29 @@
           "value": "int"
         },
         {
-          "type": "PATTERN",
-          "value": "(\\w+\\.)*\\w+"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_identifier"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "."
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_identifier"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -714,10 +735,35 @@
       ]
     },
     "identifier": {
+      "type": "SYMBOL",
+      "name": "_identifier"
+    },
+    "_identifier": {
       "type": "TOKEN",
       "content": {
-        "type": "PATTERN",
-        "value": "[a-zA-Z0-9]+"
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[a-zA-Z0-9]+"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "$"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[a-zA-Z0-9]+"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "number": {
