@@ -13,19 +13,18 @@ public class Hello {
     (source_file
       (header_info_compile)
       (class_def_plain
-        (mod_access)
+        (modifiers)
         (class_keyword)
         (identifier)
         (class_def_plain_body
           (class_def_plain_body_item
             (method_def
-              (mod_access)
+              (modifiers)
               (type)
               (args)))
           (class_def_plain_body_item
             (method_def
-              (mod_access)
-              (mod_static)
+              (modifiers)
               (type)
               (identifier)
               (args

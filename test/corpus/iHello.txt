@@ -18,15 +18,13 @@ interface IHello {
         (class_def_plain_body
           (class_def_plain_body_item
             (method_def
-              (mod_access)
-              (mod_default)
+              (modifiers)
               (type)
               (identifier)
               (args)))
           (class_def_plain_body_item
             (method_def
-              (mod_access)
-              (mod_abstract)
+              (modifiers)
               (type)
               (identifier)
               (args))))))

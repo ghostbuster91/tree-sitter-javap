@@ -26,14 +26,14 @@ module.exports = grammar({
     ),
 
     class_def_plain: $=> seq(
-      $._mods,
+      $.modifiers,
       $.class_keyword, 
       $.identifier,
       $.class_def_plain_body,
     ),
 
     interface_def_plain: $=> seq(
-	optional($._mods),
+	optional($.modifiers),
 	$.interface_keyword,
 	$.identifier,
 	$.class_def_plain_body
@@ -58,13 +58,13 @@ module.exports = grammar({
     ),
 
     field_def: $=> seq(
-	$._mods,
+	$.modifiers,
 	$.type,
 	$.identifier,
     ),
 
     method_def: $ => seq(
-      $._mods,
+      $.modifiers,
       $.type,
       optional($.identifier),
       $.args
@@ -76,23 +76,24 @@ module.exports = grammar({
     ),
 
     static_block_def: $=> seq(
-	$.mod_static,
+	$.modifiers,
 	'{}'
     ),
 
-	  //TODO make mods visible
-    _mods: $=> repeat1(choice(
-	    $.mod_access,
-	    $.mod_default,
-	    $.mod_static,
-	    $.mod_abstract,
-	    $.mod_final
+    modifiers: $ => repeat1(choice(
+      'public',
+      'protected',
+      'private',
+      'abstract',
+      'static',
+      'final',
+      'strictfp',
+      'default',
+      'synchronized',
+      'native',
+      'transient',
+      'volatile'
     )),
-    mod_static: $ => 'static',
-    mod_abstract: $ => 'abstract',
-    mod_final: $=> 'final',
-    mod_default: $=> 'default',
-    mod_access: $ => token(choice('public', 'private', 'protected')), 
 
     class_definition: $ => repeat1(seq($.method_def,';', $._method_def_verbose)),
 
@@ -183,7 +184,7 @@ module.exports = grammar({
    class_keyword: $ => 'class',
 
    class_info_def: $=> seq(
-	   choice(seq($._mods, $.class_keyword), $.interface_keyword),
+	   choice(seq($.modifiers, $.class_keyword), $.interface_keyword),
 	   $.identifier, 
 	   repeat($.class_info_item)),
 

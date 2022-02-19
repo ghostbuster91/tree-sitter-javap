@@ -88,8 +88,7 @@ SourceFile: "AbstractFactory.java"
           (md5))
         (header_info_compile))
       (class_info_def
-        (mod_access)
-        (mod_abstract)
+        (modifiers)
         (class_keyword)
         (identifier)
         (class_info_item
@@ -226,7 +225,7 @@ SourceFile: "AbstractFactory.java"
       (block
         (class_definition
           (method_def
-	    (mod_access)
+	    (modifiers)
 	    (type)
 	    (args))
           (descriptor_def
@@ -258,7 +257,7 @@ SourceFile: "AbstractFactory.java"
                 (number)
                 (number))))
           (method_def
-            (mod_access)
+            (modifiers)
             (type)
             (identifier)
             (args

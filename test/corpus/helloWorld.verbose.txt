@@ -81,7 +81,7 @@ SourceFile: "HelloWorld.java"
           (md5))
         (header_info_compile))
       (class_info_def
-        (mod_access)
+        (modifiers)
         (class_keyword)
         (identifier)
         (class_info_item
@@ -197,7 +197,7 @@ SourceFile: "HelloWorld.java"
       (block
         (class_definition
           (method_def
-	    (mod_access)
+	    (modifiers)
 	    (type)
 	    (args))
           (descriptor_def
@@ -229,8 +229,7 @@ SourceFile: "HelloWorld.java"
                 (number)
                 (number))))
           (method_def
-            (mod_access)
-            (mod_static)
+            (modifiers)
             (type)
             (identifier)
             (args

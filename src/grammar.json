@@ -70,7 +70,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_mods"
+          "name": "modifiers"
         },
         {
           "type": "SYMBOL",
@@ -94,7 +94,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_mods"
+              "name": "modifiers"
             },
             {
               "type": "BLANK"
@@ -170,7 +170,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_mods"
+          "name": "modifiers"
         },
         {
           "type": "SYMBOL",
@@ -187,7 +187,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_mods"
+          "name": "modifiers"
         },
         {
           "type": "SYMBOL",
@@ -241,7 +241,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "mod_static"
+          "name": "modifiers"
         },
         {
           "type": "STRING",
@@ -249,52 +249,8 @@
         }
       ]
     },
-    "_mods": {
+    "modifiers": {
       "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "mod_access"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mod_default"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mod_static"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mod_abstract"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mod_final"
-          }
-        ]
-      }
-    },
-    "mod_static": {
-      "type": "STRING",
-      "value": "static"
-    },
-    "mod_abstract": {
-      "type": "STRING",
-      "value": "abstract"
-    },
-    "mod_final": {
-      "type": "STRING",
-      "value": "final"
-    },
-    "mod_default": {
-      "type": "STRING",
-      "value": "default"
-    },
-    "mod_access": {
-      "type": "TOKEN",
       "content": {
         "type": "CHOICE",
         "members": [
@@ -304,11 +260,47 @@
           },
           {
             "type": "STRING",
+            "value": "protected"
+          },
+          {
+            "type": "STRING",
             "value": "private"
           },
           {
             "type": "STRING",
-            "value": "protected"
+            "value": "abstract"
+          },
+          {
+            "type": "STRING",
+            "value": "static"
+          },
+          {
+            "type": "STRING",
+            "value": "final"
+          },
+          {
+            "type": "STRING",
+            "value": "strictfp"
+          },
+          {
+            "type": "STRING",
+            "value": "default"
+          },
+          {
+            "type": "STRING",
+            "value": "synchronized"
+          },
+          {
+            "type": "STRING",
+            "value": "native"
+          },
+          {
+            "type": "STRING",
+            "value": "transient"
+          },
+          {
+            "type": "STRING",
+            "value": "volatile"
           }
         ]
       }
@@ -978,7 +970,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_mods"
+                  "name": "modifiers"
                 },
                 {
                   "type": "SYMBOL",

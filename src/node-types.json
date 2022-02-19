@@ -50,23 +50,7 @@
           "named": true
         },
         {
-          "type": "mod_abstract",
-          "named": true
-        },
-        {
-          "type": "mod_access",
-          "named": true
-        },
-        {
-          "type": "mod_default",
-          "named": true
-        },
-        {
-          "type": "mod_final",
-          "named": true
-        },
-        {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         }
       ]
@@ -162,23 +146,7 @@
           "named": true
         },
         {
-          "type": "mod_abstract",
-          "named": true
-        },
-        {
-          "type": "mod_access",
-          "named": true
-        },
-        {
-          "type": "mod_default",
-          "named": true
-        },
-        {
-          "type": "mod_final",
-          "named": true
-        },
-        {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         }
       ]
@@ -337,23 +305,7 @@
           "named": true
         },
         {
-          "type": "mod_abstract",
-          "named": true
-        },
-        {
-          "type": "mod_access",
-          "named": true
-        },
-        {
-          "type": "mod_default",
-          "named": true
-        },
-        {
-          "type": "mod_final",
-          "named": true
-        },
-        {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         },
         {
@@ -490,23 +442,7 @@
           "named": true
         },
         {
-          "type": "mod_abstract",
-          "named": true
-        },
-        {
-          "type": "mod_access",
-          "named": true
-        },
-        {
-          "type": "mod_default",
-          "named": true
-        },
-        {
-          "type": "mod_final",
-          "named": true
-        },
-        {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         }
       ]
@@ -544,23 +480,7 @@
           "named": true
         },
         {
-          "type": "mod_abstract",
-          "named": true
-        },
-        {
-          "type": "mod_access",
-          "named": true
-        },
-        {
-          "type": "mod_default",
-          "named": true
-        },
-        {
-          "type": "mod_final",
-          "named": true
-        },
-        {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         },
         {
@@ -569,6 +489,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "modifiers",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "numered_instruction",
@@ -665,7 +590,7 @@
       "required": true,
       "types": [
         {
-          "type": "mod_static",
+          "type": "modifiers",
           "named": true
         }
       ]
@@ -777,6 +702,10 @@
     "named": false
   },
   {
+    "type": "abstract",
+    "named": false
+  },
+  {
     "type": "bool",
     "named": false
   },
@@ -789,12 +718,20 @@
     "named": true
   },
   {
+    "type": "default",
+    "named": false
+  },
+  {
     "type": "descriptor:",
     "named": false
   },
   {
     "type": "descriptor_value",
     "named": true
+  },
+  {
+    "type": "final",
+    "named": false
   },
   {
     "type": "flag_value",
@@ -829,31 +766,47 @@
     "named": true
   },
   {
-    "type": "mod_abstract",
-    "named": true
-  },
-  {
-    "type": "mod_access",
-    "named": true
-  },
-  {
-    "type": "mod_default",
-    "named": true
-  },
-  {
-    "type": "mod_final",
-    "named": true
-  },
-  {
-    "type": "mod_static",
-    "named": true
+    "type": "native",
+    "named": false
   },
   {
     "type": "number",
     "named": true
   },
   {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "protected",
+    "named": false
+  },
+  {
+    "type": "public",
+    "named": false
+  },
+  {
+    "type": "static",
+    "named": false
+  },
+  {
+    "type": "strictfp",
+    "named": false
+  },
+  {
+    "type": "synchronized",
+    "named": false
+  },
+  {
+    "type": "transient",
+    "named": false
+  },
+  {
     "type": "void",
+    "named": false
+  },
+  {
+    "type": "volatile",
     "named": false
   },
   {

@@ -13,19 +13,18 @@ public abstract class AbstractFactory {
     (source_file
       (header_info_compile)
       (class_def_plain
-        (mod_access)
-        (mod_abstract)
+        (modifiers)
         (class_keyword)
         (identifier)
         (class_def_plain_body
           (class_def_plain_body_item
             (method_def
-              (mod_access)
+              (modifiers)
               (type)
               (args)))
           (class_def_plain_body_item
             (method_def
-              (mod_access)
+              (modifiers)
               (type)
               (identifier)
               (args

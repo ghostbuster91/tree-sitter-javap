@@ -110,8 +110,7 @@ SourceFile: "IHello.java"
       (block
         (class_definition
           (method_def
-            (mod_access)
-            (mod_default)
+            (modifiers)
             (type)
             (identifier)
             (args))
@@ -139,8 +138,7 @@ SourceFile: "IHello.java"
                 (number)
                 (number))))
           (method_def
-            (mod_access)
-            (mod_abstract)
+            (modifiers)
             (type)
             (identifier)
             (args))
