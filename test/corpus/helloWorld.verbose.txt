@@ -196,7 +196,10 @@ SourceFile: "HelloWorld.java"
           (number)))
       (block
         (class_definition
-          (identifier)
+          (method_def
+	    (mod_access)
+	    (type)
+	    (args))
           (descriptor_def
             (descriptor_value))
           (flag_def
