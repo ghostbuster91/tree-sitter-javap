@@ -10,7 +10,7 @@ interface IHello {
 
 ------------------------------
 
-  (source_file
+ (source_file
       (header_info_compile)
       (interface_def_plain
         (interface_keyword)
@@ -19,13 +19,13 @@ interface IHello {
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (primitive_type)
               (identifier)
               (args)))
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (primitive_type)
               (identifier)
               (args))))))
 

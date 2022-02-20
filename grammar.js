@@ -12,9 +12,9 @@ module.exports = grammar({
   //word: $ => $._identifier,
 
   conflicts: $ => [
-    [$.modifiers, $.type],
-    [$.type, $.scoped_type_identifier],
-    [$.type, $.generic_type],
+    [$.modifiers, $._type],
+    [$._type, $.scoped_type_identifier],
+    [$._type, $.generic_type],
   ],
 
   rules: {
@@ -71,13 +71,13 @@ module.exports = grammar({
 
     field_def: $=> seq(
 	$.modifiers,
-	$.type,
+	$._type,
 	$.identifier,
     ),
 
     method_def: $ => seq(
       optional($.modifiers),
-      $.type,
+      $._type,
       optional($.identifier),
       $.args,
       optional($.method_throws),
@@ -85,7 +85,7 @@ module.exports = grammar({
 
     method_throws: $=> seq(
       'throws',
-      commaSep1($.type)
+      commaSep1($._type)
     ),
 
     _method_def_verbose: $ => seq(
@@ -109,7 +109,7 @@ module.exports = grammar({
       optional($.type_bound)
     ),
 
-    type_bound: $ => seq($.extends, $.type, repeat(seq('&', $.type))),
+    type_bound: $ => seq($.extends, $._type, repeat(seq('&', $._type))),
 
     modifiers: $ => repeat1(choice(
       'public',
@@ -185,24 +185,24 @@ module.exports = grammar({
 
     args: $ => seq(
       '(',
-      commaSep($.type), 
+      commaSep($._type), 
       ')'
     ),
 
-    type: $ => choice(
+    _type: $ => choice(
 	$._simple_type, 
 	$.array_type,
     ),
 
     _simple_type: $ => choice(
-      $._primitive_type,
+      $.primitive_type,
       alias($.identifier, $.type_identifier),	
       $.scoped_type_identifier,
       $.generic_type,
     ),
 
     array_type: $ => seq(
-      field('element', $.type),
+      field('element', $._type),
       field('dimensions', $.dimensions)
     ),
 
@@ -234,7 +234,7 @@ module.exports = grammar({
 
     type_arguments: $ => seq(
       '<',
-      commaSep(choice($.type, $.wildcard)),
+      commaSep(choice($._type, $.wildcard)),
       '>'
     ),
 
@@ -245,14 +245,14 @@ module.exports = grammar({
     ),
 
     _wildcard_bounds: $ => choice(
-      seq($.extends, $.type),
-      seq($.super, $.type)
+      seq($.extends, $._type),
+      seq($.super, $._type)
     ),
 
     extends: $=> 'extends',
     super: $ => 'super',
 
-    _primitive_type: $=> choice(
+    primitive_type: $=> choice(
 	'int',
 	'char',
 	'void',

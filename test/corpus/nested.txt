@@ -17,6 +17,6 @@ class Nested {
         (class_def_plain_body
           (class_def_plain_body_item
             (method_def
-              (type)
+              (type_identifier)
               (args))))))
 

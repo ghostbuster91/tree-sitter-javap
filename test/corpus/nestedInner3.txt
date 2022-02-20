@@ -9,7 +9,7 @@ public interface Nested$Inner3<T extends java.lang.Comparable<? super T>> {
 
 -----------------------
 
-   (source_file
+    (source_file
       (header_info_compile)
       (interface_def_plain
         (modifiers)
@@ -20,42 +20,37 @@ public interface Nested$Inner3<T extends java.lang.Comparable<? super T>> {
             (type_identifier)
             (type_bound
               (extends)
-              (type
-                (generic_type
+              (generic_type
+                (scoped_type_identifier
                   (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
+                    (type_identifier)
                     (type_identifier))
-                  (type_arguments
-                    (wildcard
-                      (super)
-                      (type
-                        (type_identifier)))))))))
+                  (type_identifier))
+                (type_arguments
+                  (wildcard
+                    (super)
+                    (type_identifier)))))))
         (class_def_plain_body
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (primitive_type)
               (identifier)
               (args
-                (type
+                (scoped_type_identifier
                   (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
-                    (type_identifier))))
+                    (type_identifier)
+                    (type_identifier))
+                  (type_identifier)))
               (method_throws
-                (type
+                (scoped_type_identifier
                   (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
-                    (type_identifier)))
-                (type
+                    (type_identifier)
+                    (type_identifier))
+                  (type_identifier))
+                (scoped_type_identifier
                   (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
-                    (type_identifier)))))))))
+                    (type_identifier)
+                    (type_identifier))
+                  (type_identifier))))))))
 

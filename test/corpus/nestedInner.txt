@@ -12,7 +12,7 @@ public abstract class Nested$Inner {
 
 ----------------------
 
-    (source_file
+   (source_file
       (header_info_compile)
       (class_def_plain
         (modifiers)
@@ -22,23 +22,27 @@ public abstract class Nested$Inner {
           (class_def_plain_body_item
             (field_def
               (modifiers)
-              (type)
+              (scoped_type_identifier
+                (scoped_type_identifier
+                  (type_identifier)
+                  (type_identifier))
+                (type_identifier))
               (identifier)))
           (class_def_plain_body_item
             (field_def
               (modifiers)
-              (type)
+              (type_identifier)
               (identifier)))
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (type_identifier)
               (args
-                (type))))
+                (type_identifier))))
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (primitive_type)
               (identifier)
               (args))))))
 

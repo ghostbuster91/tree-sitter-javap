@@ -10,7 +10,7 @@ public class Hello {
 
 -----------------------
 
-    (source_file
+   (source_file
       (header_info_compile)
       (class_def_plain
         (modifiers)
@@ -20,13 +20,19 @@ public class Hello {
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (type_identifier)
               (args)))
           (class_def_plain_body_item
             (method_def
               (modifiers)
-              (type)
+              (primitive_type)
               (identifier)
               (args
-                (type)))))))
+                (array_type
+                  (scoped_type_identifier
+                    (scoped_type_identifier
+                      (type_identifier)
+                      (type_identifier))
+                    (type_identifier))
+                  (dimensions))))))))
 
