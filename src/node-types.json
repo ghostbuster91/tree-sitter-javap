@@ -431,6 +431,29 @@
     }
   },
   {
+    "type": "footer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "inner_classes",
+          "named": true
+        },
+        {
+          "type": "nested_members",
+          "named": true
+        },
+        {
+          "type": "source_file_def",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "generic_type",
     "named": true,
     "fields": {},
@@ -524,6 +547,29 @@
     "type": "identifier",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "inner_classes",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "modifiers",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "instruction",
@@ -670,6 +716,21 @@
     "fields": {}
   },
   {
+    "type": "nested_members",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "numered_instruction",
     "named": true,
     "fields": {},
@@ -760,6 +821,10 @@
           "named": true
         },
         {
+          "type": "footer",
+          "named": true
+        },
+        {
           "type": "header",
           "named": true
         },
@@ -769,10 +834,6 @@
         },
         {
           "type": "interface_def_plain",
-          "named": true
-        },
-        {
-          "type": "source_file_def",
           "named": true
         }
       ]
@@ -1035,6 +1096,10 @@
     "named": false
   },
   {
+    "type": "InnerClasses:",
+    "named": false
+  },
+  {
     "type": "InterfaceMethodref",
     "named": false
   },
@@ -1056,6 +1121,10 @@
   },
   {
     "type": "NameAndType",
+    "named": false
+  },
+  {
+    "type": "NestMembers:",
     "named": false
   },
   {
@@ -1165,6 +1234,10 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "of",
+    "named": false
   },
   {
     "type": "private",

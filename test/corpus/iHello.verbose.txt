@@ -148,5 +148,6 @@ SourceFile: "IHello.java"
             (hex_value)
             (flag_value)
             (flag_value))))
-      (source_file_def))
+      (footer
+        (source_file_def)))
 

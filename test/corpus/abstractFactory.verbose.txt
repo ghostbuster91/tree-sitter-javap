@@ -324,5 +324,6 @@ SourceFile: "AbstractFactory.java"
               (numered_line
                 (number)
                 (number))))))
-      (source_file_def))
+      (footer
+        (source_file_def)))
 

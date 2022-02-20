@@ -28,7 +28,7 @@ module.exports = grammar({
 	    $.class_info_def,
 	    $.constant_pool_def,
 	    repeat($.block),
-	    $.source_file_def
+	    $.footer
     ),
 
     _source_file_plain: $=> seq(
@@ -175,7 +175,7 @@ module.exports = grammar({
 
     descriptor_value: $ => /.+/,
 
-    flag_def: $ =>  seq('flags:', $._wrapped_hex_val, commaSep1($.flag_value)),
+    flag_def: $ =>  seq('flags:', $._wrapped_hex_val, commaSep($.flag_value)),
 
     flag_value: $ => /\w+/,
 
@@ -275,7 +275,35 @@ module.exports = grammar({
 
     number: $ => token(/\d+/),
 
-    source_file_def: $ => seq('SourceFile: "', /([a-zA-Z]+\.?)+/, '"' ),
+    footer: $=> seq(
+	$.source_file_def,
+	optional($.nested_members),
+	optional($.inner_classes,)
+    ),
+
+    source_file_def: $ => seq(
+	    'SourceFile: "', 
+	    /([a-zA-Z]+\.?)+/, '"'
+    ),
+
+    nested_members: $=> seq(
+	    'NestMembers:',
+	    repeat1($.identifier)
+    ),
+
+    inner_classes: $=> seq(
+	'InnerClasses:',
+	repeat1(seq(
+		$.modifiers,
+		$._hash_number,
+		'=',
+		$._hash_number,
+		'of',
+		$._hash_number,
+		';',
+		$.comment,
+	)),
+    ),
 
     comment: $ => token(seq('//', /[^\n\r]*/)),
 
