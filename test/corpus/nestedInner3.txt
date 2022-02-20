@@ -8,3 +8,54 @@ public interface Nested$Inner3<T extends java.lang.Comparable<? super T>> {
 }
 
 -----------------------
+
+   (source_file
+      (header_info_compile)
+      (interface_def_plain
+        (modifiers)
+        (interface_keyword)
+        (identifier)
+        (type_parameters
+          (type_parameter
+            (type_identifier)
+            (type_bound
+              (extends)
+              (type
+                (generic_type
+                  (scoped_type_identifier
+                    (scoped_type_identifier
+                      (type_identifier)
+                      (type_identifier))
+                    (type_identifier))
+                  (type_arguments
+                    (wildcard
+                      (super)
+                      (type
+                        (type_identifier)))))))))
+        (class_def_plain_body
+          (class_def_plain_body_item
+            (method_def
+              (modifiers)
+              (type)
+              (identifier)
+              (args
+                (type
+                  (scoped_type_identifier
+                    (scoped_type_identifier
+                      (type_identifier)
+                      (type_identifier))
+                    (type_identifier))))
+              (method_throws
+                (type
+                  (scoped_type_identifier
+                    (scoped_type_identifier
+                      (type_identifier)
+                      (type_identifier))
+                    (type_identifier)))
+                (type
+                  (scoped_type_identifier
+                    (scoped_type_identifier
+                      (type_identifier)
+                      (type_identifier))
+                    (type_identifier)))))))))
+

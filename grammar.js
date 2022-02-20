@@ -2,10 +2,20 @@ const newline = '\n';
 
 const DIGITS = token(sep1(/[0-9]+/, /_+/))
 
+const PREC = {
+	GENERIC: 10,
+};
+
 module.exports = grammar({
   name: 'javap',
 
-  word: $ => $._identifier,
+  //word: $ => $._identifier,
+
+  conflicts: $ => [
+    [$.modifiers, $.type],
+    [$.type, $.scoped_type_identifier],
+    [$.type, $.generic_type],
+  ],
 
   rules: {
 
@@ -37,6 +47,7 @@ module.exports = grammar({
 	optional($.modifiers),
 	$.interface_keyword,
 	$.identifier,
+	optional($.type_parameters),
 	$.class_def_plain_body
     ),
 
@@ -68,8 +79,15 @@ module.exports = grammar({
       optional($.modifiers),
       $.type,
       optional($.identifier),
-      $.args
+      $.args,
+      optional($.method_throws),
     ),
+
+    method_throws: $=> seq(
+      'throws',
+      commaSep1($.type)
+    ),
+
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
@@ -80,6 +98,18 @@ module.exports = grammar({
 	$.modifiers,
 	'{}'
     ),
+
+    type_parameters: $ => seq(
+      '<', commaSep1($.type_parameter), '>'
+    ),
+
+    type_parameter: $ => seq(
+      //repeat($._annotation),
+      alias($.identifier, $.type_identifier),
+      optional($.type_bound)
+    ),
+
+    type_bound: $ => seq($.extends, $.type, repeat(seq('&', $.type))),
 
     modifiers: $ => repeat1(choice(
       'public',
@@ -159,13 +189,76 @@ module.exports = grammar({
       ')'
     ),
 
-    type: $ => seq($._simple_type, repeat(token.immediate('[]'))),
+    type: $ => choice(
+	$._simple_type, 
+	$.array_type,
+    ),
 
     _simple_type: $ => choice(
-      'bool',
-      'void',
-      'int',
-      sep1($._identifier, '.'),
+      $._primitive_type,
+      alias($.identifier, $.type_identifier),	
+      $.scoped_type_identifier,
+      $.generic_type,
+    ),
+
+    array_type: $ => seq(
+      field('element', $.type),
+      field('dimensions', $.dimensions)
+    ),
+
+    dimensions: $ => prec.right(repeat1(
+      seq(
+	//repeat($._annotation), 
+	'[', ']'
+      )
+    )),
+
+    scoped_type_identifier: $ => seq(
+      choice(
+        alias($.identifier, $.type_identifier),
+        $.scoped_type_identifier,
+        $.generic_type
+      ),
+      '.',
+      //repeat($._annotation),
+      alias($.identifier, $.type_identifier)
+    ),
+
+    generic_type: $ => prec.dynamic(PREC.GENERIC, seq(
+      choice(
+        alias($.identifier, $.type_identifier),
+        $.scoped_type_identifier
+      ),
+      $.type_arguments
+    )),
+
+    type_arguments: $ => seq(
+      '<',
+      commaSep(choice($.type, $.wildcard)),
+      '>'
+    ),
+
+    wildcard: $ => seq(
+      //repeat($._annotation),
+      '?',
+      optional($._wildcard_bounds)
+    ),
+
+    _wildcard_bounds: $ => choice(
+      seq($.extends, $.type),
+      seq($.super, $.type)
+    ),
+
+    extends: $=> 'extends',
+    super: $ => 'super',
+
+    _primitive_type: $=> choice(
+	'int',
+	'char',
+	'void',
+	'double',
+	'float',
+	'byte',
     ),
 
     block: $ => seq(
@@ -175,7 +268,10 @@ module.exports = grammar({
     ),
 
     identifier: $ => $._identifier,
-    _identifier: $ => token(sep1(/[a-zA-Z0-9]+/, '$')), 
+
+    // https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-IdentifierChars
+    _identifier: $ => /[\p{L}_$][\p{L}\p{Nd}_$]*/,
+    //_identifier: $ => token(sep1(/[a-zA-Z0-9]+/, '$')), 
 
     number: $ => token(/\d+/),
 
