@@ -1,0 +1,60 @@
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Full$Annotated.class
+  Last modified Feb 20, 2022; size 540 bytes
+  MD5 checksum c63a0242af38a0ce41b7a2b4972a1c51
+  Compiled from "Full.java"
+public interface Full$Annotated extends java.lang.annotation.Annotation
+  minor version: 0
+  major version: 55
+  flags: (0x2601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT, ACC_ANNOTATION
+  this_class: #1                          // Full$Annotated
+  super_class: #2                         // java/lang/Object
+  interfaces: 1, fields: 0, methods: 2, attributes: 4
+Constant pool:
+   #1 = Class              #21            // Full$Annotated
+   #2 = Class              #24            // java/lang/Object
+   #3 = Class              #25            // java/lang/annotation/Annotation
+   #4 = Utf8               names
+   #5 = Utf8               ()[Ljava/lang/String;
+   #6 = Utf8               description
+   #7 = Utf8               ()Ljava/lang/String;
+   #8 = Utf8               SourceFile
+   #9 = Utf8               Full.java
+  #10 = Utf8               RuntimeVisibleAnnotations
+  #11 = Utf8               Ljava/lang/annotation/Retention;
+  #12 = Utf8               value
+  #13 = Utf8               Ljava/lang/annotation/RetentionPolicy;
+  #14 = Utf8               RUNTIME
+  #15 = Utf8               Ljava/lang/annotation/Target;
+  #16 = Utf8               Ljava/lang/annotation/ElementType;
+  #17 = Utf8               TYPE
+  #18 = Utf8               METHOD
+  #19 = Utf8               NestHost
+  #20 = Class              #26            // Full
+  #21 = Utf8               Full$Annotated
+  #22 = Utf8               Annotated
+  #23 = Utf8               InnerClasses
+  #24 = Utf8               java/lang/Object
+  #25 = Utf8               java/lang/annotation/Annotation
+  #26 = Utf8               Full
+{
+  public abstract java.lang.String[] names();
+    descriptor: ()[Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+
+  public abstract java.lang.String description();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+}
+SourceFile: "Full.java"
+RuntimeVisibleAnnotations:
+  0: #11(#12=e#13.#14)
+    java.lang.annotation.Retention(
+      value=Ljava/lang/annotation/RetentionPolicy;.RUNTIME
+    )
+  1: #15(#12=[e#16.#17,e#16.#18])
+    java.lang.annotation.Target(
+      value=[Ljava/lang/annotation/ElementType;.TYPE,Ljava/lang/annotation/ElementType;.METHOD]
+    )
+NestHost: class Full
+InnerClasses:
+  public static #22= #1 of #20;           // Annotated=class Full$Annotated of class Full

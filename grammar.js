@@ -253,8 +253,7 @@ module.exports = grammar({
 
     dimensions: $ => prec.right(repeat1(
       seq(
-	//repeat($._annotation), 
-	'[', ']'
+	'[', ']',
       )
     )),
 
@@ -265,7 +264,6 @@ module.exports = grammar({
         $.generic_type
       ),
       '.',
-      //repeat($._annotation),
       alias($.identifier, $.type_identifier)
     ),
 

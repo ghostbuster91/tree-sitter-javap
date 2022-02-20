@@ -1,0 +1,52 @@
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Full$Marker.class
+  Last modified Feb 20, 2022; size 504 bytes
+  MD5 checksum cc9033db6f8ca1ddf2bf259bd84cd385
+  Compiled from "Full.java"
+public interface Full$Marker extends java.lang.annotation.Annotation
+  minor version: 0
+  major version: 55
+  flags: (0x2601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT, ACC_ANNOTATION
+  this_class: #1                          // Full$Marker
+  super_class: #2                         // java/lang/Object
+  interfaces: 1, fields: 0, methods: 0, attributes: 4
+Constant pool:
+   #1 = Class              #20            // Full$Marker
+   #2 = Class              #23            // java/lang/Object
+   #3 = Class              #24            // java/lang/annotation/Annotation
+   #4 = Utf8               SourceFile
+   #5 = Utf8               Full.java
+   #6 = Utf8               RuntimeVisibleAnnotations
+   #7 = Utf8               Ljava/lang/annotation/Retention;
+   #8 = Utf8               value
+   #9 = Utf8               Ljava/lang/annotation/RetentionPolicy;
+  #10 = Utf8               RUNTIME
+  #11 = Utf8               Ljava/lang/annotation/Target;
+  #12 = Utf8               Ljava/lang/annotation/ElementType;
+  #13 = Utf8               TYPE
+  #14 = Utf8               PARAMETER
+  #15 = Utf8               METHOD
+  #16 = Utf8               TYPE_PARAMETER
+  #17 = Utf8               TYPE_USE
+  #18 = Utf8               NestHost
+  #19 = Class              #25            // Full
+  #20 = Utf8               Full$Marker
+  #21 = Utf8               Marker
+  #22 = Utf8               InnerClasses
+  #23 = Utf8               java/lang/Object
+  #24 = Utf8               java/lang/annotation/Annotation
+  #25 = Utf8               Full
+{
+}
+SourceFile: "Full.java"
+RuntimeVisibleAnnotations:
+  0: #7(#8=e#9.#10)
+    java.lang.annotation.Retention(
+      value=Ljava/lang/annotation/RetentionPolicy;.RUNTIME
+    )
+  1: #11(#8=[e#12.#13,e#12.#14,e#12.#15,e#12.#16,e#12.#17])
+    java.lang.annotation.Target(
+      value=[Ljava/lang/annotation/ElementType;.TYPE,Ljava/lang/annotation/ElementType;.PARAMETER,Ljava/lang/annotation/ElementType;.METHOD,Ljava/lang/annotation/ElementType;.TYPE_PARAMETER,Ljava/lang/annotation/ElementType;.TYPE_USE]
+    )
+NestHost: class Full
+InnerClasses:
+  public static #21= #1 of #19;           // Marker=class Full$Marker of class Full

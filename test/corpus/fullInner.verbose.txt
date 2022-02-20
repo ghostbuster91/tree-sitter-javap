@@ -1,0 +1,108 @@
+Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Full$Inner.class
+  Last modified Feb 20, 2022; size 864 bytes
+  MD5 checksum 79eb570a0cd03f7aca105d96bbc35db9
+  Compiled from "Full.java"
+public class Full$Inner<T extends java.lang.Comparable<? extends T> & java.lang.Cloneable> extends java.lang.Object
+  minor version: 0
+  major version: 55
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // Full$Inner
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 6
+Constant pool:
+   #1 = Methodref          #3.#34         // java/lang/Object."<init>":()V
+   #2 = Class              #35            // Full$Inner
+   #3 = Class              #37            // java/lang/Object
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               call
+   #9 = Utf8               (Ljava/lang/Comparable;)Ljava/lang/Comparable;
+  #10 = Utf8               Exceptions
+  #11 = Class              #38            // java/lang/RuntimeException
+  #12 = Utf8               Signature
+  #13 = Utf8               (TT;)TT;
+  #14 = Utf8               RuntimeVisibleAnnotations
+  #15 = Class              #39            // Full$Marker
+  #16 = Utf8               Marker
+  #17 = Utf8               InnerClasses
+  #18 = Utf8               LFull$Marker;
+  #19 = Utf8               RuntimeVisibleTypeAnnotations
+  #20 = Utf8               RuntimeVisibleParameterAnnotations
+  #21 = Utf8               <T::Ljava/lang/Comparable<+TT;>;:Ljava/lang/Cloneable;>Ljava/lang/Object;
+  #22 = Utf8               SourceFile
+  #23 = Utf8               Full.java
+  #24 = Class              #40            // Full$Annotated
+  #25 = Utf8               Annotated
+  #26 = Utf8               LFull$Annotated;
+  #27 = Utf8               names
+  #28 = Utf8               n1
+  #29 = Utf8               n2
+  #30 = Utf8               description
+  #31 = Utf8               desc
+  #32 = Utf8               NestHost
+  #33 = Class              #41            // Full
+  #34 = NameAndType        #4:#5          // "<init>":()V
+  #35 = Utf8               Full$Inner
+  #36 = Utf8               Inner
+  #37 = Utf8               java/lang/Object
+  #38 = Utf8               java/lang/RuntimeException
+  #39 = Utf8               Full$Marker
+  #40 = Utf8               Full$Annotated
+  #41 = Utf8               Full
+{
+  public Full$Inner();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 27: 0
+
+  public final T call(T) throws java.lang.RuntimeException;
+    descriptor: (Ljava/lang/Comparable;)Ljava/lang/Comparable;
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=2, args_size=2
+         0: aload_1
+         1: areturn
+      LineNumberTable:
+        line 29: 0
+    Exceptions:
+      throws java.lang.RuntimeException
+    Signature: #13                          // (TT;)TT;
+    RuntimeVisibleAnnotations:
+      0: #18()
+        Full$Marker
+    RuntimeVisibleTypeAnnotations:
+      0: #18(): THROWS, type_index=0
+        Full$Marker
+      1: #18(): METHOD_RETURN
+        Full$Marker
+      2: #18(): METHOD_FORMAL_PARAMETER, param_index=0
+        Full$Marker
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #18()
+          Full$Marker
+}
+Signature: #21                          // <T::Ljava/lang/Comparable<+TT;>;:Ljava/lang/Cloneable;>Ljava/lang/Object;
+SourceFile: "Full.java"
+RuntimeVisibleAnnotations:
+  0: #26(#27=[s#28,s#29],#30=s#31)
+    Full$Annotated(
+      names=["n1","n2"]
+      description="desc"
+    )
+RuntimeVisibleTypeAnnotations:
+  0: #18(): CLASS_TYPE_PARAMETER, param_index=0
+    Full$Marker
+NestHost: class Full
+InnerClasses:
+  public static #16= #15 of #33;          // Marker=class Full$Marker of class Full
+  public static #25= #24 of #33;          // Annotated=class Full$Annotated of class Full
+  public static #36= #2 of #33;           // Inner=class Full$Inner of class Full
