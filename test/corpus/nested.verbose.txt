@@ -70,8 +70,6 @@ InnerClasses:
           (md5))
         (header_info_compile))
       (class_info_def
-        (modifiers
-          (MISSING "public"))
         (class_keyword)
         (identifier)
         (class_info_item

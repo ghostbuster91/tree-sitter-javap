@@ -9,7 +9,7 @@ const PREC = {
 module.exports = grammar({
   name: 'javap',
 
-  //word: $ => $._identifier,
+  word: $ => $._identifier,
 
   conflicts: $ => [
     [$.modifiers, $._type],
@@ -40,6 +40,7 @@ module.exports = grammar({
       optional($.modifiers),
       $.class_keyword, 
       $.identifier,
+      optional($.type_parameters),
       $.class_def_plain_body,
     ),
 
@@ -91,7 +92,13 @@ module.exports = grammar({
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
-	optional($.code_def)
+	optional($.exceptions),
+	optional($.code_def),
+    ),
+
+    exceptions: $=> seq(
+	'Exceptions:',
+	$.method_throws
     ),
 
     static_block_def: $=> seq(
@@ -276,10 +283,17 @@ module.exports = grammar({
     number: $ => token(/\d+/),
 
     footer: $=> seq(
+	optional($.signature),
 	$.source_file_def,
 	optional($.nested_members),
-	optional($.inner_classes),
 	optional($.nest_host),
+	optional($.inner_classes),
+    ),
+
+    signature: $=> seq(
+	'Signature:',
+	$._hash_number,
+	$.comment,
     ),
 
     source_file_def: $ => seq(
@@ -395,6 +409,7 @@ module.exports = grammar({
 	   optional($.modifiers),
 	   choice($.class_keyword, $.interface_keyword),
 	   $.identifier, 
+	   optional($.type_parameters),
 	   repeat($.class_info_item)),
 
    class_info_item : $=> choice(

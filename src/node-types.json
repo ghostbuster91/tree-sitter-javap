@@ -110,6 +110,10 @@
         {
           "type": "modifiers",
           "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
         }
       ]
     }
@@ -169,6 +173,10 @@
           "named": true
         },
         {
+          "type": "exceptions",
+          "named": true
+        },
+        {
           "type": "field_def",
           "named": true
         },
@@ -213,6 +221,10 @@
         },
         {
           "type": "modifiers",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
           "named": true
         }
       ]
@@ -373,6 +385,21 @@
     "fields": {}
   },
   {
+    "type": "exceptions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "method_throws",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "field_def",
     "named": true,
     "fields": {},
@@ -453,6 +480,10 @@
         },
         {
           "type": "nested_members",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -821,6 +852,25 @@
     }
   },
   {
+    "type": "signature",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -1112,6 +1162,10 @@
     "named": false
   },
   {
+    "type": "Exceptions:",
+    "named": false
+  },
+  {
     "type": "Fieldref",
     "named": false
   },
@@ -1153,6 +1207,10 @@
   },
   {
     "type": "NestMembers:",
+    "named": false
+  },
+  {
+    "type": "Signature:",
     "named": false
   },
   {

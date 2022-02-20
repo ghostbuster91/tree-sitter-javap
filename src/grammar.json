@@ -1,5 +1,6 @@
 {
   "name": "javap",
+  "word": "_identifier",
   "rules": {
     "source_file": {
       "type": "CHOICE",
@@ -86,6 +87,18 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type_parameters"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -300,12 +313,37 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "exceptions"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "code_def"
             },
             {
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "exceptions": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Exceptions:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "method_throws"
         }
       ]
     },
@@ -1154,6 +1192,18 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "signature"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "source_file_def"
         },
@@ -1174,7 +1224,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "inner_classes"
+              "name": "nest_host"
             },
             {
               "type": "BLANK"
@@ -1186,12 +1236,29 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "nest_host"
+              "name": "inner_classes"
             },
             {
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "signature": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Signature:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
         }
       ]
     },
@@ -2059,6 +2126,18 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type_parameters"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "REPEAT",
