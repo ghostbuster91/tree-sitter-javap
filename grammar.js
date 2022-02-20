@@ -403,14 +403,34 @@ module.exports = grammar({
 	    '(',
 	    $._hash_number,
 	    '=',
-	    'e',
-	    $.ref_const_pool_item,
+	    $.runtime_annotation_element_value,
 	    ')',
 	    $._endl,
 	    $.scoped_identifier,
 	    $.runtime_annotation_args,
 	    $._endl,
-	  ),
+    ),
+
+    runtime_annotation_element_value: $=> choice(
+	$.runtime_annotation_element_value_array,
+	$._runtime_annotation_element_value_simple,
+    ),
+    runtime_annotation_element_value_array: $=> seq(
+	    '[',
+	    commaSep1($._runtime_annotation_element_value_simple),
+	    ']'
+    ),
+    _runtime_annotation_element_value_simple: $=> seq(
+	    $.runtime_annotation_element_value_tag,
+	    $.ref_const_pool_item,
+    ),
+    runtime_annotation_element_value_tag: $=> choice(
+	'e', //enum constant
+	's', //string
+	'c', //class
+	'@', //annotation
+    ),
+    
 
     runtime_annotation_args: $=> seq(
 	    '(',

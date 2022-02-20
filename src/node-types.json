@@ -612,11 +612,11 @@
           "named": true
         },
         {
-          "type": "ref_const_pool_item",
+          "type": "runtime_annotation_args",
           "named": true
         },
         {
-          "type": "runtime_annotation_args",
+          "type": "runtime_annotation_element_value",
           "named": true
         },
         {
@@ -1048,6 +1048,53 @@
     }
   },
   {
+    "type": "runtime_annotation_element_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ref_const_pool_item",
+          "named": true
+        },
+        {
+          "type": "runtime_annotation_element_value_array",
+          "named": true
+        },
+        {
+          "type": "runtime_annotation_element_value_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_annotation_element_value_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ref_const_pool_item",
+          "named": true
+        },
+        {
+          "type": "runtime_annotation_element_value_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_annotation_element_value_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "runtime_visible_annotations",
     "named": true,
     "fields": {},
@@ -1461,6 +1508,10 @@
     "named": false
   },
   {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "AnnotationDefault:",
     "named": false
   },
@@ -1581,6 +1632,10 @@
     "named": false
   },
   {
+    "type": "c",
+    "named": false
+  },
+  {
     "type": "char",
     "named": false
   },
@@ -1686,6 +1741,10 @@
   },
   {
     "type": "public",
+    "named": false
+  },
+  {
+    "type": "s",
     "named": false
   },
   {

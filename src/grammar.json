@@ -1727,12 +1727,8 @@
           "value": "="
         },
         {
-          "type": "STRING",
-          "value": "e"
-        },
-        {
           "type": "SYMBOL",
-          "name": "ref_const_pool_item"
+          "name": "runtime_annotation_element_value"
         },
         {
           "type": "STRING",
@@ -1753,6 +1749,91 @@
         {
           "type": "SYMBOL",
           "name": "_endl"
+        }
+      ]
+    },
+    "runtime_annotation_element_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "runtime_annotation_element_value_array"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_runtime_annotation_element_value_simple"
+        }
+      ]
+    },
+    "runtime_annotation_element_value_array": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_runtime_annotation_element_value_simple"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_runtime_annotation_element_value_simple"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "_runtime_annotation_element_value_simple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "runtime_annotation_element_value_tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ref_const_pool_item"
+        }
+      ]
+    },
+    "runtime_annotation_element_value_tag": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "e"
+        },
+        {
+          "type": "STRING",
+          "value": "s"
+        },
+        {
+          "type": "STRING",
+          "value": "c"
+        },
+        {
+          "type": "STRING",
+          "value": "@"
         }
       ]
     },

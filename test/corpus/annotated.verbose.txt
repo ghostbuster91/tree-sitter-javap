@@ -1,10 +1,10 @@
-====================
+===================
 Annotated verbose
-====================
+===================
 
 Classfile /home/kghost/workspace/tree-sitter-javap/example/Annotated.class
-  Last modified Feb 20, 2022; size 393 bytes
-  MD5 checksum 1bd0fa9180618f7452e5bbdc179fe693
+  Last modified Feb 20, 2022; size 497 bytes
+  MD5 checksum f5a12aa6ef81fdf32c4af07519b38efe
   Compiled from "Annotated.java"
 public interface Annotated extends java.lang.annotation.Annotation
   minor version: 0
@@ -14,9 +14,9 @@ public interface Annotated extends java.lang.annotation.Annotation
   super_class: #2                         // java/lang/Object
   interfaces: 1, fields: 0, methods: 1, attributes: 2
 Constant pool:
-   #1 = Class              #17            // Annotated
-   #2 = Class              #18            // java/lang/Object
-   #3 = Class              #19            // java/lang/annotation/Annotation
+   #1 = Class              #21            // Annotated
+   #2 = Class              #22            // java/lang/Object
+   #3 = Class              #23            // java/lang/annotation/Annotation
    #4 = Utf8               explode
    #5 = Utf8               ()I
    #6 = Utf8               AnnotationDefault
@@ -30,9 +30,13 @@ Constant pool:
   #14 = Utf8               value
   #15 = Utf8               Ljava/lang/annotation/RetentionPolicy;
   #16 = Utf8               RUNTIME
-  #17 = Utf8               Annotated
-  #18 = Utf8               java/lang/Object
-  #19 = Utf8               java/lang/annotation/Annotation
+  #17 = Utf8               Ljava/lang/annotation/Target;
+  #18 = Utf8               Ljava/lang/annotation/ElementType;
+  #19 = Utf8               TYPE
+  #20 = Utf8               METHOD
+  #21 = Utf8               Annotated
+  #22 = Utf8               java/lang/Object
+  #23 = Utf8               java/lang/annotation/Annotation
 {
   public abstract int explode();
     descriptor: ()I
@@ -51,11 +55,14 @@ RuntimeVisibleAnnotations:
     java.lang.annotation.Retention(
       value=Ljava/lang/annotation/RetentionPolicy;.RUNTIME
     )
-
+  1: #17(#14=[e#18.#19,e#18.#20])
+    java.lang.annotation.Target(
+      value=[Ljava/lang/annotation/ElementType;.TYPE,Ljava/lang/annotation/ElementType;.METHOD]
+    )
 
 -------------------
 
-  (source_file
+   (source_file
       (header
         (header_info
           (file_path))
@@ -165,6 +172,18 @@ RuntimeVisibleAnnotations:
           (value))
         (constant_pool_item
           (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
           (value)))
       (block
         (method_def
@@ -194,9 +213,35 @@ RuntimeVisibleAnnotations:
             (number)
             (number)
             (number)
-            (ref_const_pool_item
-              (number)
-              (number))
+            (runtime_annotation_element_value
+              (runtime_annotation_element_value_tag)
+              (ref_const_pool_item
+                (number)
+                (number)))
+            (scoped_identifier
+              (scoped_identifier
+                (scoped_identifier
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (identifier))
+            (runtime_annotation_args
+              (identifier)
+              (value)))
+          (footer_runtime_annotation
+            (number)
+            (number)
+            (number)
+            (runtime_annotation_element_value
+              (runtime_annotation_element_value_array
+                (runtime_annotation_element_value_tag)
+                (ref_const_pool_item
+                  (number)
+                  (number))
+                (runtime_annotation_element_value_tag)
+                (ref_const_pool_item
+                  (number)
+                  (number))))
             (scoped_identifier
               (scoped_identifier
                 (scoped_identifier
