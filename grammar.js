@@ -41,6 +41,8 @@ module.exports = grammar({
       $.class_keyword, 
       $.identifier,
       optional($.type_parameters),
+      optional(field('superclass', $.superclass)),
+      optional(field('interfaces', $.super_interfaces)),
       $.class_def_plain_body,
     ),
 
@@ -49,7 +51,24 @@ module.exports = grammar({
 	$.interface_keyword,
 	$.identifier,
 	optional($.type_parameters),
-	$.class_def_plain_body
+	optional(field('superclass', $.superclass)),
+        optional(field('interfaces', $.super_interfaces)),
+	$.class_def_plain_body,
+    ),
+
+    superclass: $ => seq(
+      'extends',
+      $._type
+    ),
+
+    super_interfaces: $ => seq(
+      'implements',
+      $.interface_type_list
+    ),
+
+    interface_type_list: $ => seq(
+      $._type,
+      repeat(seq(',', $._type))
     ),
 
     interface_keyword: $=> 'interface',
