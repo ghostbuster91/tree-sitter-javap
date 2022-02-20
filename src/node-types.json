@@ -257,6 +257,11 @@
     }
   },
   {
+    "type": "class_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "code_def",
     "named": true,
     "fields": {},
@@ -440,6 +445,10 @@
       "types": [
         {
           "type": "inner_classes",
+          "named": true
+        },
+        {
+          "type": "nest_host",
           "named": true
         },
         {
@@ -714,6 +723,21 @@
     "type": "modifiers",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "nest_host",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "nested_members",
@@ -1124,6 +1148,10 @@
     "named": false
   },
   {
+    "type": "NestHost:",
+    "named": false
+  },
+  {
     "type": "NestMembers:",
     "named": false
   },
@@ -1160,8 +1188,8 @@
     "named": false
   },
   {
-    "type": "class_keyword",
-    "named": true
+    "type": "class",
+    "named": false
   },
   {
     "type": "comment",

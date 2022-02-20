@@ -278,7 +278,8 @@ module.exports = grammar({
     footer: $=> seq(
 	$.source_file_def,
 	optional($.nested_members),
-	optional($.inner_classes,)
+	optional($.inner_classes),
+	optional($.nest_host),
     ),
 
     source_file_def: $ => seq(
@@ -303,6 +304,12 @@ module.exports = grammar({
 		';',
 		$.comment,
 	)),
+    ),
+
+    nest_host: $=> seq(
+	'NestHost:',
+	'class',
+	$.identifier,
     ),
 
     comment: $ => token(seq('//', /[^\n\r]*/)),
@@ -385,7 +392,8 @@ module.exports = grammar({
    class_keyword: $ => 'class',
 
    class_info_def: $=> seq(
-	   choice(seq($.modifiers, $.class_keyword), $.interface_keyword),
+	   optional($.modifiers),
+	   choice($.class_keyword, $.interface_keyword),
 	   $.identifier, 
 	   repeat($.class_info_item)),
 
