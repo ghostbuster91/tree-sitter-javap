@@ -1031,6 +1031,14 @@
     "named": false
   },
   {
+    "type": "Float",
+    "named": false
+  },
+  {
+    "type": "InterfaceMethodref",
+    "named": false
+  },
+  {
     "type": "Last modified",
     "named": false
   },

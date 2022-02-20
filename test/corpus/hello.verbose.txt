@@ -132,9 +132,9 @@ SourceFile: "Hello.java"
       (block
         (class_definition
           (method_def
-	    (modifiers)
-	    (type)
-	    (args))
+            (modifiers)
+            (type_identifier)
+            (args))
           (descriptor_def
             (descriptor_value))
           (flag_def
@@ -165,10 +165,16 @@ SourceFile: "Hello.java"
                 (number))))
           (method_def
             (modifiers)
-            (type)
+            (primitive_type)
             (identifier)
             (args
-              (type)))
+              (array_type
+                (scoped_type_identifier
+                  (scoped_type_identifier
+                    (type_identifier)
+                    (type_identifier))
+                  (type_identifier))
+                (dimensions))))
           (descriptor_def
             (descriptor_value))
           (flag_def

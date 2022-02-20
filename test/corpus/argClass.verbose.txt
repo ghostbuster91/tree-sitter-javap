@@ -96,7 +96,7 @@ SourceFile: "ArgClass.java"
 
 -----------------------------
 
-  (source_file
+    (source_file
       (header
         (header_info
           (file_path))
@@ -271,7 +271,7 @@ SourceFile: "ArgClass.java"
         (class_definition
           (field_def
             (modifiers)
-            (type)
+            (primitive_type)
             (identifier))
           (descriptor_def
             (descriptor_value))
@@ -280,7 +280,11 @@ SourceFile: "ArgClass.java"
             (flag_value))
           (field_def
             (modifiers)
-            (type)
+            (scoped_type_identifier
+              (scoped_type_identifier
+                (type_identifier)
+                (type_identifier))
+              (type_identifier))
             (identifier))
           (descriptor_def
             (descriptor_value))
@@ -290,9 +294,9 @@ SourceFile: "ArgClass.java"
             (flag_value))
           (method_def
             (modifiers)
-            (type)
+            (type_identifier)
             (args
-              (type)))
+              (primitive_type)))
           (descriptor_def
             (descriptor_value))
           (flag_def

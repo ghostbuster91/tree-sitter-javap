@@ -111,7 +111,7 @@ SourceFile: "IHello.java"
         (class_definition
           (method_def
             (modifiers)
-            (type)
+            (primitive_type)
             (identifier)
             (args))
           (descriptor_def
@@ -139,7 +139,7 @@ SourceFile: "IHello.java"
                 (number))))
           (method_def
             (modifiers)
-            (type)
+            (primitive_type)
             (identifier)
             (args))
           (descriptor_def

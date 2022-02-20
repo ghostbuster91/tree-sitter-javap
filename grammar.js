@@ -289,27 +289,69 @@ module.exports = grammar({
      $._constant_pool_item_type_utf8,
      $._constant_pool_item_type_class,
      $._constant_pool_item_type_string,
-     $._constant_pool_item_type_method_ref,
-     $._constant_pool_item_type_field_ref,
+     $._constant_pool_item_type_ref,
      $._constant_pool_item_type_name_and_type,
      $._constant_pool_item_type_double,
    ),
 
-   _constant_pool_item_type_utf8: $ => seq('Utf8', /[^\n\r]*/),
-   _constant_pool_item_type_class: $ => seq('Class', $._hash_number, optional($.comment)), 
-   _constant_pool_item_type_string: $ => seq('String', $._hash_number, optional($.comment)),   
-   _constant_pool_item_type_method_ref: $=> seq('Methodref', $._hash_number, '.', $._hash_number, optional($.comment)),
-   _constant_pool_item_type_field_ref: $=> seq('Fieldref', $._hash_number, '.', $._hash_number, optional($.comment)),
+   _constant_pool_item_type_utf8: $ => seq(
+	   'Utf8', 
+	   /[^\n\r]*/
+   ),
+   _constant_pool_item_type_class: $ => seq(
+	   'Class', 
+	   $._hash_number, 
+	   optional($.comment)
+   ), 
+   _constant_pool_item_type_string: $ => seq(
+	   'String', 
+	   $._hash_number, 
+	   optional($.comment)
+   ),   
+   _constant_pool_item_type_ref: $=> seq(
+	   choice('Methodref', 'Fieldref', 'InterfaceMethodref'), 
+	   $._hash_number, 
+	   '.', 
+	   $._hash_number, 
+	   optional($.comment)
+   ),
 
-   _constant_pool_item_type_name_and_type: $=> seq('NameAndType',$._hash_number, ':', $._hash_number, optional($.comment)),
+   _constant_pool_item_type_name_and_type: $=> seq(
+	   'NameAndType',
+	   $._hash_number, 
+	   ':', 
+	   $._hash_number, 
+	   optional($.comment)
+   ),
 
-   _constant_pool_item_type_double: $=> seq('Double', $.decimal_floating_point_literal),
+   _constant_pool_item_type_double: $=> seq(
+	   choice('Double', 'Float'), 
+	   $.decimal_floating_point_literal
+   ),
 
     decimal_floating_point_literal: $ => token(choice(
-      seq(DIGITS, '.', optional(DIGITS), optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), optional(/[fFdD]/)),
-      seq('.', DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), optional(/[fFdD]/)),
-      seq(DIGITS, /[eEpP]/, optional(choice('-', '+')), DIGITS, optional(/[fFdD]/)),
-      seq(DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)), (/[fFdD]/))
+      seq(
+	      DIGITS, 
+	      '.', 
+	      optional(DIGITS),
+	      optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)),
+	      optional(/[fFdD]/)
+      ),
+      seq(
+	      '.',
+	      DIGITS, 
+	      optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)),
+	      optional(/[fFdD]/)
+      ),
+      seq(
+	      DIGITS, 
+	      /[eEpP]/, 
+	      optional(choice('-', '+')), DIGITS, optional(/[fFdD]/)
+      ),
+      seq(
+	      DIGITS, 
+	      optional(seq((/[eE]/), optional(choice('-', '+')), DIGITS)),
+	      (/[fFdD]/))
     )),
 
    class_keyword: $ => 'class',

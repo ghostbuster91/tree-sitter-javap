@@ -57,3 +57,6 @@ NestMembers:
 InnerClasses:
   protected static #5= #4 of #2;          // Inner3=class Nested$Inner3 of class Nested
   public abstract #10= #9 of #2;          // Inner=class Nested$Inner of class Nested
+
+
+---------------------------

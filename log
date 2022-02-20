@@ -1,78 +1,29 @@
-===============================
-  Hello World verbose
-===============================
+  nestedInner:
+  iHello:
+  hello.verbose:
+  nestedInner2.verbose:
+  helloWorld.verbose:
+  iHello.verbose:
+  abstractFactory:
+  nestedInner3:
+  nestedInner.verbose:
+  argClass:
+  abstractFactory.verbose:
+  argClass.verbose:
+    ✗ [31mArgClass verbose[0m
+  hello:
+  nestedInner3.verbose:
+  nested:
+  nested.verbose:
+  nestedInner2:
 
-Classfile /home/kghost/workspace/tree-sitter-javap/example/HelloWorld.class
-  Last modified Feb 6, 2022; size 426 bytes
-  MD5 checksum 4bd79f48c1ebd8e2b2748709e2266e2c
-  Compiled from "HelloWorld.java"
-public class HelloWorld
-  minor version: 0
-  major version: 55
-  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
-  this_class: #5                          // HelloWorld
-  super_class: #6                         // java/lang/Object
-  interfaces: 0, fields: 0, methods: 2, attributes: 1
-Constant pool:
-   #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
-   #2 = Fieldref           #16.#17        // java/lang/System.out:Ljava/io/PrintStream;
-   #3 = String             #18            // Hello World!
-   #4 = Methodref          #19.#20        // java/io/PrintStream.println:(Ljava/lang/String;)V
-   #5 = Class              #21            // HelloWorld
-   #6 = Class              #22            // java/lang/Object
-   #7 = Utf8               <init>
-   #8 = Utf8               ()V
-   #9 = Utf8               Code
-  #10 = Utf8               LineNumberTable
-  #11 = Utf8               main
-  #12 = Utf8               ([Ljava/lang/String;)V
-  #13 = Utf8               SourceFile
-  #14 = Utf8               HelloWorld.java
-  #15 = NameAndType        #7:#8          // "<init>":()V
-  #16 = Class              #23            // java/lang/System
-  #17 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
-  #18 = Utf8               Hello World!
-  #19 = Class              #26            // java/io/PrintStream
-  #20 = NameAndType        #27:#28        // println:(Ljava/lang/String;)V
-  #21 = Utf8               HelloWorld
-  #22 = Utf8               java/lang/Object
-  #23 = Utf8               java/lang/System
-  #24 = Utf8               out
-  #25 = Utf8               Ljava/io/PrintStream;
-  #26 = Utf8               java/io/PrintStream
-  #27 = Utf8               println
-  #28 = Utf8               (Ljava/lang/String;)V
-{
-  public HelloWorld();
-    descriptor: ()V
-    flags: (0x0001) ACC_PUBLIC
-    Code:
-      stack=1, locals=1, args_size=1
-         0: aload_0
-         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
-         4: return
-      LineNumberTable:
-        line 1: 0
+1 failure:
 
-  public static void main(java.lang.String[]);
-    descriptor: ([Ljava/lang/String;)V
-    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
-    Code:
-      stack=2, locals=1, args_size=1
-         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
-         3: ldc           #3                  // String Hello World!
-         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-         8: return
-      LineNumberTable:
-        line 5: 0
-        line 6: 8
-}
-SourceFile: "HelloWorld.java"
+[32mexpected[0m / [31mactual[0m
 
-
-----------------------------
-
-   (source_file
+  1. ArgClass verbose:
+[31m
+    (source_file
       (header
         (header_info
           (file_path))
@@ -94,6 +45,7 @@ SourceFile: "HelloWorld.java"
           (flag_def
             (hex_value)
             (flag_value)
+            (flag_value)
             (flag_value)))
         (class_info_item
           (class_info_item_simple
@@ -112,6 +64,14 @@ SourceFile: "HelloWorld.java"
       (constant_pool_def
         (constant_pool_item
           (number)
+          (decimal_floating_point_literal))
+        (constant_pool_item
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
           (number)
           (number)
           (comment))
@@ -123,42 +83,15 @@ SourceFile: "HelloWorld.java"
         (constant_pool_item
           (number)
           (number)
-          (comment))
-        (constant_pool_item
-          (number)
-          (number)
           (number)
           (comment))
-        (constant_pool_item
-          (number)
-          (number)
-          (comment))
-        (constant_pool_item
-          (number)
-          (number)
-          (comment))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
         (constant_pool_item
           (number)
           (number)
           (number)
           (comment))
         (constant_pool_item
+          (number)
           (number)
           (number)
           (comment))
@@ -168,6 +101,49 @@ SourceFile: "HelloWorld.java"
           (number)
           (comment))
         (constant_pool_item
+          (number)
+          (decimal_floating_point_literal))
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
+          (number))
+        (constant_pool_item
           (number))
         (constant_pool_item
           (number)
@@ -179,11 +155,35 @@ SourceFile: "HelloWorld.java"
           (number)
           (comment))
         (constant_pool_item
-          (number))
+          (number)
+          (number)
+          (number)
+          (comment))
         (constant_pool_item
-          (number))
+          (number)
+          (number)
+          (number)
+          (comment))
         (constant_pool_item
-          (number))
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (number)
+          (comment))
+        (constant_pool_item
+          (number)
+          (number)
+          (number)
+          (comment))
         (constant_pool_item
           (number))
         (constant_pool_item
@@ -196,10 +196,34 @@ SourceFile: "HelloWorld.java"
           (number)))
       (block
         (class_definition
+          (field_def
+            (modifiers)
+            (primitive_type)
+            (identifier))
+          (descriptor_def
+            (descriptor_value))
+          (flag_def
+            (hex_value)
+            (flag_value))
+          (field_def
+            (modifiers)
+            (scoped_type_identifier
+              (scoped_type_identifier
+                (type_identifier)
+                (type_identifier))
+              (type_identifier))
+            (identifier))
+          (descriptor_def
+            (descriptor_value))
+          (flag_def
+            (hex_value)
+            (flag_value)
+            (flag_value))
           (method_def
             (modifiers)
             (type_identifier)
-            (args))
+            (args
+              (primitive_type)))
           (descriptor_def
             (descriptor_value))
           (flag_def
@@ -218,6 +242,25 @@ SourceFile: "HelloWorld.java"
                 (instruction))
               (numered_instruction
                 (number)
+                (instruction))
+              (numered_instruction
+                (number)
+                (instruction))
+              (numered_instruction
+                (number)
+                (instruction
+                  (number))
+                (comment))
+              (numered_instruction
+                (number)
+                (instruction))
+              (numered_instruction
+                (number)
+                (instruction
+                  (number))
+                (comment))
+              (numered_instruction
+                (number)
                 (instruction
                   (number))
                 (comment))
@@ -227,24 +270,16 @@ SourceFile: "HelloWorld.java"
             (line_number_table_def
               (numered_line
                 (number)
+                (number))
+              (numered_line
+                (number)
                 (number))))
-          (method_def
-            (modifiers)
-            (primitive_type)
-            (identifier)
-            (args
-              (array_type
-                (scoped_type_identifier
-                  (scoped_type_identifier
-                    (type_identifier)
-                    (type_identifier))
-                  (type_identifier))
-                (dimensions))))
+          (static_block_def
+            (modifiers))
           (descriptor_def
             (descriptor_value))
           (flag_def
             (hex_value)
-            (flag_value)
             (flag_value))
           (code_def
             (code_info
@@ -266,18 +301,11 @@ SourceFile: "HelloWorld.java"
                 (comment))
               (numered_instruction
                 (number)
-                (instruction
-                  (number))
-                (comment))
-              (numered_instruction
-                (number)
                 (instruction)))
             (line_number_table_def
               (numered_line
                 (number)
-                (number))
-              (numered_line
-                (number)
                 (number))))))
-      (source_file_def))
+      (source_file_def))[0m
+[32m)[0m
 
