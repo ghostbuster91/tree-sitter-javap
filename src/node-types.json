@@ -1,5 +1,24 @@
 [
   {
+    "type": "annotation_default",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "args",
     "named": true,
     "fields": {},
@@ -77,15 +96,56 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "class_definition",
+          "type": "annotation_default",
+          "named": true
+        },
+        {
+          "type": "code_def",
+          "named": true
+        },
+        {
+          "type": "deprecated",
+          "named": true
+        },
+        {
+          "type": "descriptor_def",
+          "named": true
+        },
+        {
+          "type": "exceptions",
+          "named": true
+        },
+        {
+          "type": "field_def",
+          "named": true
+        },
+        {
+          "type": "flag_def",
+          "named": true
+        },
+        {
+          "type": "method_def",
+          "named": true
+        },
+        {
+          "type": "runtime_visible_annotations",
+          "named": true
+        },
+        {
+          "type": "static_block_def",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "class_def_plain",
@@ -178,48 +238,30 @@
     }
   },
   {
-    "type": "class_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "code_def",
-          "named": true
-        },
-        {
-          "type": "descriptor_def",
-          "named": true
-        },
-        {
-          "type": "exceptions",
-          "named": true
-        },
-        {
-          "type": "field_def",
-          "named": true
-        },
-        {
-          "type": "flag_def",
-          "named": true
-        },
-        {
-          "type": "method_def",
-          "named": true
-        },
-        {
-          "type": "static_block_def",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "class_info_def",
     "named": true,
-    "fields": {},
+    "fields": {
+      "interfaces": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "super_interfaces",
+            "named": true
+          }
+        ]
+      },
+      "superclass": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "superclass",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -375,11 +417,30 @@
           "named": true
         },
         {
-          "type": "decimal_floating_point_literal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "number",
+          "type": "ref_const_pool_item",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "deprecated",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_literal",
           "named": true
         }
       ]
@@ -497,6 +558,10 @@
       "required": true,
       "types": [
         {
+          "type": "footer_annotations",
+          "named": true
+        },
+        {
           "type": "inner_classes",
           "named": true
         },
@@ -514,6 +579,48 @@
         },
         {
           "type": "source_file_def",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "footer_runtime_annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_runtime_annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "ref_const_pool_item",
+          "named": true
+        },
+        {
+          "type": "runtime_annotation_args",
+          "named": true
+        },
+        {
+          "type": "scoped_identifier",
           "named": true
         }
       ]
@@ -907,6 +1014,89 @@
     "fields": {}
   },
   {
+    "type": "ref_const_pool_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_annotation_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scoped_identifier",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "scope": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "scoped_type_identifier",
     "named": true,
     "fields": {},
@@ -1167,6 +1357,11 @@
     }
   },
   {
+    "type": "value",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "wildcard",
     "named": true,
     "fields": {},
@@ -1222,6 +1417,10 @@
     "named": false
   },
   {
+    "type": "()",
+    "named": false
+  },
+  {
     "type": ")",
     "named": false
   },
@@ -1262,6 +1461,10 @@
     "named": false
   },
   {
+    "type": "AnnotationDefault:",
+    "named": false
+  },
+  {
     "type": "Class",
     "named": false
   },
@@ -1282,6 +1485,10 @@
     "named": false
   },
   {
+    "type": "Deprecated:",
+    "named": false
+  },
+  {
     "type": "Double",
     "named": false
   },
@@ -1299,6 +1506,10 @@
   },
   {
     "type": "InnerClasses:",
+    "named": false
+  },
+  {
+    "type": "Integer",
     "named": false
   },
   {
@@ -1331,6 +1542,10 @@
   },
   {
     "type": "NestMembers:",
+    "named": false
+  },
+  {
+    "type": "RuntimeVisibleAnnotations:",
     "named": false
   },
   {
@@ -1378,11 +1593,11 @@
     "named": true
   },
   {
-    "type": "decimal_floating_point_literal",
-    "named": true
+    "type": "default",
+    "named": false
   },
   {
-    "type": "default",
+    "type": "default_value:",
     "named": false
   },
   {
@@ -1398,7 +1613,15 @@
     "named": false
   },
   {
+    "type": "e",
+    "named": false
+  },
+  {
     "type": "extends",
+    "named": false
+  },
+  {
+    "type": "false",
     "named": false
   },
   {
@@ -1487,6 +1710,10 @@
   },
   {
     "type": "transient",
+    "named": false
+  },
+  {
+    "type": "true",
     "named": false
   },
   {

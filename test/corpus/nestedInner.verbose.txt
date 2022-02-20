@@ -73,8 +73,7 @@ InnerClasses:
 
 ------------------------
 
-
-    (source_file
+ (source_file
       (header
         (header_info
           (file_path))
@@ -115,152 +114,178 @@ InnerClasses:
       (constant_pool_def
         (constant_pool_item
           (number)
-          (number)
-          (number)
+          (ref_const_pool_item
+            (number)
+            (number))
           (comment))
         (constant_pool_item
           (number)
-          (number)
-          (number)
+          (ref_const_pool_item
+            (number)
+            (number))
           (comment))
         (constant_pool_item
           (number)
-          (number)
+          (ref_const_pool_item
+            (number))
           (comment))
         (constant_pool_item
           (number)
-          (number)
-          (comment))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number))
-        (constant_pool_item
-          (number)
-          (number)
+          (ref_const_pool_item
+            (number))
           (comment))
         (constant_pool_item
           (number)
+          (value))
+        (constant_pool_item
           (number)
+          (value))
+        (constant_pool_item
           (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (ref_const_pool_item
+            (number))
           (comment))
         (constant_pool_item
           (number)
-          (number)
-          (number)
+          (ref_const_pool_item
+            (number))
+          (ref_const_pool_item
+            (number))
           (comment))
         (constant_pool_item
-          (number))
+          (number)
+          (ref_const_pool_item
+            (number))
+          (ref_const_pool_item
+            (number))
+          (comment))
         (constant_pool_item
-          (number))
+          (number)
+          (value))
         (constant_pool_item
-          (number))
+          (number)
+          (value))
         (constant_pool_item
-          (number))
+          (number)
+          (value))
         (constant_pool_item
-          (number)))
+          (number)
+          (value))
+        (constant_pool_item
+          (number)
+          (value)))
       (block
-        (class_definition
-          (field_def
-            (modifiers)
+        (field_def
+          (modifiers)
+          (scoped_type_identifier
             (scoped_type_identifier
-              (scoped_type_identifier
-                (type_identifier)
-                (type_identifier))
+              (type_identifier)
               (type_identifier))
-            (identifier))
-          (descriptor_def
-            (descriptor_value))
-          (flag_def
-            (hex_value)
-            (flag_value))
-          (field_def
-            (modifiers)
-            (type_identifier)
-            (identifier))
-          (descriptor_def
-            (descriptor_value))
-          (flag_def
-            (hex_value)
-            (flag_value)
-            (flag_value))
-          (method_def
-            (modifiers)
-            (type_identifier)
-            (args
-              (type_identifier)))
-          (descriptor_def
-            (descriptor_value))
-          (flag_def
-            (hex_value)
-            (flag_value))
-          (code_def
-            (code_info
-              (code_info_stat
+            (type_identifier))
+          (identifier))
+        (descriptor_def
+          (descriptor_value))
+        (flag_def
+          (hex_value)
+          (flag_value))
+        (field_def
+          (modifiers)
+          (type_identifier)
+          (identifier))
+        (descriptor_def
+          (descriptor_value))
+        (flag_def
+          (hex_value)
+          (flag_value)
+          (flag_value))
+        (method_def
+          (modifiers)
+          (type_identifier)
+          (args
+            (type_identifier)))
+        (descriptor_def
+          (descriptor_value))
+        (flag_def
+          (hex_value)
+          (flag_value))
+        (code_def
+          (code_info
+            (code_info_stat
+              (number))
+            (code_info_stat
+              (number))
+            (code_info_stat
+              (number))
+            (numered_instruction
+              (number)
+              (instruction))
+            (numered_instruction
+              (number)
+              (instruction))
+            (numered_instruction
+              (number)
+              (instruction
                 (number))
-              (code_info_stat
+              (comment))
+            (numered_instruction
+              (number)
+              (instruction))
+            (numered_instruction
+              (number)
+              (instruction
                 (number))
-              (code_info_stat
-                (number))
-              (numered_instruction
-                (number)
-                (instruction))
-              (numered_instruction
-                (number)
-                (instruction))
-              (numered_instruction
-                (number)
-                (instruction
-                  (number))
-                (comment))
-              (numered_instruction
-                (number)
-                (instruction))
-              (numered_instruction
-                (number)
-                (instruction
-                  (number))
-                (comment))
-              (numered_instruction
-                (number)
-                (instruction)))
-            (line_number_table_def
-              (numered_line
-                (number)
-                (number))))
-          (method_def
-            (modifiers)
-            (primitive_type)
-            (identifier)
-            (args))
-          (descriptor_def
-            (descriptor_value))
-          (flag_def
-            (hex_value)
-            (flag_value)
-            (flag_value))))
+              (comment))
+            (numered_instruction
+              (number)
+              (instruction)))
+          (line_number_table_def
+            (numered_line
+              (number)
+              (number))))
+        (method_def
+          (modifiers)
+          (primitive_type)
+          (identifier)
+          (args))
+        (descriptor_def
+          (descriptor_value))
+        (flag_def
+          (hex_value)
+          (flag_value)
+          (flag_value)))
       (footer
         (source_file_def)
         (nest_host

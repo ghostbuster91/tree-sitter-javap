@@ -111,8 +111,39 @@ module.exports = grammar({
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
+	optional($.annotation_default),
+	optional($.deprecated),
+	optional($.runtime_visible_annotations),
 	optional($.exceptions),
-	optional($.code_def),
+	optional($.code_def), //TODO verify order of these
+    ),
+
+    annotation_default: $ => seq(
+      'AnnotationDefault:',
+      'default_value:',
+      /\w/,
+      $._hash_number,
+      $._endl,
+      alias($._rest_of_the_line, $.value),
+    ),
+
+    deprecated: $=> seq(
+     'Deprecated:',
+     $.boolean_literal,
+    ),
+
+    runtime_visible_annotations: $=> seq(
+	'RuntimeVisibleAnnotations:',
+	repeat1(
+		seq(
+		  $.number, 
+		  token.immediate(':'),
+		  $._hash_number,
+		  '()',
+		  $._endl,
+      		  alias($._rest_of_the_line, $.value),
+		)
+	),
     ),
 
     exceptions: $=> seq(
@@ -151,18 +182,6 @@ module.exports = grammar({
       'transient',
       'volatile'
     )),
-
-    class_definition: $ => repeat1(
-	    seq(
-		    choice(
-			    $.method_def,
-			    $.field_def,
-			    $.static_block_def,
-		    ),
-		    ';',
-		    $._method_def_verbose,
-	    ),
-    ),
 
     code_def: $ => seq('Code:', $.code_info, $.line_number_table_def),
 
@@ -289,15 +308,41 @@ module.exports = grammar({
 
     block: $ => seq(
       '{',
-      $.class_definition,
+      repeat1($._block_item),
       '}'
+    ),
+
+    _block_item: $=> seq(
+      choice(
+	$.method_def,
+	$.field_def,
+	$.static_block_def,
+      ),
+      ';',
+      $._method_def_verbose,
     ),
 
     identifier: $ => $._identifier,
 
     // https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-IdentifierChars
     _identifier: $ => /[\p{L}_$][\p{L}\p{Nd}_$]*/,
-    //_identifier: $ => token(sep1(/[a-zA-Z0-9]+/, '$')), 
+
+    scoped_identifier: $ => seq(
+      field('scope', $._name),
+      '.',
+      field('name', $.identifier)
+    ),
+
+    _name: $ => choice(
+      $.identifier,
+      $._reserved_identifier,
+      $.scoped_identifier
+    ),
+
+    _reserved_identifier: $ => alias(choice(
+      'open',
+      'module'
+    ), $.identifier),
 
     number: $ => token(/\d+/),
 
@@ -307,6 +352,7 @@ module.exports = grammar({
 	optional($.nested_members),
 	optional($.nest_host),
 	optional($.inner_classes),
+	optional($.footer_annotations), //TODO verify order of these
     ),
 
     signature: $=> seq(
@@ -345,6 +391,38 @@ module.exports = grammar({
 	$.identifier,
     ),
 
+    footer_annotations: $=> seq(
+	'RuntimeVisibleAnnotations:',
+	repeat1($.footer_runtime_annotation),
+    ),
+
+    footer_runtime_annotation: $=> seq(
+	    $.number,
+	    token.immediate(':'),
+	    $._hash_number,
+	    '(',
+	    $._hash_number,
+	    '=',
+	    'e',
+	    $.ref_const_pool_item,
+	    ')',
+	    $._endl,
+	    $.scoped_identifier,
+	    $.runtime_annotation_args,
+	    $._endl,
+	  ),
+
+    runtime_annotation_args: $=> seq(
+	    '(',
+	    $._endl,
+	      seq(
+		$.identifier,
+		token.immediate('='),
+		alias($._rest_of_the_line, $.value),
+	      ),
+	    ')',
+    ),
+
     comment: $ => token(seq('//', /[^\n\r]*/)),
 
     constant_pool_def: $=> seq('Constant pool:', repeat($.constant_pool_item)),
@@ -353,6 +431,12 @@ module.exports = grammar({
 
     constant_pool_item: $=> seq($._hash_number, '=', $._constant_pool_item_type),
 
+    ref_const_pool_item: $=> seq(
+      $._hash_number,
+      '.',
+      $._hash_number
+    ),
+
     _constant_pool_item_type : $=> choice(
      $._constant_pool_item_type_utf8,
      $._constant_pool_item_type_class,
@@ -360,41 +444,45 @@ module.exports = grammar({
      $._constant_pool_item_type_ref,
      $._constant_pool_item_type_name_and_type,
      $._constant_pool_item_type_double,
+     $._constant_pool_item_type_int,
    ),
 
    _constant_pool_item_type_utf8: $ => seq(
 	   'Utf8', 
-	   /[^\n\r]*/
+	   alias(/[^\n\r]*/, $.value),
    ),
    _constant_pool_item_type_class: $ => seq(
 	   'Class', 
-	   $._hash_number, 
+	   alias($._hash_number, $.ref_const_pool_item), 
 	   optional($.comment)
    ), 
    _constant_pool_item_type_string: $ => seq(
 	   'String', 
-	   $._hash_number, 
+	   alias($._hash_number, $.ref_const_pool_item), 
 	   optional($.comment)
    ),   
    _constant_pool_item_type_ref: $=> seq(
 	   choice('Methodref', 'Fieldref', 'InterfaceMethodref'), 
-	   $._hash_number, 
-	   '.', 
-	   $._hash_number, 
+	   $.ref_const_pool_item, 
 	   optional($.comment)
    ),
 
    _constant_pool_item_type_name_and_type: $=> seq(
 	   'NameAndType',
-	   $._hash_number, 
+	   alias($._hash_number, $.ref_const_pool_item), 
 	   ':', 
-	   $._hash_number, 
+	   alias($._hash_number, $.ref_const_pool_item), 
 	   optional($.comment)
    ),
 
    _constant_pool_item_type_double: $=> seq(
 	   choice('Double', 'Float'), 
-	   $.decimal_floating_point_literal
+	   alias($.decimal_floating_point_literal, $.value),
+   ),
+
+   _constant_pool_item_type_int: $=> seq(
+	'Integer',
+	alias($.number, $.value),
    ),
 
     decimal_floating_point_literal: $ => token(choice(
@@ -429,6 +517,8 @@ module.exports = grammar({
 	   choice($.class_keyword, $.interface_keyword),
 	   $.identifier, 
 	   optional($.type_parameters),
+	   optional(field('superclass', $.superclass)),
+           optional(field('interfaces', $.super_interfaces)),
 	   repeat($.class_info_item)),
 
    class_info_item : $=> choice(
@@ -466,7 +556,9 @@ module.exports = grammar({
 	   $.header_info_last_mod,
 	   $.header_info_md5,
 	   $.header_info_compile,
-   )
+   ),
+
+   boolean_literal: $=> choice('true', 'false'),
 
   } 
 });
