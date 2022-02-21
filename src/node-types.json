@@ -45,6 +45,10 @@
         {
           "type": "type_identifier",
           "named": true
+        },
+        {
+          "type": "vararg",
+          "named": true
         }
       ]
     }
@@ -1409,6 +1413,37 @@
     "fields": {}
   },
   {
+    "type": "vararg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "scoped_type_identifier",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "wildcard",
     "named": true,
     "fields": {},
@@ -1477,6 +1512,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": "...",
     "named": false
   },
   {

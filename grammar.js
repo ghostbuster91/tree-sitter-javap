@@ -111,11 +111,11 @@ module.exports = grammar({
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
+	optional($.code_def), //TODO verify order of these
 	optional($.annotation_default),
 	optional($.deprecated),
-	optional($.runtime_visible_annotations),
 	optional($.exceptions),
-	optional($.code_def), //TODO verify order of these
+	optional($.runtime_visible_annotations),
     ),
 
     annotation_default: $ => seq(
@@ -230,7 +230,7 @@ module.exports = grammar({
 
     args: $ => seq(
       '(',
-      commaSep($._type), 
+      commaSep(choice($._type, $.vararg)), 
       ')'
     ),
 
@@ -256,6 +256,8 @@ module.exports = grammar({
 	'[', ']',
       )
     )),
+
+    vararg: $=> seq($._type, token.immediate('...')),
 
     scoped_type_identifier: $ => seq(
       choice(
