@@ -111,7 +111,7 @@ module.exports = grammar({
     _method_def_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
-	optional($.code_def), //TODO verify order of these
+	optional($.code_def), 
 	optional($.annotation_default),
 	optional($.deprecated),
 	optional($.exceptions),
@@ -349,10 +349,10 @@ module.exports = grammar({
     footer: $=> seq(
 	optional($.signature),
 	$.source_file_def,
+	optional($.footer_annotations), 
 	optional($.nested_members),
 	optional($.nest_host),
 	optional($.inner_classes),
-	optional($.footer_annotations), //TODO verify order of these
     ),
 
     signature: $=> seq(

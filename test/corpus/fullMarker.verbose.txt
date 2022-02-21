@@ -1,3 +1,7 @@
+========================
+Full Marker verbose
+========================
+
 Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Full$Marker.class
   Last modified Feb 20, 2022; size 504 bytes
   MD5 checksum cc9033db6f8ca1ddf2bf259bd84cd385
@@ -50,3 +54,6 @@ RuntimeVisibleAnnotations:
 NestHost: class Full
 InnerClasses:
   public static #21= #1 of #19;           // Marker=class Full$Marker of class Full
+
+--------------------------
+

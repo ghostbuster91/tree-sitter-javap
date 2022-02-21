@@ -1553,6 +1553,18 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "footer_annotations"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "nested_members"
             },
             {
@@ -1578,18 +1590,6 @@
             {
               "type": "SYMBOL",
               "name": "inner_classes"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "footer_annotations"
             },
             {
               "type": "BLANK"
