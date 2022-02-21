@@ -136,7 +136,19 @@
           "named": true
         },
         {
+          "type": "method_def_verbose_sig",
+          "named": true
+        },
+        {
           "type": "runtime_visible_annotations",
+          "named": true
+        },
+        {
+          "type": "runtime_visible_paramter_annotations",
+          "named": true
+        },
+        {
+          "type": "runtime_visible_type_annotations",
           "named": true
         },
         {
@@ -612,6 +624,14 @@
       "required": true,
       "types": [
         {
+          "type": "footer_runtime_annotation_element_args",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -620,11 +640,41 @@
           "named": true
         },
         {
-          "type": "runtime_annotation_element_value",
+          "type": "scoped_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_runtime_annotation_element_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
           "named": true
         },
         {
-          "type": "scoped_identifier",
+          "type": "runtime_annotation_element_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_runtime_annotation_element_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "footer_runtime_annotation_element_arg",
           "named": true
         }
       ]
@@ -909,6 +959,25 @@
     }
   },
   {
+    "type": "method_def_verbose_sig",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "method_throws",
     "named": true,
     "fields": {},
@@ -1099,7 +1168,7 @@
     "fields": {}
   },
   {
-    "type": "runtime_visible_annotations",
+    "type": "runtime_visible_annotation",
     "named": true,
     "fields": {},
     "children": {
@@ -1112,6 +1181,112 @@
         },
         {
           "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "runtime_visible_annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_parameter_annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "runtime_visible_parameter_annotation_param",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_parameter_annotation_param",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_paramter_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "runtime_visible_parameter_annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_type_annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "target_kind",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "runtime_visible_type_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "runtime_visible_type_annotation",
           "named": true
         }
       ]
@@ -1639,6 +1814,14 @@
     "named": false
   },
   {
+    "type": "RuntimeVisibleParameterAnnotations:",
+    "named": false
+  },
+  {
+    "type": "RuntimeVisibleTypeAnnotations:",
+    "named": false
+  },
+  {
     "type": "Signature:",
     "named": false
   },
@@ -1771,6 +1954,10 @@
     "named": false
   },
   {
+    "type": "parameter",
+    "named": false
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -1801,6 +1988,10 @@
   {
     "type": "synchronized",
     "named": false
+  },
+  {
+    "type": "target_kind",
+    "named": true
   },
   {
     "type": "throws",

@@ -1,3 +1,7 @@
+=======================
+Full Inner verbose
+=======================
+
 Classfile /home/kghost/workspace/tree-sitter-javap/test/corpus/Full$Inner.class
   Last modified Feb 20, 2022; size 864 bytes
   MD5 checksum 79eb570a0cd03f7aca105d96bbc35db9
@@ -106,3 +110,6 @@ InnerClasses:
   public static #16= #15 of #33;          // Marker=class Full$Marker of class Full
   public static #25= #24 of #33;          // Annotated=class Full$Annotated of class Full
   public static #36= #2 of #33;           // Inner=class Full$Inner of class Full
+
+
+-----------------------

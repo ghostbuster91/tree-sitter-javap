@@ -115,8 +115,13 @@ module.exports = grammar({
 	optional($.annotation_default),
 	optional($.deprecated),
 	optional($.exceptions),
+	optional($.method_def_verbose_sig),
 	optional($.runtime_visible_annotations),
+	optional($.runtime_visible_type_annotations),
+	optional($.runtime_visible_paramter_annotations),
     ),
+
+    method_def_verbose_sig: $=> seq('Signature:', $._hash_number, optional($.comment)),
 
     annotation_default: $ => seq(
       'AnnotationDefault:',
@@ -132,18 +137,57 @@ module.exports = grammar({
      $.boolean_literal,
     ),
 
+    // 0: #18()
+    _runtime_index: $=> seq(
+	  $.number, 
+	  token.immediate(':'),
+	  $._hash_number,
+	  token.immediate('()'),
+    ),
+
     runtime_visible_annotations: $=> seq(
 	'RuntimeVisibleAnnotations:',
-	repeat1(
-		seq(
-		  $.number, 
-		  token.immediate(':'),
-		  $._hash_number,
-		  '()',
-		  $._endl,
-      		  alias($._rest_of_the_line, $.value),
-		)
-	),
+	repeat1($.runtime_visible_annotation),
+    ),
+
+    runtime_visible_annotation: $=> seq(
+	  $._runtime_index,
+	  $._endl,
+     	  alias($._rest_of_the_line, $.value),
+    ),
+
+    runtime_visible_type_annotations: $=> seq(
+	'RuntimeVisibleTypeAnnotations:',
+	repeat1($.runtime_visible_type_annotation),
+    ),
+
+    runtime_visible_type_annotation: $=> seq(
+	$._runtime_index,
+	':',
+	commaSep1(choice(
+		alias(/[\w_]+/, $.target_kind),
+		seq(/[\w_]+/, token.immediate('='), $.number),
+	)),
+	$._endl,
+     	alias($._rest_of_the_line, $.value),
+    ),
+
+    runtime_visible_paramter_annotations: $=> seq(
+	'RuntimeVisibleParameterAnnotations:',
+	repeat1($.runtime_visible_parameter_annotation),
+    ),
+
+    runtime_visible_parameter_annotation: $=> seq(
+	'parameter',
+	$.number,
+	token.immediate(':'),
+	$.runtime_visible_parameter_annotation_param,
+    ),
+
+    runtime_visible_parameter_annotation_param: $=> seq(
+	$._runtime_index,
+	$._endl,
+     	alias($._rest_of_the_line, $.value),
     ),
 
     exceptions: $=> seq(
@@ -400,15 +444,22 @@ module.exports = grammar({
 	    $.number,
 	    token.immediate(':'),
 	    $._hash_number,
+	    $.footer_runtime_annotation_element_args,
+	    $._endl,
+	    $._name,
+	    $.runtime_annotation_args,
+    ),
+
+    footer_runtime_annotation_element_args: $=> seq(
 	    '(',
+	    commaSep($.footer_runtime_annotation_element_arg),
+	    ')',
+    ),
+
+    footer_runtime_annotation_element_arg: $=> seq(
 	    $._hash_number,
 	    '=',
 	    $.runtime_annotation_element_value,
-	    ')',
-	    $._endl,
-	    $.scoped_identifier,
-	    $.runtime_annotation_args,
-	    $._endl,
     ),
 
     runtime_annotation_element_value: $=> choice(
@@ -434,12 +485,9 @@ module.exports = grammar({
 
     runtime_annotation_args: $=> seq(
 	    '(',
-	    $._endl,
-	      seq(
 		$.identifier,
 		token.immediate('='),
-		alias($._rest_of_the_line, $.value),
-	      ),
+		alias($._rest_of_the_line, $.value), //TODO make more precise?
 	    ')',
     ),
 
@@ -451,10 +499,13 @@ module.exports = grammar({
 
     constant_pool_item: $=> seq($._hash_number, '=', $._constant_pool_item_type),
 
-    ref_const_pool_item: $=> seq(
-      $._hash_number,
-      '.',
-      $._hash_number
+    ref_const_pool_item: $=> choice(
+	    seq(
+      		$._hash_number,
+      		'.',
+      		$._hash_number
+    	    ),
+	    $._hash_number,
     ),
 
     _constant_pool_item_type : $=> choice(
