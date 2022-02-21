@@ -308,7 +308,7 @@ module.exports = grammar({
 
     block: $ => seq(
       '{',
-      repeat1($._block_item),
+      repeat($._block_item),
       '}'
     ),
 
