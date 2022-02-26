@@ -1,17 +1,42 @@
 {
   "name": "tree-sitter-javap",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "bindings/node",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tree-sitter generate && node-gyp rebuild",
+    "test": "tree-sitter test",
+    "build-test": "tree-sitter generate && node-gyp build && tree-sitter test"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ghostbuster91",
+  "keywords": [
+    "parser",
+    "javap"
+  ],
+  "license": {
+      "type": "Apache-2.0",
+      "url": "https://opensource.org/licenses/apache2.0.php"
+  },
   "dependencies": {
     "nan": "^2.14.2"
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.19.5"
-  }
+  },
+  "homepage": "https://github.com/ghostuster91/tree-sitter-javap#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostbuster91/tree-sitter-javap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ghostbuster91/tree-sitter-javap/issues"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.javap",
+      "file-types": [
+        "javap"
+      ]
+    }
+  ]
 }
