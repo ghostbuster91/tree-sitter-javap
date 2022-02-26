@@ -27,7 +27,7 @@ module.exports = grammar({
 	    $.header,
 	    $.class_info_def,
 	    $.constant_pool_def,
-	    repeat($.block),
+	    optional($.block),
 	    $.footer
     ),
 
@@ -39,21 +39,21 @@ module.exports = grammar({
     class_def_plain: $=> seq(
       optional($.modifiers),
       $.class_keyword, 
-      $.identifier,
-      optional($.type_parameters),
+      field('name', $.identifier),
+      field('type_parameters', optional($.type_parameters)),
       optional(field('superclass', $.superclass)),
       optional(field('interfaces', $.super_interfaces)),
-      $.class_def_plain_body,
+      field('body', $.class_def_plain_body),
     ),
 
     interface_def_plain: $=> seq(
 	optional($.modifiers),
 	$.interface_keyword,
-	$.identifier,
-	optional($.type_parameters),
+	field('name', $.identifier),
+	field('type_paramters', optional($.type_parameters)),
 	optional(field('superclass', $.superclass)),
         optional(field('interfaces', $.super_interfaces)),
-	$.class_def_plain_body,
+        field('body', $.class_def_plain_body),
     ),
 
     superclass: $ => seq(
@@ -81,7 +81,7 @@ module.exports = grammar({
 
     class_def_plain_body_item: $=> seq(
 	    choice(
-		//$.constructor_def, //TODO figure out how...
+		$.constructor_def, 
 	  	$.field_def,
 	 	$.method_def,
 		$.static_block_def
@@ -91,15 +91,21 @@ module.exports = grammar({
 
     field_def: $=> seq(
 	$.modifiers,
-	$._type,
-	$.identifier,
+	field('type', $._type),
+	field('name', $.identifier),
+    ),
+
+    constructor_def: $ => seq(
+      optional($.modifiers),
+      field('return_type', $._type),
+      field('paramters' ,$.args ),
     ),
 
     method_def: $ => seq(
       optional($.modifiers),
-      $._type,
-      optional($.identifier),
-      $.args,
+      field('return_type', $._type),
+      field('name', $.identifier),
+      field('paramters' ,$.args ),
       optional($.method_throws),
     ),
 
@@ -358,6 +364,7 @@ module.exports = grammar({
 
     _block_item: $=> seq(
       choice(
+	$.constructor_def,
 	$.method_def,
 	$.field_def,
 	$.static_block_def,

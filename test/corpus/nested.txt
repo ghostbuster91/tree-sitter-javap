@@ -1,22 +1,21 @@
-=============================
+================================================================================
 Nested plain
-=============================
+================================================================================
 
 Compiled from "Nested.java"
 class Nested {
   Nested();
 }
 
-----------------------------
+--------------------------------------------------------------------------------
 
-    (source_file
-      (header_info_compile)
-      (class_def_plain
-        (class_keyword)
-        (identifier)
-        (class_def_plain_body
-          (class_def_plain_body_item
-            (method_def
-              (type_identifier)
-              (args))))))
-
+(source_file
+  (header_info_compile)
+  (class_def_plain
+    (class_keyword)
+    (identifier)
+    (class_def_plain_body
+      (class_def_plain_body_item
+        (constructor_def
+          (type_identifier)
+          (args))))))

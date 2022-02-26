@@ -1,6 +1,6 @@
-==============================
+================================================================================
 AbstractFactory plain
-==============================
+================================================================================
 
 Compiled from "AbstractFactory.java"
 public abstract class AbstractFactory {
@@ -8,41 +8,40 @@ public abstract class AbstractFactory {
   protected java.lang.Integer doSth(java.lang.String[], int, java.io.File);
 }
 
------------------------------
+--------------------------------------------------------------------------------
 
-  (source_file
-      (header_info_compile)
-      (class_def_plain
-        (modifiers)
-        (class_keyword)
-        (identifier)
-        (class_def_plain_body
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
+(source_file
+  (header_info_compile)
+  (class_def_plain
+    (modifiers)
+    (class_keyword)
+    (identifier)
+    (class_def_plain_body
+      (class_def_plain_body_item
+        (constructor_def
+          (modifiers)
+          (type_identifier)
+          (args)))
+      (class_def_plain_body_item
+        (method_def
+          (modifiers)
+          (scoped_type_identifier
+            (scoped_type_identifier
               (type_identifier)
-              (args)))
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
+              (type_identifier))
+            (type_identifier))
+          (identifier)
+          (args
+            (array_type
               (scoped_type_identifier
                 (scoped_type_identifier
                   (type_identifier)
                   (type_identifier))
                 (type_identifier))
-              (identifier)
-              (args
-                (array_type
-                  (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
-                    (type_identifier))
-                  (dimensions))
-                (primitive_type)
-                (scoped_type_identifier
-                  (scoped_type_identifier
-                    (type_identifier)
-                    (type_identifier))
-                  (type_identifier))))))))
-
+              (dimensions))
+            (primitive_type)
+            (scoped_type_identifier
+              (scoped_type_identifier
+                (type_identifier)
+                (type_identifier))
+              (type_identifier))))))))

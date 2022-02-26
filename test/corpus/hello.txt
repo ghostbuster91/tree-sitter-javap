@@ -1,6 +1,6 @@
-==========================
+================================================================================
  Hello plain
-==========================
+================================================================================
 
 Compiled from "Hello.java"
 public class Hello {
@@ -8,31 +8,30 @@ public class Hello {
   public static void main(java.lang.String[]);
 }
 
------------------------
+--------------------------------------------------------------------------------
 
-   (source_file
-      (header_info_compile)
-      (class_def_plain
-        (modifiers)
-        (class_keyword)
-        (identifier)
-        (class_def_plain_body
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
-              (type_identifier)
-              (args)))
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
-              (primitive_type)
-              (identifier)
-              (args
-                (array_type
-                  (scoped_type_identifier
-                    (scoped_type_identifier
-                      (type_identifier)
-                      (type_identifier))
-                    (type_identifier))
-                  (dimensions))))))))
-
+(source_file
+  (header_info_compile)
+  (class_def_plain
+    (modifiers)
+    (class_keyword)
+    (identifier)
+    (class_def_plain_body
+      (class_def_plain_body_item
+        (constructor_def
+          (modifiers)
+          (type_identifier)
+          (args)))
+      (class_def_plain_body_item
+        (method_def
+          (modifiers)
+          (primitive_type)
+          (identifier)
+          (args
+            (array_type
+              (scoped_type_identifier
+                (scoped_type_identifier
+                  (type_identifier)
+                  (type_identifier))
+                (type_identifier))
+              (dimensions))))))))
