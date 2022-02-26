@@ -8,25 +8,9 @@ on:
     branches: [ "**" ]
 
 jobs:
-  compile:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        compiler: [gcc, clang++]
-
-    name: compile
-    runs-on: ${{ matrix.os }}
+  unittests:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - if: matrix.os == 'windows-latest' && matrix.compiler == 'clang++'
-        uses: KyleMayes/install-llvm-action@v1
-        with:
-          version: "11.0"
-
-      - if: matrix.os == 'windows-latest' && matrix.compiler == 'gcc'
-        uses: egor-tensin/setup-mingw@v2
-
-      - name: build
-        run: ${{ matrix.compiler }} -o scanner.o -I./src -c src/scanner.cc
+    - uses: actions/checkout@v2
+    - uses: nixbuild/nix-quick-install-action@v5
+    - run: nix-shell --run 'tree-sitter test'
