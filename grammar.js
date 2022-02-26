@@ -393,7 +393,8 @@ module.exports = grammar({
     footer: $=> seq(
 	optional($.signature),
 	$.source_file_def,
-	optional($.footer_annotations), 
+	optional($.footer_runtime_visible_annotations), 
+	optional(alias($.runtime_visible_type_annotations, $.footer_runtime_visible_type_annotations)), 
 	optional($.nested_members),
 	optional($.nest_host),
 	optional($.inner_classes),
@@ -435,28 +436,28 @@ module.exports = grammar({
 	$.identifier,
     ),
 
-    footer_annotations: $=> seq(
+    footer_runtime_visible_annotations: $=> seq(
 	'RuntimeVisibleAnnotations:',
-	repeat1($.footer_runtime_annotation),
+	repeat1($.footer_runtime_visible_annotation),
     ),
 
-    footer_runtime_annotation: $=> seq(
+    footer_runtime_visible_annotation: $=> seq(
 	    $.number,
 	    token.immediate(':'),
 	    $._hash_number,
-	    $.footer_runtime_annotation_element_args,
+	    $.footer_runtime_visible_annotation_element_args,
 	    $._endl,
 	    $._name,
 	    $.runtime_annotation_args,
     ),
 
-    footer_runtime_annotation_element_args: $=> seq(
+    footer_runtime_visible_annotation_element_args: $=> seq(
 	    '(',
-	    commaSep($.footer_runtime_annotation_element_arg),
+	    commaSep($.footer_runtime_visible_annotation_element_arg),
 	    ')',
     ),
 
-    footer_runtime_annotation_element_arg: $=> seq(
+    footer_runtime_visible_annotation_element_arg: $=> seq(
 	    $._hash_number,
 	    '=',
 	    $.runtime_annotation_element_value,
@@ -485,9 +486,11 @@ module.exports = grammar({
 
     runtime_annotation_args: $=> seq(
 	    '(',
-		$.identifier,
-		token.immediate('='),
-		alias($._rest_of_the_line, $.value), //TODO make more precise?
+		repeat(seq(
+			$.identifier,
+			token.immediate('='),
+			alias($._rest_of_the_line, $.value),//TODO make more precise?
+		)),
 	    ')',
     ),
 

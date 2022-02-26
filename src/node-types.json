@@ -574,7 +574,11 @@
       "required": true,
       "types": [
         {
-          "type": "footer_annotations",
+          "type": "footer_runtime_visible_annotations",
+          "named": true
+        },
+        {
+          "type": "footer_runtime_visible_type_annotations",
           "named": true
         },
         {
@@ -601,7 +605,7 @@
     }
   },
   {
-    "type": "footer_annotations",
+    "type": "footer_runtime_visible_annotation",
     "named": true,
     "fields": {},
     "children": {
@@ -609,22 +613,7 @@
       "required": true,
       "types": [
         {
-          "type": "footer_runtime_annotation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "footer_runtime_annotation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "footer_runtime_annotation_element_args",
+          "type": "footer_runtime_visible_annotation_element_args",
           "named": true
         },
         {
@@ -647,7 +636,7 @@
     }
   },
   {
-    "type": "footer_runtime_annotation_element_arg",
+    "type": "footer_runtime_visible_annotation_element_arg",
     "named": true,
     "fields": {},
     "children": {
@@ -666,7 +655,7 @@
     }
   },
   {
-    "type": "footer_runtime_annotation_element_args",
+    "type": "footer_runtime_visible_annotation_element_args",
     "named": true,
     "fields": {},
     "children": {
@@ -674,7 +663,37 @@
       "required": false,
       "types": [
         {
-          "type": "footer_runtime_annotation_element_arg",
+          "type": "footer_runtime_visible_annotation_element_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_runtime_visible_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "footer_runtime_visible_annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footer_runtime_visible_type_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "runtime_visible_type_annotation",
           "named": true
         }
       ]
@@ -1107,7 +1126,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "identifier",
