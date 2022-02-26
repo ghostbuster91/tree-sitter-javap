@@ -1,0 +1,16 @@
+[
+  "abstract"
+  "class"
+  "default"
+  "extends"
+  "final"
+  "implements"
+  "private"
+  "protected"
+  "public"
+  "static"
+  "strictfp"
+  "synchronized"
+  "throws"
+  "volatile"
+] @keyword
