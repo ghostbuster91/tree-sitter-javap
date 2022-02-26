@@ -13,7 +13,8 @@ public final class ArgClass {
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_info_compile)
+  (header_info_compile
+    (file_name))
   (class_declaration_plain
     (modifiers)
     (class_keyword)

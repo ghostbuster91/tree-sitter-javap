@@ -10,7 +10,8 @@ class Nested {
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_info_compile)
+  (header_info_compile
+    (file_name))
   (class_declaration_plain
     (class_keyword)
     (identifier)

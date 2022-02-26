@@ -10,7 +10,8 @@ public interface Annotated extends java.lang.annotation.Annotation {
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_info_compile)
+  (header_info_compile
+    (file_name))
   (interface_def_plain
     (modifiers)
     (interface_keyword)

@@ -51,7 +51,8 @@ SourceFile: "IHello.java"
     (header_info_last_mod)
     (header_info_md5
       (md5))
-    (header_info_compile))
+    (header_info_compile
+      (file_name)))
   (class_info_def
     (interface_keyword)
     (identifier)
@@ -83,41 +84,61 @@ SourceFile: "IHello.java"
   (constant_pool_def
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value)))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value)))))
   (block
     (method_declaration
       (modifiers)
@@ -139,10 +160,12 @@ SourceFile: "IHello.java"
           (number))
         (numered_instruction
           (number)
-          (instruction))
+          (instruction
+            (instruction_name)))
         (numered_instruction
           (number)
-          (instruction)))
+          (instruction
+            (instruction_name))))
       (line_number_table_def
         (numered_line
           (number)
@@ -159,4 +182,5 @@ SourceFile: "IHello.java"
       (flag_value)
       (flag_value)))
   (footer
-    (source_file_def)))
+    (source_file_def
+      (file_name))))

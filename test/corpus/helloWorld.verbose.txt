@@ -79,7 +79,8 @@ SourceFile: "HelloWorld.java"
     (header_info_last_mod)
     (header_info_md5
       (md5))
-    (header_info_compile))
+    (header_info_compile
+      (file_name)))
   (class_info_def
     (modifiers)
     (class_keyword)
@@ -112,119 +113,164 @@ SourceFile: "HelloWorld.java"
   (constant_pool_def
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number)
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_ref
+          (ref_const_pool_item
+            (hash_number)
+            (hash_number))
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number)
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_ref
+          (ref_const_pool_item
+            (hash_number)
+            (hash_number))
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_string
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number)
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_ref
+          (ref_const_pool_item
+            (hash_number)
+            (hash_number))
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_name_and_type
+          (ref_const_pool_item)
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_name_and_type
+          (ref_const_pool_item)
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_name_and_type
+          (ref_const_pool_item)
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value)))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value)))))
   (block
     (constructor_declaration
       (modifiers)
@@ -245,15 +291,18 @@ SourceFile: "HelloWorld.java"
           (number))
         (numered_instruction
           (number)
-          (instruction))
+          (instruction
+            (instruction_name)))
         (numered_instruction
           (number)
           (instruction
+            (instruction_name)
             (number))
           (comment))
         (numered_instruction
           (number)
-          (instruction)))
+          (instruction
+            (instruction_name))))
       (line_number_table_def
         (numered_line
           (number)
@@ -287,21 +336,25 @@ SourceFile: "HelloWorld.java"
         (numered_instruction
           (number)
           (instruction
+            (instruction_name)
             (number))
           (comment))
         (numered_instruction
           (number)
           (instruction
+            (instruction_name)
             (number))
           (comment))
         (numered_instruction
           (number)
           (instruction
+            (instruction_name)
             (number))
           (comment))
         (numered_instruction
           (number)
-          (instruction)))
+          (instruction
+            (instruction_name))))
       (line_number_table_def
         (numered_line
           (number)
@@ -310,4 +363,5 @@ SourceFile: "HelloWorld.java"
           (number)
           (number)))))
   (footer
-    (source_file_def)))
+    (source_file_def
+      (file_name))))

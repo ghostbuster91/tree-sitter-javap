@@ -293,12 +293,32 @@
           }
         ]
       },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "superclass": {
         "multiple": false,
         "required": false,
         "types": [
           {
             "type": "superclass",
+            "named": true
+          }
+        ]
+      },
+      "type_paramters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameters",
             "named": true
           }
         ]
@@ -317,19 +337,11 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "interface_keyword",
           "named": true
         },
         {
           "type": "modifiers",
-          "named": true
-        },
-        {
-          "type": "type_parameters",
           "named": true
         }
       ]
@@ -455,17 +467,99 @@
       "required": true,
       "types": [
         {
-          "type": "comment",
+          "type": "constant_pool_item_type",
           "named": true
         },
         {
           "type": "number",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
-          "type": "ref_const_pool_item",
+          "type": "constant_pool_item_type_class",
           "named": true
         },
+        {
+          "type": "constant_pool_item_type_double",
+          "named": true
+        },
+        {
+          "type": "constant_pool_item_type_int",
+          "named": true
+        },
+        {
+          "type": "constant_pool_item_type_name_and_type",
+          "named": true
+        },
+        {
+          "type": "constant_pool_item_type_ref",
+          "named": true
+        },
+        {
+          "type": "constant_pool_item_type_string",
+          "named": true
+        },
+        {
+          "type": "constant_pool_item_type_utf8",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_class",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Class",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ref_const_pool_item",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_double",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
           "type": "value",
           "named": true
@@ -474,9 +568,180 @@
     }
   },
   {
+    "type": "constant_pool_item_type_int",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_name_and_type",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "NameAndType",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "ref_const_pool_item",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_ref",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Fieldref",
+            "named": false
+          },
+          {
+            "type": "InterfaceMethodref",
+            "named": false
+          },
+          {
+            "type": "Methodref",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ref_const_pool_item",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_string",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "String",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ref_const_pool_item",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_pool_item_type_utf8",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Utf8",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "constructor_declaration",
     "named": true,
     "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      },
       "paramters": {
         "multiple": false,
         "required": true,
@@ -489,31 +754,11 @@
       }
     },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
-          "type": "array_type",
-          "named": true
-        },
-        {
-          "type": "generic_type",
-          "named": true
-        },
-        {
           "type": "modifiers",
-          "named": true
-        },
-        {
-          "type": "primitive_type",
-          "named": true
-        },
-        {
-          "type": "scoped_type_identifier",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
           "named": true
         }
       ]
@@ -808,6 +1053,11 @@
     }
   },
   {
+    "type": "hash_number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "header",
     "named": true,
     "fields": {},
@@ -852,7 +1102,17 @@
   {
     "type": "header_info_compile",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "file_name",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "header_info_last_mod",
@@ -905,7 +1165,18 @@
   {
     "type": "instruction",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "instruction_name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": false,
@@ -1195,6 +1466,11 @@
     }
   },
   {
+    "type": "number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "numered_instruction",
     "named": true,
     "fields": {},
@@ -1243,8 +1519,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "hash_number",
+          "named": true
+        },
         {
           "type": "number",
           "named": true
@@ -1561,7 +1841,17 @@
   {
     "type": "source_file_def",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "file_name",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "static_block_def",
@@ -2053,6 +2343,10 @@
     "named": false
   },
   {
+    "type": "file_name",
+    "named": true
+  },
+  {
     "type": "final",
     "named": false
   },
@@ -2077,6 +2371,10 @@
     "named": false
   },
   {
+    "type": "instruction_name",
+    "named": true
+  },
+  {
     "type": "int",
     "named": false
   },
@@ -2095,10 +2393,6 @@
   {
     "type": "native",
     "named": false
-  },
-  {
-    "type": "number",
-    "named": true
   },
   {
     "type": "of",

@@ -10,7 +10,8 @@ public interface Nested$Inner3<T extends java.lang.Comparable<? super T>> {
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_info_compile)
+  (header_info_compile
+    (file_name))
   (interface_def_plain
     (modifiers)
     (interface_keyword)

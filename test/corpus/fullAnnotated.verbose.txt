@@ -73,7 +73,8 @@ InnerClasses:
     (header_info_last_mod)
     (header_info_md5
       (md5))
-    (header_info_compile))
+    (header_info_compile
+      (file_name)))
   (class_info_def
     (modifiers)
     (interface_keyword)
@@ -116,90 +117,138 @@ InnerClasses:
   (constant_pool_def
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (ref_const_pool_item
-        (number))
-      (comment))
+      (constant_pool_item_type
+        (constant_pool_item_type_class
+          (ref_const_pool_item)
+          (comment))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value))))
     (constant_pool_item
       (number)
-      (value)))
+      (constant_pool_item_type
+        (constant_pool_item_type_utf8
+          (value)))))
   (block
     (method_declaration
       (modifiers)
@@ -234,7 +283,8 @@ InnerClasses:
       (flag_value)
       (flag_value)))
   (footer
-    (source_file_def)
+    (source_file_def
+      (file_name))
     (footer_runtime_visible_annotations
       (footer_runtime_visible_annotation
         (number)
@@ -245,8 +295,8 @@ InnerClasses:
             (runtime_annotation_element_value
               (runtime_annotation_element_value_tag)
               (ref_const_pool_item
-                (number)
-                (number)))))
+                (hash_number)
+                (hash_number)))))
         (scoped_identifier
           (scoped_identifier
             (scoped_identifier
@@ -267,12 +317,12 @@ InnerClasses:
               (runtime_annotation_element_value_array
                 (runtime_annotation_element_value_tag)
                 (ref_const_pool_item
-                  (number)
-                  (number))
+                  (hash_number)
+                  (hash_number))
                 (runtime_annotation_element_value_tag)
                 (ref_const_pool_item
-                  (number)
-                  (number))))))
+                  (hash_number)
+                  (hash_number))))))
         (scoped_identifier
           (scoped_identifier
             (scoped_identifier

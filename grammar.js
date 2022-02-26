@@ -98,7 +98,7 @@ module.exports = grammar({
 
     constructor_declaration: $ => seq(
       optional($.modifiers),
-      $._type,
+      field('name', alias($.identifier, $.type_identifier)),
       field('paramters', $.args),
     ),
 
@@ -254,7 +254,7 @@ module.exports = grammar({
     ),
 
     instruction: $=> seq(
-	    /\S+/, 
+	    field('name', alias(/\S+/, $.instruction_name)), 
 	    optional(
 		    choice(
 			    $.number,
@@ -397,7 +397,8 @@ module.exports = grammar({
       'module'
     ), $.identifier),
 
-    number: $ => token(/\d+/),
+    number: $ => $._number,
+    _number: $ => token(/\d+/),
 
     footer: $=> seq(
 	optional($.signature),
@@ -417,8 +418,12 @@ module.exports = grammar({
 
     source_file_def: $ => seq(
 	    'SourceFile: "', 
-	    /([a-zA-Z]+\.?)+/, '"'
+	    $.file_name,
+	    '"'
     ),
+
+    // /"([^\/]+)"/), 
+    file_name: $=> /([a-zA-Z]+\.?)+/,
 
     nested_members: $=> seq(
 	    'NestMembers:',
@@ -508,62 +513,67 @@ module.exports = grammar({
     constant_pool_def: $=> seq('Constant pool:', repeat($.constant_pool_item)),
 
     _hash_number: $=> seq('#', $.number), 
+    hash_number: $=> seq('#', $._number), 
 
-    constant_pool_item: $=> seq($._hash_number, '=', $._constant_pool_item_type),
+    constant_pool_item: $=> seq($._hash_number, '=', $.constant_pool_item_type),
 
     ref_const_pool_item: $=> choice(
 	    seq(
-      		$._hash_number,
+      		$.hash_number,
       		'.',
-      		$._hash_number
+      		$.hash_number
     	    ),
 	    $._hash_number,
     ),
 
-    _constant_pool_item_type : $=> choice(
-     $._constant_pool_item_type_utf8,
-     $._constant_pool_item_type_class,
-     $._constant_pool_item_type_string,
-     $._constant_pool_item_type_ref,
-     $._constant_pool_item_type_name_and_type,
-     $._constant_pool_item_type_double,
-     $._constant_pool_item_type_int,
+    constant_pool_item_type : $=> choice(
+     $.constant_pool_item_type_utf8,
+     $.constant_pool_item_type_class,
+     $.constant_pool_item_type_string,
+     $.constant_pool_item_type_ref,
+     $.constant_pool_item_type_name_and_type,
+     $.constant_pool_item_type_double,
+     $.constant_pool_item_type_int,
    ),
 
-   _constant_pool_item_type_utf8: $ => seq(
-	   'Utf8', 
-	   alias(/[^\n\r]*/, $.value),
+   constant_pool_item_type_utf8: $ => seq(
+	   field('type', 'Utf8'), 
+	   field('value', alias(/[^\n\r]*/, $.value)),
    ),
-   _constant_pool_item_type_class: $ => seq(
-	   'Class', 
-	   alias($._hash_number, $.ref_const_pool_item), 
+   constant_pool_item_type_class: $ => seq(
+	   field('type', 'Class'), 
+	   field('value', alias($.hash_number, $.ref_const_pool_item)), 
 	   optional($.comment)
    ), 
-   _constant_pool_item_type_string: $ => seq(
-	   'String', 
-	   alias($._hash_number, $.ref_const_pool_item), 
+   constant_pool_item_type_string: $ => seq(
+	   field('type', 'String'), 
+	   field('value', alias($.hash_number, $.ref_const_pool_item)), 
 	   optional($.comment)
    ),   
-   _constant_pool_item_type_ref: $=> seq(
-	   choice('Methodref', 'Fieldref', 'InterfaceMethodref'), 
-	   $.ref_const_pool_item, 
+   constant_pool_item_type_ref: $=> seq(
+	   field('type', choice('Methodref', 'Fieldref', 'InterfaceMethodref')), 
+	   field('value', $.ref_const_pool_item), 
 	   optional($.comment)
    ),
 
-   _constant_pool_item_type_name_and_type: $=> seq(
-	   'NameAndType',
-	   alias($._hash_number, $.ref_const_pool_item), 
-	   ':', 
-	   alias($._hash_number, $.ref_const_pool_item), 
+   constant_pool_item_type_name_and_type: $=> seq(
+	   field('type', 'NameAndType'),
+	   field('value', 
+		   seq(
+			   alias($.hash_number, $.ref_const_pool_item), 
+	   		   ':', 
+	       		   alias($.hash_number, $.ref_const_pool_item)
+		   )
+	   ),
 	   optional($.comment)
    ),
 
-   _constant_pool_item_type_double: $=> seq(
+   constant_pool_item_type_double: $=> seq(
 	   choice('Double', 'Float'), 
 	   alias($.decimal_floating_point_literal, $.value),
    ),
 
-   _constant_pool_item_type_int: $=> seq(
+   constant_pool_item_type_int: $=> seq(
 	'Integer',
 	alias($.number, $.value),
    ),
@@ -598,8 +608,8 @@ module.exports = grammar({
    class_info_def: $=> seq(
 	   optional($.modifiers),
 	   choice($.class_keyword, $.interface_keyword),
-	   $.identifier, 
-	   optional($.type_parameters),
+	   field('name', $.identifier), 
+	   field('type_paramters', optional($.type_parameters)),
 	   optional(field('superclass', $.superclass)),
            optional(field('interfaces', $.super_interfaces)),
 	   repeat($.class_info_item)),
@@ -624,7 +634,12 @@ module.exports = grammar({
 
    header_info_md5: $=> seq('MD5 checksum' , $.md5),
 
-   header_info_compile: $=> seq('Compiled from' , /"([^\/]+)"/), //TODO extract filename
+   header_info_compile: $=> seq(
+	   'Compiled from',
+	   '"',
+	   $.file_name,
+   	    '"'
+   ),
 
    _path_segment: $=> /[\d\w\s\.-_]+/,
    file_path: $ => seq(optional('/'), slashSep($._path_segment), $._rest_of_the_line),

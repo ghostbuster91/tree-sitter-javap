@@ -11,7 +11,8 @@ interface IHello {
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_info_compile)
+  (header_info_compile
+    (file_name))
   (interface_def_plain
     (interface_keyword)
     (identifier)
