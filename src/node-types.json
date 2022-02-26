@@ -112,7 +112,7 @@
           "named": true
         },
         {
-          "type": "constructor_def",
+          "type": "constructor_declaration",
           "named": true
         },
         {
@@ -128,7 +128,7 @@
           "named": true
         },
         {
-          "type": "field_def",
+          "type": "field_declaration",
           "named": true
         },
         {
@@ -136,11 +136,11 @@
           "named": true
         },
         {
-          "type": "method_def",
+          "type": "method_declaration",
           "named": true
         },
         {
-          "type": "method_def_verbose_sig",
+          "type": "method_declaration_verbose_sig",
           "named": true
         },
         {
@@ -168,7 +168,7 @@
     "fields": {}
   },
   {
-    "type": "class_def_plain",
+    "type": "class_declaration_plain",
     "named": true,
     "fields": {
       "body": {
@@ -176,7 +176,7 @@
         "required": true,
         "types": [
           {
-            "type": "class_def_plain_body",
+            "type": "class_declaration_plain_body",
             "named": true
           }
         ]
@@ -238,7 +238,7 @@
     }
   },
   {
-    "type": "class_def_plain_body",
+    "type": "class_declaration_plain_body",
     "named": true,
     "fields": {},
     "children": {
@@ -246,14 +246,14 @@
       "required": false,
       "types": [
         {
-          "type": "class_def_plain_body_item",
+          "type": "class_declaration_plain_body_item",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "class_def_plain_body_item",
+    "type": "class_declaration_plain_body_item",
     "named": true,
     "fields": {},
     "children": {
@@ -261,15 +261,15 @@
       "required": true,
       "types": [
         {
-          "type": "constructor_def",
+          "type": "constructor_declaration",
           "named": true
         },
         {
-          "type": "field_def",
+          "type": "field_declaration",
           "named": true
         },
         {
-          "type": "method_def",
+          "type": "method_declaration",
           "named": true
         },
         {
@@ -474,7 +474,7 @@
     }
   },
   {
-    "type": "constructor_def",
+    "type": "constructor_declaration",
     "named": true,
     "fields": {
       "paramters": {
@@ -575,7 +575,7 @@
     "fields": {}
   },
   {
-    "type": "field_def",
+    "type": "field_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -926,7 +926,7 @@
         "required": true,
         "types": [
           {
-            "type": "class_def_plain_body",
+            "type": "class_declaration_plain_body",
             "named": true
           }
         ]
@@ -1034,7 +1034,7 @@
     }
   },
   {
-    "type": "method_def",
+    "type": "method_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -1110,7 +1110,7 @@
     }
   },
   {
-    "type": "method_def_verbose_sig",
+    "type": "method_declaration_verbose_sig",
     "named": true,
     "fields": {},
     "children": {
@@ -1528,7 +1528,7 @@
           "named": true
         },
         {
-          "type": "class_def_plain",
+          "type": "class_declaration_plain",
           "named": true
         },
         {

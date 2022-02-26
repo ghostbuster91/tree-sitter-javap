@@ -1,33 +1,32 @@
-=============================
+================================================================================
 Annotated plain
-=============================
+================================================================================
 
 Compiled from "Annotated.java"
 public interface Annotated extends java.lang.annotation.Annotation {
   public abstract int explode();
 }
 
----------------------------
+--------------------------------------------------------------------------------
 
-   (source_file
-      (header_info_compile)
-      (interface_def_plain
-        (modifiers)
-        (interface_keyword)
-        (identifier)
-        (superclass
+(source_file
+  (header_info_compile)
+  (interface_def_plain
+    (modifiers)
+    (interface_keyword)
+    (identifier)
+    (superclass
+      (scoped_type_identifier
+        (scoped_type_identifier
           (scoped_type_identifier
-            (scoped_type_identifier
-              (scoped_type_identifier
-                (type_identifier)
-                (type_identifier))
-              (type_identifier))
-            (type_identifier)))
-        (class_def_plain_body
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
-              (primitive_type)
-              (identifier)
-              (args))))))
-
+            (type_identifier)
+            (type_identifier))
+          (type_identifier))
+        (type_identifier)))
+    (class_declaration_plain_body
+      (class_declaration_plain_body_item
+        (method_declaration
+          (modifiers)
+          (primitive_type)
+          (identifier)
+          (args))))))

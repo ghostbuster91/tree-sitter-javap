@@ -34,17 +34,17 @@ module.exports = grammar({
 
     _source_file_plain: $=> seq(
 	    $.header_info_compile,
-	    choice($.class_def_plain, $.interface_def_plain)
+	    choice($.class_declaration_plain, $.interface_def_plain)
     ),
 
-    class_def_plain: $=> seq(
+    class_declaration_plain: $=> seq(
       optional($.modifiers),
       $.class_keyword, 
       field('name', $.identifier),
       field('type_parameters', optional($.type_parameters)),
       optional(field('superclass', $.superclass)),
       optional(field('interfaces', $.super_interfaces)),
-      field('body', $.class_def_plain_body),
+      field('body', $.class_declaration_plain_body),
     ),
 
     interface_def_plain: $=> seq(
@@ -54,7 +54,7 @@ module.exports = grammar({
 	field('type_paramters', optional($.type_parameters)),
 	optional(field('superclass', $.superclass)),
         optional(field('interfaces', $.super_interfaces)),
-        field('body', $.class_def_plain_body),
+        field('body', $.class_declaration_plain_body),
     ),
 
     superclass: $ => seq(
@@ -74,35 +74,35 @@ module.exports = grammar({
 
     interface_keyword: $=> 'interface',
 
-    class_def_plain_body: $=> seq(
+    class_declaration_plain_body: $=> seq(
 	    '{', 
-	    repeat($.class_def_plain_body_item),
+	    repeat($.class_declaration_plain_body_item),
 	    '}'
     ),
 
-    class_def_plain_body_item: $=> seq(
+    class_declaration_plain_body_item: $=> seq(
 	    choice(
-		$.constructor_def, 
-	  	$.field_def,
-	 	$.method_def,
+		$.constructor_declaration, 
+	  	$.field_declaration,
+	 	$.method_declaration,
 		$.static_block_def
     	    ),
             ';'
     ),
 
-    field_def: $=> seq(
+    field_declaration: $=> seq(
 	$.modifiers,
 	field('type', $._type),
 	field('name', $.identifier),
     ),
 
-    constructor_def: $ => seq(
+    constructor_declaration: $ => seq(
       optional($.modifiers),
       $._type,
       field('paramters', $.args),
     ),
 
-    method_def: $ => seq(
+    method_declaration: $ => seq(
       optional($.modifiers),
       field('type_parameters', optional($.type_parameters)),
       field('return_type', $._type),
@@ -116,20 +116,20 @@ module.exports = grammar({
       commaSep1($._type)
     ),
 
-    _method_def_verbose: $ => seq(
+    _method_declaration_verbose: $ => seq(
 	$.descriptor_def,
 	$.flag_def,
 	optional($.code_def), 
 	optional($.annotation_default),
 	optional($.deprecated),
 	optional($.exceptions),
-	optional($.method_def_verbose_sig),
+	optional($.method_declaration_verbose_sig),
 	optional($.runtime_visible_annotations),
 	optional($.runtime_visible_type_annotations),
 	optional($.runtime_visible_paramter_annotations),
     ),
 
-    method_def_verbose_sig: $=> seq('Signature:', $._hash_number, optional($.comment)),
+    method_declaration_verbose_sig: $=> seq('Signature:', $._hash_number, optional($.comment)),
 
     annotation_default: $ => seq(
       'AnnotationDefault:',
@@ -366,13 +366,13 @@ module.exports = grammar({
 
     _block_item: $=> seq(
       choice(
-	$.constructor_def,
-	$.method_def,
-	$.field_def,
+	$.constructor_declaration,
+	$.method_declaration,
+	$.field_declaration,
 	$.static_block_def,
       ),
       ';',
-      $._method_def_verbose,
+      $._method_declaration_verbose,
     ),
 
     identifier: $ => $._identifier,

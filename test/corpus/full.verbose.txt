@@ -302,7 +302,7 @@ InnerClasses:
       (number)
       (value)))
   (block
-    (constructor_def
+    (constructor_declaration
       (modifiers)
       (type_identifier)
       (args))
@@ -334,7 +334,7 @@ InnerClasses:
         (numered_line
           (number)
           (number))))
-    (method_def
+    (method_declaration
       (modifiers)
       (primitive_type)
       (identifier)

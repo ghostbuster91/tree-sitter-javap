@@ -314,7 +314,7 @@ SourceFile: "ArgClass.java"
       (number)
       (value)))
   (block
-    (field_def
+    (field_declaration
       (modifiers)
       (primitive_type)
       (identifier))
@@ -323,7 +323,7 @@ SourceFile: "ArgClass.java"
     (flag_def
       (hex_value)
       (flag_value))
-    (field_def
+    (field_declaration
       (modifiers)
       (scoped_type_identifier
         (scoped_type_identifier
@@ -337,7 +337,7 @@ SourceFile: "ArgClass.java"
       (hex_value)
       (flag_value)
       (flag_value))
-    (constructor_def
+    (constructor_declaration
       (modifiers)
       (type_identifier)
       (args

@@ -145,7 +145,7 @@ SourceFile: "Hello.java"
       (number)
       (value)))
   (block
-    (constructor_def
+    (constructor_declaration
       (modifiers)
       (type_identifier)
       (args))
@@ -177,7 +177,7 @@ SourceFile: "Hello.java"
         (numered_line
           (number)
           (number))))
-    (method_def
+    (method_declaration
       (modifiers)
       (primitive_type)
       (identifier)

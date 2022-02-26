@@ -186,7 +186,7 @@ RuntimeVisibleAnnotations:
       (number)
       (value)))
   (block
-    (method_def
+    (method_declaration
       (modifiers)
       (primitive_type)
       (identifier)

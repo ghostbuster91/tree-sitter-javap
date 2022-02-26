@@ -261,7 +261,7 @@ SourceFile: "AbstractFactory.java"
       (number)
       (value)))
   (block
-    (constructor_def
+    (constructor_declaration
       (modifiers)
       (type_identifier)
       (args))
@@ -293,7 +293,7 @@ SourceFile: "AbstractFactory.java"
         (numered_line
           (number)
           (number))))
-    (method_def
+    (method_declaration
       (modifiers)
       (scoped_type_identifier
         (scoped_type_identifier

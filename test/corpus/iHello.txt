@@ -1,6 +1,6 @@
-==============================
+================================================================================
 Interface plain
-==============================
+================================================================================
 
 Compiled from "IHello.java"
 interface IHello {
@@ -8,24 +8,23 @@ interface IHello {
   public abstract int getAbstractNumber();
 }
 
-------------------------------
+--------------------------------------------------------------------------------
 
- (source_file
-      (header_info_compile)
-      (interface_def_plain
-        (interface_keyword)
-        (identifier)
-        (class_def_plain_body
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
-              (primitive_type)
-              (identifier)
-              (args)))
-          (class_def_plain_body_item
-            (method_def
-              (modifiers)
-              (primitive_type)
-              (identifier)
-              (args))))))
-
+(source_file
+  (header_info_compile)
+  (interface_def_plain
+    (interface_keyword)
+    (identifier)
+    (class_declaration_plain_body
+      (class_declaration_plain_body_item
+        (method_declaration
+          (modifiers)
+          (primitive_type)
+          (identifier)
+          (args)))
+      (class_declaration_plain_body_item
+        (method_declaration
+          (modifiers)
+          (primitive_type)
+          (identifier)
+          (args))))))

@@ -197,7 +197,7 @@ SourceFile: "GenericMethod.java"
       (number)
       (value)))
   (block
-    (constructor_def
+    (constructor_declaration
       (modifiers)
       (type_identifier)
       (args))
@@ -229,7 +229,7 @@ SourceFile: "GenericMethod.java"
         (numered_line
           (number)
           (number))))
-    (method_def
+    (method_declaration
       (modifiers)
       (type_parameters
         (type_parameter
@@ -306,7 +306,7 @@ SourceFile: "GenericMethod.java"
         (numered_line
           (number)
           (number))))
-    (method_def_verbose_sig
+    (method_declaration_verbose_sig
       (number)
       (comment)))
   (footer

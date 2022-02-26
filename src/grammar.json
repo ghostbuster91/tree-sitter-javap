@@ -60,7 +60,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "class_def_plain"
+              "name": "class_declaration_plain"
             },
             {
               "type": "SYMBOL",
@@ -70,7 +70,7 @@
         }
       ]
     },
-    "class_def_plain": {
+    "class_declaration_plain": {
       "type": "SEQ",
       "members": [
         {
@@ -150,7 +150,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "class_def_plain_body"
+            "name": "class_declaration_plain_body"
           }
         }
       ]
@@ -235,7 +235,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "class_def_plain_body"
+            "name": "class_declaration_plain_body"
           }
         }
       ]
@@ -295,7 +295,7 @@
       "type": "STRING",
       "value": "interface"
     },
-    "class_def_plain_body": {
+    "class_declaration_plain_body": {
       "type": "SEQ",
       "members": [
         {
@@ -306,7 +306,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "class_def_plain_body_item"
+            "name": "class_declaration_plain_body_item"
           }
         },
         {
@@ -315,7 +315,7 @@
         }
       ]
     },
-    "class_def_plain_body_item": {
+    "class_declaration_plain_body_item": {
       "type": "SEQ",
       "members": [
         {
@@ -323,15 +323,15 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "constructor_def"
+              "name": "constructor_declaration"
             },
             {
               "type": "SYMBOL",
-              "name": "field_def"
+              "name": "field_declaration"
             },
             {
               "type": "SYMBOL",
-              "name": "method_def"
+              "name": "method_declaration"
             },
             {
               "type": "SYMBOL",
@@ -345,7 +345,7 @@
         }
       ]
     },
-    "field_def": {
+    "field_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -370,7 +370,7 @@
         }
       ]
     },
-    "constructor_def": {
+    "constructor_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -399,7 +399,7 @@
         }
       ]
     },
-    "method_def": {
+    "method_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -502,7 +502,7 @@
         }
       ]
     },
-    "_method_def_verbose": {
+    "_method_declaration_verbose": {
       "type": "SEQ",
       "members": [
         {
@@ -566,7 +566,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "method_def_verbose_sig"
+              "name": "method_declaration_verbose_sig"
             },
             {
               "type": "BLANK"
@@ -611,7 +611,7 @@
         }
       ]
     },
-    "method_def_verbose_sig": {
+    "method_declaration_verbose_sig": {
       "type": "SEQ",
       "members": [
         {
@@ -1788,15 +1788,15 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "constructor_def"
+              "name": "constructor_declaration"
             },
             {
               "type": "SYMBOL",
-              "name": "method_def"
+              "name": "method_declaration"
             },
             {
               "type": "SYMBOL",
-              "name": "field_def"
+              "name": "field_declaration"
             },
             {
               "type": "SYMBOL",
@@ -1810,7 +1810,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_method_def_verbose"
+          "name": "_method_declaration_verbose"
         }
       ]
     },

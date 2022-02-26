@@ -14,18 +14,18 @@ public final class ArgClass {
 
 (source_file
   (header_info_compile)
-  (class_def_plain
+  (class_declaration_plain
     (modifiers)
     (class_keyword)
     (identifier)
-    (class_def_plain_body
-      (class_def_plain_body_item
-        (field_def
+    (class_declaration_plain_body
+      (class_declaration_plain_body_item
+        (field_declaration
           (modifiers)
           (primitive_type)
           (identifier)))
-      (class_def_plain_body_item
-        (field_def
+      (class_declaration_plain_body_item
+        (field_declaration
           (modifiers)
           (scoped_type_identifier
             (scoped_type_identifier
@@ -33,12 +33,12 @@ public final class ArgClass {
               (type_identifier))
             (type_identifier))
           (identifier)))
-      (class_def_plain_body_item
-        (constructor_def
+      (class_declaration_plain_body_item
+        (constructor_declaration
           (modifiers)
           (type_identifier)
           (args
             (primitive_type))))
-      (class_def_plain_body_item
+      (class_declaration_plain_body_item
         (static_block_def
           (modifiers))))))

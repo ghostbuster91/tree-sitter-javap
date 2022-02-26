@@ -12,18 +12,18 @@ public class Hello {
 
 (source_file
   (header_info_compile)
-  (class_def_plain
+  (class_declaration_plain
     (modifiers)
     (class_keyword)
     (identifier)
-    (class_def_plain_body
-      (class_def_plain_body_item
-        (constructor_def
+    (class_declaration_plain_body
+      (class_declaration_plain_body_item
+        (constructor_declaration
           (modifiers)
           (type_identifier)
           (args)))
-      (class_def_plain_body_item
-        (method_def
+      (class_declaration_plain_body_item
+        (method_declaration
           (modifiers)
           (primitive_type)
           (identifier)

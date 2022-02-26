@@ -11,11 +11,11 @@ class Nested {
 
 (source_file
   (header_info_compile)
-  (class_def_plain
+  (class_declaration_plain
     (class_keyword)
     (identifier)
-    (class_def_plain_body
-      (class_def_plain_body_item
-        (constructor_def
+    (class_declaration_plain_body
+      (class_declaration_plain_body_item
+        (constructor_declaration
           (type_identifier)
           (args))))))

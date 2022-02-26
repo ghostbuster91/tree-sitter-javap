@@ -184,7 +184,7 @@ InnerClasses:
       (number)
       (value)))
   (block
-    (constructor_def
+    (constructor_declaration
       (type_identifier)
       (args))
     (descriptor_def

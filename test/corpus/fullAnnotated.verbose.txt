@@ -201,7 +201,7 @@ InnerClasses:
       (number)
       (value)))
   (block
-    (method_def
+    (method_declaration
       (modifiers)
       (array_type
         (scoped_type_identifier
@@ -218,7 +218,7 @@ InnerClasses:
       (hex_value)
       (flag_value)
       (flag_value))
-    (method_def
+    (method_declaration
       (modifiers)
       (scoped_type_identifier
         (scoped_type_identifier
