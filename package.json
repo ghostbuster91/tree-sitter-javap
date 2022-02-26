@@ -34,6 +34,7 @@
   "tree-sitter": [
     {
       "scope": "source.javap",
+      "highlights": "queries/highlights.scm",
       "file-types": [
         "javap"
       ]
