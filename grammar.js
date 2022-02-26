@@ -15,6 +15,7 @@ module.exports = grammar({
     [$.modifiers, $._type],
     [$._type, $.scoped_type_identifier],
     [$._type, $.generic_type],
+    [$._simple_type, $.generic_type],
   ],
 
   rules: {
@@ -103,6 +104,7 @@ module.exports = grammar({
 
     method_def: $ => seq(
       optional($.modifiers),
+      field('type_parameters', optional($.type_parameters)),
       field('return_type', $._type),
       field('name', $.identifier),
       field('paramters' ,$.args ),

@@ -420,6 +420,22 @@
         },
         {
           "type": "FIELD",
+          "name": "type_parameters",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type_parameters"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
           "name": "return_type",
           "content": {
             "type": "SYMBOL",
@@ -3481,6 +3497,10 @@
     ],
     [
       "_type",
+      "generic_type"
+    ],
+    [
+      "_simple_type",
       "generic_type"
     ]
   ],

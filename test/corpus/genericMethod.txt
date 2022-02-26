@@ -1,0 +1,50 @@
+================================================================================
+Generic Method plain
+================================================================================
+
+Compiled from "GenericMethod.java"
+public class GenericMethod {
+  public GenericMethod();
+  public <T, Y> java.util.List<T> doSomething(java.util.List<Y>);
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_info_compile)
+  (class_def_plain
+    (modifiers)
+    (class_keyword)
+    (identifier)
+    (class_def_plain_body
+      (class_def_plain_body_item
+        (constructor_def
+          (modifiers)
+          (type_identifier)
+          (args)))
+      (class_def_plain_body_item
+        (method_def
+          (modifiers)
+          (type_parameters
+            (type_parameter
+              (type_identifier))
+            (type_parameter
+              (type_identifier)))
+          (generic_type
+            (scoped_type_identifier
+              (scoped_type_identifier
+                (type_identifier)
+                (type_identifier))
+              (type_identifier))
+            (type_arguments
+              (type_identifier)))
+          (identifier)
+          (args
+            (generic_type
+              (scoped_type_identifier
+                (scoped_type_identifier
+                  (type_identifier)
+                  (type_identifier))
+                (type_identifier))
+              (type_arguments
+                (type_identifier)))))))))
