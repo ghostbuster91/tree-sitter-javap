@@ -386,12 +386,8 @@
           ]
         },
         {
-          "type": "FIELD",
-          "name": "return_type",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_type"
-          }
+          "type": "SYMBOL",
+          "name": "_type"
         },
         {
           "type": "FIELD",

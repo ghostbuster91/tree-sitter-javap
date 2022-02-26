@@ -98,8 +98,8 @@ module.exports = grammar({
 
     constructor_def: $ => seq(
       optional($.modifiers),
-      field('return_type', $._type),
-      field('paramters' ,$.args ),
+      $._type,
+      field('paramters', $.args),
     ),
 
     method_def: $ => seq(
