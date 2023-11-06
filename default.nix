@@ -1,8 +1,8 @@
 let
   nixpkgs = fetchTarball {
     name = "nixpkgs";
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/tags/21.05.tar.gz";
-    sha256 = "1ckzhh24mgz6jd1xhfgx0i9mijk6xjqxwsshnvq789xsavrmsc36";
+    url = "https://github.com/NixOS/nixpkgs/archive/refs/tags/23.05.tar.gz";
+    sha256 = "10wn0l08j9lgqcw8177nh2ljrnxdrpri7bp0g7nvrsn9rkawvlbf";
   };
   pkgs = import nixpkgs { };
 in
@@ -10,12 +10,6 @@ pkgs.mkShell {
   name = "env";
   buildInputs = with pkgs; [
     nodejs
-    gcc
-    clang
-    libiconv
+    tree-sitter
   ];
-  shellHook = ''
-    PATH=./node_modules/.bin:$PATH
-    command -v tree-sitter >/dev/null 2>&1 || npm install tree-sitter-cli@0.19.5
-  '';
 }
